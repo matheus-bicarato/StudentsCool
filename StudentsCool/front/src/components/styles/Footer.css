@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
+
+
+footer {
+    width: 100%;
+    font-family: itim;
+    background-color: #858AE3;
+    
+}
+
+/* ----------------- */
+/* Parte_1 */
+/* ----------------- */
+.Title_1 {
+    color: white;
+    font-size: 24px;
+}
+
+.Phone_Number {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    
+}
+
+.Phone_Number img {
+    width: 6vh;
+}
+.Phone_Number h1 {
+    font-size: 24px;
+    color: white;
+}
+
+.Container_1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+/* ----------------- */
+/* Parte_2 */
+/* ----------------- */
+
+.Title_2 {
+    color: white;
+    font-size: 38px;
+}
+
+.Social_Icons img {
+   width: 8vh;
+
+}
+
+.Social_cont {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Pags_Cont  h1 {
+    color: white;
+}
+
+.Pags_Cont ul li  {
+    
+    list-style: none;
+}
+
+.Pags_Cont ul li a  {
+    
+    text-decoration: none;
+    color: white;
+    font-size: 25px;
+    transition: color 0.4s ease;
+}
+
+.Pags_Cont ul li a:hover  {
+    color: black;
+}
+
+.Lists {
+    display: flex;
+    flex-direction: row;
+}
+
+.Pags_Cont {
+    display: flex;
+    flex-direction: column;
+}
+
+.Rede_Pag {
+    display: flex;
+    gap: 35px;
+    padding-left: 20px;
+}
+
+.LogoBranco {
+    display: flex;
+    align-items: center;
+    padding-right: 170px ;
+}
+.LogoBranco img {
+    width: 20vh;
+}
+
+.Container_2 {
+    display: flex;
+    justify-content: space-between;
+    background-color: #613FC1;
+    
+}
+
+/* ----------------- */
+/* Parte_3 */
+/* ----------------- */
+
+.Container_3 {
+    display: flex;
+    justify-content: center;
+}
+.Container_3 h1 {
+    font-size: 24px;
+}
+
