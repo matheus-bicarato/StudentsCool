@@ -8,6 +8,7 @@ const Home = () => {
     return (
         <div className="">
             <Header/>
+            Sá Porra tá no home
             <Footer/>
         </div>
     )

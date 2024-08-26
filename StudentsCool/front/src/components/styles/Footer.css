@@ -4,123 +4,127 @@
 footer {
     width: 100%;
     font-family: itim;
-    background-color: #858AE3;
+    background-color: #858AE3; 
     
 }
 
 /* ----------------- */
-/* Parte_1 */
+/* Container_1 */
 /* ----------------- */
-.Title_1 {
+
+.Title_Footer_1 {
     color: white;
     font-size: 24px;
-}
-
-.Phone_Number {
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-    
 }
 
 .Phone_Number img {
     width: 6vh;
 }
-.Phone_Number h1 {
-    font-size: 24px;
-    color: white;
-}
 
-.Container_1 {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding-left: 20px;
-    padding-right: 20px;
-}
-
-/* ----------------- */
-/* Parte_2 */
-/* ----------------- */
-
-.Title_2 {
-    color: white;
-    font-size: 38px;
-}
-
-.Social_Icons img {
-   width: 8vh;
-
-}
-
-.Social_cont {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.Pags_Cont  h1 {
-    color: white;
-}
-
-.Pags_Cont ul li  {
-    
-    list-style: none;
-}
-
-.Pags_Cont ul li a  {
-    
+.Phone_Number a {
     text-decoration: none;
     color: white;
-    font-size: 25px;
-    transition: color 0.4s ease;
+    font-size: 20px;
 }
 
-.Pags_Cont ul li a:hover  {
-    color: black;
-}
-
-.Lists {
+.Container_Footer_1 {
     display: flex;
-    flex-direction: row;
+    justify-content: space-between;
+    padding-left: 35px;
+    padding-right: 28px;
 }
 
-.Pags_Cont {
+/* ----------------- */
+/* Container_2 */
+/* ----------------- */
+
+.Block_Footer_1 {
     display: flex;
-    flex-direction: column;
+    gap: 50px;
 }
 
-.Rede_Pag {
-    display: flex;
-    gap: 35px;
-    padding-left: 20px;
-}
-
-.LogoBranco {
-    display: flex;
-    align-items: center;
-    padding-right: 170px ;
-}
-.LogoBranco img {
-    width: 20vh;
-}
-
-.Container_2 {
+.Container_Footer_2 {
     display: flex;
     justify-content: space-between;
     background-color: #613FC1;
-    
+    padding-left: 35px;
+    padding-right: 28px;
 }
 
 /* ----------------- */
-/* Parte_3 */
+/* Part_1 */
 /* ----------------- */
 
-.Container_3 {
+.Title_Footer_2 {
+    color: white;
+    font-size: 30px;
+}
+
+.Redes_Footer img {
+    width: 7vh;
+}
+
+.Block_Footer_2 {
+    display: flex;
+    flex-direction: column;
+    width: max-content;
+    align-items: center;
+}
+
+/* ----------------- */
+/* Part_2 */
+/* ----------------- */
+
+.Title_Footer_3 {
+    color: white;
+    font-size: 30px;
+}
+
+.Pages_Footer a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.Pages_Footer a:hover {
+    color: black;
+}
+
+.Pages_Footer {
+    list-style: none;
+    padding: 0;
+}
+
+.Container_Pages_Footer {
+    display: flex;
+    width: max-content;
+    gap: 30px;
+}
+
+.Block_Footer_3 {
+    display: flex;
+    flex-direction: column;
+    width: max-content;
+}
+
+/* ----------------- */
+/* Part_3 */
+/* ----------------- */
+
+.Logo_Footer img {
+    width: 20vh;
+}
+
+/* ----------------- */
+/* Container_3 */
+/* ----------------- */
+
+.Title_Footer_4 {
+    /* color: white; */
+    font-size: 20px;
+}
+
+.Container_Footer_3 {
     display: flex;
     justify-content: center;
 }
-.Container_3 h1 {
-    font-size: 24px;
-}
-
