@@ -1,0 +1,54 @@
+/* src/Gallery.css */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    justify-content: center;
+    justify-items: center;
+    padding: 20px;
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    color: #613FC1;
+}
+
+.gallery-item {
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    width: 230px;
+    height: 200px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: scale(1.05);
+}
+
+.gallery-item-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #613FC1;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover .gallery-item-overlay {
+    opacity: 50%;
+}

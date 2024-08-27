@@ -4,7 +4,8 @@
 footer {
     width: 100%;
     font-family: itim;
-    background-color: #858AE3; 
+    background-color: #858AE3;
+    padding: 0;
     
 }
 
@@ -61,7 +62,7 @@ footer {
 }
 
 .Redes_Footer img {
-    width: 7vh;
+    width: 5vh;
 }
 
 .Block_Footer_2 {
