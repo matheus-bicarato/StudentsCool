@@ -21,35 +21,35 @@ const Footer = () => {
             {/* PART_2 */}
             <div className="Container_Footer_2">
                 <div className="Block_Footer_1">
-                <div className="Block_Footer_2">
-                    <h1 className="Title_Footer_2">Redes sociais do studantscool:</h1>
-                    <div className="Redes_Footer">
-                        <a href=""><img src={Face} alt="" /></a>
-                        <a href=""><img src={Insta} alt="" /></a>
-                        <a href=""><img src={X} alt="" /></a>
-                        <a href=""><img src={TikTok} alt="" /></a>
+                    <div className="Block_Footer_2">
+                        <h1 className="Title_Footer_2">Redes sociais do studantscool:</h1>
+                        <div className="Redes_Footer">
+                            <a href=""><img src={Face} alt="" /></a>
+                            <a href=""><img src={Insta} alt="" /></a>
+                            <a href=""><img src={X} alt="" /></a>
+                            <a href=""><img src={TikTok} alt="" /></a>
+                        </div>
                     </div>
-                </div>
 
-                <div className="Block_Footer_3">
-                    <h1 className="Title_Footer_3">Páginas:</h1>
-                    <div className="Container_Pages_Footer">
-                        <ul className="Pages_Footer">
-                            <li><a href="">aluno</a></li>
-                            <li><a href="">professor</a></li>
-                            <li><a href="">login</a></li>
-                            <li><a href="">cadastro</a></li>
-                            <li><a href="">home</a></li>
-                        </ul>
-                        <ul className="Pages_Footer">
-                            <li><a href="">cardápio</a></li>
-                            <li><a href="">chamada</a></li>
-                            <li><a href="">noticia</a></li>
-                            <li><a href="">boletim</a></li>
-                        </ul>
+                    <div className="Block_Footer_3">
+                        <h1 className="Title_Footer_3">Páginas:</h1>
+                        <div className="Container_Pages_Footer">
+                            <ul className="Pages_Footer">
+                                <li><a href="">aluno</a></li>
+                                <li><a href="">professor</a></li>
+                                <li><a href="">login</a></li>
+                                <li><a href="">cadastro</a></li>
+                                <li><a href="">home</a></li>
+                            </ul>
+                            <ul className="Pages_Footer">
+                                <li><a href="">cardápio</a></li>
+                                <li><a href="">chamada</a></li>
+                                <li><a href="">noticia</a></li>
+                                <li><a href="">boletim</a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-            </div>
                 <div className="Logo_Footer">
                     <a href=""><img src={LogoB} alt="" /></a>
                 </div>

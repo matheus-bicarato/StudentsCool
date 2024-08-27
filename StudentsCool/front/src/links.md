@@ -1,0 +1,12 @@
+instalando os pacotes do NODE_MODULES
+npm install
+(caso não tenha no seu pc o pacote node para usar os comandos dele, siga o link <https://nodejs.org/en/download/prebuilt-installer>)
+================================================================
+
+instalando o react router dom para as rotas do site e caminhos das paginas
+npm install react-router-dom
+
+================================================================
+
+Para iniciar o projeto
+npm run dev
