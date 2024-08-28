@@ -25,7 +25,7 @@ const Home = () => {
                         Novas Informações
                     </h1>
                     <div className="">
-                        <Carousel items={images} />
+                        <Carousel/>
                     </div>
                 </div>
             </main>

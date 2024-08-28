@@ -1,22 +1,21 @@
-/* src/Carousel.css */
-.carousel {
-    overflow: hidden;
-    position: relative;
-    width: 100%;
-  }
-  
-  .carousel-wrapper {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-  }
-  
-  .carousel-item {
-    min-width: 100%;
-    box-sizing: border-box;
-  }
-  
-  .carousel-item img {
-    width: 100%;
-    height: auto;
-  }
-  
+.carousel-container {
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.carousel-item {
+  flex: 0 0 33.3333%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-image {
+  width: auto;
+  height: 450px;
+  object-fit: cover;
+  border-radius: 10px;
+}
