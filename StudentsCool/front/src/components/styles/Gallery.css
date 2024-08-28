@@ -12,15 +12,23 @@
     display: flex;
     justify-content: center;
     justify-items: center;
-    color: #613FC1;
+    color: #613FC1; 
+}
+.title h1{
+    font-size: 40px;
+}
+.title-image{
+    width: 57px;
+    
 }
 
 .gallery-item {
+    text-decoration: none;
     display: flex;
     justify-content: center;
     justify-items: center;
     align-items: center;
-    width: 230px;
+    width: 270px;
     height: 200px;
     background-size: contain;
     background-position: center;
