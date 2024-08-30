@@ -27,10 +27,10 @@ const Footer = () => {
                     <div className="Block_Footer_2">
                         <h1 className="Title_Footer_2">Redes sociais do studantscool:</h1>
                         <div className="Redes_Footer">
-                            <Link to={"/"}><img src={Face} alt="" /></Link>
-                            <Link to={"/"}><img src={Insta} alt="" /></Link>
-                            <Link to={"/"}><img src={X} alt="" /></Link>
-                            <Link to={"/"}><img src={TikTok} alt="" /></Link>
+                            <a href=""><img src={Face} alt="" /></a>
+                            <a href=""><img src={Insta} alt="" /></a>
+                            <a href=""><img src={X} alt="" /></a>
+                            <a href=""><img src={TikTok} alt="" /></a>
                         </div>
                     </div>
 
