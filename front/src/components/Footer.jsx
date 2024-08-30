@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import Phone from "../assets/imagens/Phone_Icon.png";
 import Face from "../assets/imagens/Face_Icon.png";
 import Insta from "../assets/imagens/Insta_Icon.png";
@@ -31,6 +33,7 @@ const Footer = () => {
                         </div>
                     </div>
 
+                    {/* PART_3 */}
                     <div className="Block_Footer_3">
                         <h1 className="Title_Footer_3">Páginas:</h1>
                         <div className="Container_Pages_Footer">
