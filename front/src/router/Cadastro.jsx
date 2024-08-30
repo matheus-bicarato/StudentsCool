@@ -1,7 +1,17 @@
-
+// import Logo from '../assets/imagens/'
+import './styles/Cadastro.css'
 const Cadastro = () => {
-    return(
-        <h1>Error 440</h1>
+    return (
+        <div className="background">
+            <div className="Logo">
+            <img src="" alt="logo" />
+            </div>
+            <div className="form">
+                <form action="" className='Inputs'>
+
+                </form>
+            </div>
+        </div>
     )
 }
 
