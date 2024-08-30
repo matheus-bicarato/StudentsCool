@@ -1,7 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
+
 * {
     padding: 0;
     margin: 0;
+    font-family: itim;
 }
+
 .background {
     background-color: #9FDFFC;
     width: 100%;
@@ -12,14 +16,85 @@
     justify-content: space-evenly;
 }
 
-.Logo{
+.Logo {
     width: 400px;
 }
 
 /* ========================== */
-.form{
+.form {
     height: 550px;
     width: 450px;
-    background-color: black;
+    /* background-color: black; */
+    border: black solid 1px;
+    border-radius: 10px;
+    background-color: white;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    
 }
 
+.Inputs {
+    margin: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.email {
+    padding: 12px;
+    width: 300px;
+    border-radius: 10px;
+    font-family: Arial;
+    background-color: #c6caff;
+    transition: background-color 0.3s ease;
+}
+
+.email:hover {
+    background-color: white;
+}
+
+.pass {
+    padding: 12px;
+    width: 300px;
+    border-radius: 10px;
+    font-family: Arial;
+    background-color: #c6caff;
+    transition: background-color 0.5s ease;
+}
+
+.pass:hover {
+    background-color: white;
+    
+}
+
+.esqueci_pass {
+    font-size: 20px;
+    color: black;
+}
+
+.esqueci_pass:hover {
+    color: #5829a7;
+}
+
+.Button_submit {
+    padding: 10px;
+    width: 100px;
+    background-color: #c6caff;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.Button_submit:hover {
+    background-color: white;
+    transform: scale(1.05);
+}
+
+.Erro_login {
+    font-size: 20px;
+    color: black;
+}
+.Erro_login:hover {
+    color: #5829a7;
+}

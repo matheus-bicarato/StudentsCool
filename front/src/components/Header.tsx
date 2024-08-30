@@ -13,7 +13,7 @@ const Header = () => {
             </div>
             <div className="perfil">
                 <Link to={"/"}><img className='img-perfil' src={perfil} alt="perfil" /></Link>
-                <h2 className='user'>Rafaela Alonso dos Anjos <br /> <span className="subUser">STUDENTSCOOL</span></h2>
+                <h2 className='user'>Rafaela Alonso dos Anjos <br /> <Link to={"/Cadastro"}><span className="subUser">STUDENTSCOOL</span></Link></h2>
                 <Link to={"/Login"}><img className="porta" src={porta} alt="porta" /></Link>
             </div>
         </header>
