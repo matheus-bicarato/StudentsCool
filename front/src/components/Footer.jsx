@@ -15,9 +15,10 @@ const Footer = () => {
             {/* PART_1 */}
             <div className="Container_Footer_1">
                 <h1 className="Title_Footer_1">Aplicativo Oficial do Studantscool</h1>
-                <div className="Phone_Number">
-                    <a href="#"><img src={Phone} alt="" />+55 11 97044-1052</a>
-                </div>
+                    <Link to={"/"} className="Phone_Number">
+                    <img src={Phone} alt=""/>
+                    <h1 className="Number">+55 11 97044-1052</h1>
+                    </Link>
             </div>
 
             {/* PART_2 */}
@@ -26,39 +27,37 @@ const Footer = () => {
                     <div className="Block_Footer_2">
                         <h1 className="Title_Footer_2">Redes sociais do studantscool:</h1>
                         <div className="Redes_Footer">
-                            <a href=""><img src={Face} alt="" /></a>
-                            <a href=""><img src={Insta} alt="" /></a>
-                            <a href=""><img src={X} alt="" /></a>
-                            <a href=""><img src={TikTok} alt="" /></a>
+                            <Link to={"/"}><img src={Face} alt="" /></Link>
+                            <Link to={"/"}><img src={Insta} alt="" /></Link>
+                            <Link to={"/"}><img src={X} alt="" /></Link>
+                            <Link to={"/"}><img src={TikTok} alt="" /></Link>
                         </div>
                     </div>
 
-                    {/* PART_3 */}
+                    
                     <div className="Block_Footer_3">
                         <h1 className="Title_Footer_3">Páginas:</h1>
                         <div className="Container_Pages_Footer">
                             <ul className="Pages_Footer">
-                                <li><a href="">aluno</a></li>
-                                <li><a href="">professor</a></li>
-                                <li><a href="">login</a></li>
-                                <li><a href="">cadastro</a></li>
-                                <li><a href="">home</a></li>
+                                <li><Link to={"/"}>aluno</Link></li>
+                                <li><Link to={"/"}>professor</Link></li>
+                                <li><Link to={"/"}>login</Link></li>
+                                <li><Link to={"/"}>cadastro</Link></li>
+                                <li><Link to={"/"}>home</Link></li>
                             </ul>
                             <ul className="Pages_Footer">
-                                <li><a href="">cardápio</a></li>
-                                <li><a href="">chamada</a></li>
-                                <li><a href="">noticia</a></li>
-                                <li><a href="">boletim</a></li>
+                                <li><Link to={"/"}>cardápio</Link></li>
+                                <li><Link to={"/"}>chamada</Link></li>
+                                <li><Link to={"/"}>noticia</Link></li>
+                                <li><Link to={"/"}>boletim</Link></li>
                             </ul>
                         </div>
                     </div>
                 </div>
-                <div className="Logo_Footer">
-                    <a href=""><img src={LogoB} alt="" /></a>
-                </div>
+                    <Link to={"/"} className="Logo_Footer"><img src={LogoB} alt="" /></Link>
             </div>
 
-            {/* PART_2 */}
+            {/* PART_3 */}
             <div className="Container_Footer_3">
                 <h1 className="Title_Footer_4">Copyright © 1997-2024 Colégio Objetivo. Todos os direitos reservados.</h1>
             </div>
