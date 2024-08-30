@@ -1,0 +1,24 @@
+.Line{
+    flex-grow: 1;
+    height: 2px;
+    border: none;
+    background-color: black;
+    
+}
+
+.Title_Line {
+    display: flex;
+    align-items: center;
+    gap: 10vh;
+    margin-left: 10px;
+}
+
+.section-title h1 {
+    
+    white-space: nowrap;
+}
+
+.Main_Notícias {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}

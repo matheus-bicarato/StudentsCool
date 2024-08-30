@@ -14,7 +14,7 @@ const Footer = () => {
         <footer>
             {/* PART_1 */}
             <div className="Container_Footer_1">
-                <h1 className="Title_Footer_1">Aplicativo Oficial do Studantscool</h1>
+                <h1 className="Title_Footer_1">Site Oficial do Studantscool</h1>
                     <Link to={"/"} className="Phone_Number">
                     <img src={Phone} alt=""/>
                     <h1 className="Number">+55 11 97044-1052</h1>
@@ -59,7 +59,7 @@ const Footer = () => {
 
             {/* PART_3 */}
             <div className="Container_Footer_3">
-                <h1 className="Title_Footer_4">Copyright © 1997-2024 Colégio Objetivo. Todos os direitos reservados.</h1>
+                <h1 className="Title_Footer_4">Copyright © 2024-2024 STUDENTSCOOL. Todos os direitos reservados.</h1>
             </div>
         </footer>
     )

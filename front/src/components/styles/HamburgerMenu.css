@@ -1,0 +1,61 @@
+/* Ícone para abrir o menu */
+.hamburger-icon {
+  font-size: 44px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+/* Estilos do menu */
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100%;
+  background-color: #6c49c7; /* Cor de fundo roxa */
+  color: white;
+  padding-top: 20px;
+  transition: transform 0.3s ease;
+}
+
+/* Ícone para fechar o menu */
+.close-icon {
+  font-size: 24px;
+  cursor: pointer;  
+  top: 15px;
+  right: 15px;
+}
+
+.Title_close-icon {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.close-icon span {
+  color: black;
+  font-size: 44px;
+}
+
+.menu ul {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.menu ul li h1 {
+  color: white;
+}
+
+.Icons_Menu {
+  width: 40px;
+}
+
+.Links {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+

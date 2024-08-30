@@ -13,7 +13,7 @@ const galleryItems = [
     { id: 1, title: 'Cardápio', imageUrl: img1, imgTitle: Title1, path: '/' },
     { id: 2, title: 'Chamadas', imageUrl: img1, imgTitle: Title2, path: '/' },
     { id: 3, title: 'Boletim', imageUrl: img1, imgTitle: Title3, path: '/' },
-    { id: 4, title: 'Notícias', imageUrl: img1, imgTitle: Title4, path: '/' },
+    { id: 4, title: 'Notícias', imageUrl: img1, imgTitle: Title4, path: '/Noticias' },
     { id: 5, title: 'Aluno', imageUrl: img1, imgTitle: Title5, path: '/' },
     { id: 6, title: 'Professor', imageUrl: img1, imgTitle: Title6, path: '/' },
     // Adicione mais itens conforme necessário
