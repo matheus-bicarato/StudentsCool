@@ -18,12 +18,17 @@ footer {
     font-size: 24px;
 }
 
+.Phone_Number {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
 .Phone_Number img {
     width: 6vh;
 }
 
-.Phone_Number a {
-    text-decoration: none;
+.Number {
     color: white;
     font-size: 20px;
 }
