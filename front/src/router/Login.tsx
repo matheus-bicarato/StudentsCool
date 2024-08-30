@@ -1,10 +1,11 @@
 import Logo from '../assets/imagens/Logo_branco.png'
+import { Link } from 'react-router-dom'
 import './styles/Login.css'
 const Login = () => {
     return (
         <div className="background">
             <div >
-                <img className="Logo" src={Logo} alt="logo" />
+                <Link to={"/"}><img className="Logo" src={Logo} alt="logo" /></Link>
             </div>
             <div className="form">
                 <form action="" className='Inputs'>
@@ -17,7 +18,9 @@ const Login = () => {
                         id="Pass"
                         placeholder='Digite sua senha'
                         className='pass' />
-                        <a href="https://www.youtube.com/watch?v=M3_XrtBGJJ0">Esqueci a senha</a>
+                    <a href="https://www.youtube.com/watch?v=M3_XrtBGJJ0" className='esqueci_pass'>Esqueci a senha</a>
+                    <button type="submit" className='Button_submit'>Enviar</button>
+                    <a href="" className='Erro_login'>Erro em login? entre em contato</a>
                 </form>
             </div>
         </div>
