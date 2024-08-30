@@ -1,6 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
 * {
     padding: 0;
     margin: 0;
+    font-family: itim;
 }
 .background {
     background-color: #9FDFFC;
@@ -20,6 +22,27 @@
 .form{
     height: 550px;
     width: 450px;
-    background-color: black;
+    /* background-color: black; */
+    border: black solid 1px;
+    border-radius: 10px;
+    background-color: white;
 }
-
+.Inputs{
+    margin: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+.email{
+    padding: 12px;
+    width: 300px;
+    border-radius: 10px;
+    font-family: Arial;
+}
+.pass{
+    padding: 12px;
+    width: 300px;
+    border-radius: 10px;
+    font-family: Arial;
+}
