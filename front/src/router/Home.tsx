@@ -6,16 +6,12 @@ import lapis from '../assets/imagens/lapis.png'
 import './styles/Home.css'
 import Carousel from '../components/Carousel';
 
-import image1 from '../assets/imagens/banner_atencao.png'
-import image2 from '../assets/imagens/banner_cardapio.png'
-import image3 from '../assets/imagens/banner_cardapio.png'
-
 const Home = () => {
-    const images = [image1, image2, image3]
+    
     return (
         <div className="">
             <Header />
-            <main className="main">
+            <main className="main_home">
                 <div className="main_top">
                     <Gallery />
                 </div>

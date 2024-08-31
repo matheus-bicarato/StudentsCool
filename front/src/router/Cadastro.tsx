@@ -19,7 +19,7 @@ const Cadastro = () => {
             </header>
             {/* ================================================================================= */}
 
-            <div className="main">
+            <div className="main_cadastro">
                 <div className="container_title">
                     <h1></h1>
                 </div>

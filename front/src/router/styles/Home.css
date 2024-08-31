@@ -4,6 +4,9 @@
     margin: 0;
     font-family: itim;
 }
+.main_home{
+    background-color: #D1C7F0;
+}
 .main_top {
     background-image: url(../../assets/imagens/Fundo_ROXO.png);
     background-repeat: no-repeat;
@@ -16,6 +19,7 @@
     background-position: right bottom;
     width: 100%;
     height: 600px;
+    /* background-color: black; */
 }
 .title_noticias{
     margin-left: 25px;
