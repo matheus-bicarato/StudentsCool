@@ -9,6 +9,7 @@ import Login from './router/Login.tsx'
 import NoticiasPopulares from './router/NoticiasPopulares.tsx'
 import NoticiasNovidade from './router/NoticiasNovidade.tsx'
 import NoticiasRecente from './router/NoticiasRecente.tsx'
+import Contato from './router/Contato.tsx'
 
 
 const router = createBrowserRouter([
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
       {
         path: "/NoticiasRecente",
         element: <NoticiasRecente/>
+      },
+      {
+        path: "/Contato",
+        element: <Contato/>
       },
       
     ]
