@@ -8,6 +8,9 @@ import banner3 from "../assets/imagens/banner_matricula.png";
 import banner4 from "../assets/imagens/banner_atencao.png";
 import banner5 from "../assets/imagens/banner_cardapio.png";
 import banner6 from "../assets/imagens/banner_matricula.png";
+import banner7 from "../assets/imagens/banner_volta_as_aulas.png";
+import banner8 from "../assets/imagens/banner_festa_junina.png";
+import banner9 from "../assets/imagens/banner_aula_de_reforco.png";
 
 const banners = [
   { id: 1, src: banner1, alt: "Banner 1" },
@@ -16,6 +19,9 @@ const banners = [
   { id: 4, src: banner4, alt: "Banner 4" },
   { id: 5, src: banner5, alt: "Banner 5" },
   { id: 6, src: banner6, alt: "Banner 6" },
+  { id: 7, src: banner7, alt: "Banner 7" },
+  { id: 8, src: banner8, alt: "Banner 8" },
+  { id: 9, src: banner9, alt: "Banner 9" },
 ];
 
 const Carousel = () => {

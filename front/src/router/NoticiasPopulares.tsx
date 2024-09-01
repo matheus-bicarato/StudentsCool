@@ -6,7 +6,7 @@ import HamburgerMenu from '../components/HamburgerMenu';
 import './styles/Notícias.css'
 
 
-const Noticias = () => {
+const NoticiasPopulares = () => {
     return(
         <div>
             <Header/>
@@ -16,7 +16,7 @@ const Noticias = () => {
                 <div >
                     <div className='Title_Line'>
                         <HamburgerMenu/>
-                        <h1>Notícias Escolares</h1>
+                        <h1>Notícias Populares</h1>
                         <hr className='Line'/>
                     </div>
                     <Carousel/>
@@ -30,4 +30,4 @@ const Noticias = () => {
     )
 }
 
-export default Noticias;
+export default NoticiasPopulares;

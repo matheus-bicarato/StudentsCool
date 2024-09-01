@@ -33,9 +33,9 @@ const HamburgerMenu = () => {
             </div>
             <hr />
           </div>
-              <li><Link to="/" className='Links'><img src={Estrela} alt="" className='Icons_Menu'/><h1>Populares</h1></Link></li>
-              <li><Link to="/" className='Links'><img src={Call} alt="" className='Icons_Menu'/><h1>Novidades</h1></Link></li>
-              <li><Link to="/" className='Links'><img src={Time} alt="" className='Icons_Menu'/><h1>Recentes</h1></Link></li>
+              <li><Link to="/NoticiasPopulares" className='Links'><img src={Estrela} alt="" className='Icons_Menu'/><h1>Populares</h1></Link></li>
+              <li><Link to="/NoticiasNovidade" className='Links'><img src={Call} alt="" className='Icons_Menu'/><h1>Novidades</h1></Link></li>
+              <li><Link to="/NoticiasRecente" className='Links'><img src={Time} alt="" className='Icons_Menu'/><h1>Recentes</h1></Link></li>
           </ul>
         </nav>
       )}

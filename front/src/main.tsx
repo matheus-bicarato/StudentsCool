@@ -6,7 +6,10 @@ import Error from './router/Error-page.tsx'
 import Home from './router/Home.tsx'
 import Cadastro from './router/Cadastro.tsx'
 import Login from './router/Login.tsx'
-import Noticias from './router/Noticias.tsx'
+import NoticiasPopulares from './router/NoticiasPopulares.tsx'
+import NoticiasNovidade from './router/NoticiasNovidade.tsx'
+import NoticiasRecente from './router/NoticiasRecente.tsx'
+
 
 const router = createBrowserRouter([
   {
@@ -30,8 +33,16 @@ const router = createBrowserRouter([
         element: <Login/>
       },
       {
-        path: "/Noticias",
-        element: <Noticias/>
+        path: "/NoticiasPopulares",
+        element: <NoticiasPopulares/>
+      },
+      {
+        path: "/NoticiasNovidade",
+        element: <NoticiasNovidade/>
+      },
+      {
+        path: "/NoticiasRecente",
+        element: <NoticiasRecente/>
       },
       
     ]
