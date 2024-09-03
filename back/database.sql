@@ -15,8 +15,6 @@ create table users_escola_exemplo(
     cpf INT not null unique,
     telefone INT not null unique,
     senha VARCHAR(255) NOT null,
-    authority ENUM('aluno', 'professor', 'admin') not null default 'aluno'
-    -- COLOCAR CHAVE ESTRANGEIRA NESSA PORRA
     authority ENUM('aluno', 'professor', 'admin') not null default 'aluno',    -- COLOCAR CHAVE ESTRANGEIRA NESSA PORRA
     turma VARCHAR(255), -- 3° A ou 3° B por exemplo
 )
