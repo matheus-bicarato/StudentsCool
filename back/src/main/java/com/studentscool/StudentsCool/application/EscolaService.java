@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 @Service
 public class EscolaService implements EscolasUseCases {
@@ -26,12 +27,13 @@ public class EscolaService implements EscolasUseCases {
 
     @Override
     public Escola getEscolaById(Long id) {
-        return repository.findById(id).orElseThrow(RuntimeException::new);
+        return repository.findById(id).orElseThrow(() ->
+                new NoSuchElementException("Escola com o ID " + id + " não foi encontrada"));
     }
 
     @Override
     public Escola updateEscola(Escola escolaDetails, Long id) {
-        Escola escola = repository.findById(id).orElseThrow(() -> new RuntimeException("Não foi possível encontrar o livro desse id : " + id));
+        Escola escola = repository.findById(id).orElseThrow(() -> new NoSuchElementException("Escola com o ID " + id + " não foi encontrada"));
 
         escola.setNome(escolaDetails.getNome());
         escola.setEmail(escolaDetails.getEmail());
