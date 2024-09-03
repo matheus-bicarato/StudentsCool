@@ -17,6 +17,7 @@ create table users_escola_exemplo(
     senha VARCHAR(255) NOT null,
     authority ENUM('aluno', 'professor', 'admin') not null default 'aluno'
     -- COLOCAR CHAVE ESTRANGEIRA NESSA PORRA
+    authority ENUM('aluno', 'professor', 'admin') not null default 'aluno',    -- COLOCAR CHAVE ESTRANGEIRA NESSA PORRA
     turma VARCHAR(255), -- 3° A ou 3° B por exemplo
 )
 CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
@@ -38,3 +39,12 @@ create table cadastro_escolas(
     aprovado BOOLEAN default false
 )
 CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci
+
+-- Criação da tabela de contato
+CREATE TABLE contato_msg (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    telefone VARCHAR(20) NOT NULL,
+    mensagem TEXT NOT NULL
+);
