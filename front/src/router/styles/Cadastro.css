@@ -53,11 +53,52 @@ header {
     /* justify-content: center; */
     align-items: center;
 }
-
-.container_title {
+.barra_porple{
+    margin-top: 20px;
+    background-color: #4E148C;
+    width: 1000px;
+    height: 20px;
+    border-radius: 20px;
+    margin-bottom: -10px;
+}
+.container_Cadastro {
     display: flex;
-    background-color: black;
+    flex-direction: column;
+    background-color: white;
     width: 1000px;
     height: 200px;
-    margin-top: 20px;
+    border-radius: 0 0 10px 10px;
+    align-items: center;
 }
+.hr_linha{
+    width: 90%;
+    opacity: 50%;
+}
+.title_cadastro{
+    font-size: 40px;
+}
+.container_Cadastro_itens{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    width: 1000px;
+    height: 100px;
+    border-radius: 0 0 10px 10px;
+}
+.conteudo_container_cadastro{
+    font-size: 18px;
+    margin: 10px;
+    text-align: justify;
+}
+.input_container{
+    padding: 12px;
+    border: none;
+    /* border-radius: 10px; */
+}
+.input_container:hover{
+    background-color: rgb(231, 231, 231);
+}
+.hr_opacity{
+    opacity: 50%;
+}
+
