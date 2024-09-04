@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 @Service
 public class ContatoService implements ContatoUseCases {
@@ -24,7 +25,8 @@ public class ContatoService implements ContatoUseCases {
 
     @Override
     public Contato getComentarioById(Long id) {
-        return contatoRepository.findById(id).orElseThrow(RuntimeException::new);
+        return contatoRepository.findById(id).orElseThrow(() ->
+                new NoSuchElementException("Comentario com o ID" + id +  " não foi encontrado"));
     }
 
     @Override
