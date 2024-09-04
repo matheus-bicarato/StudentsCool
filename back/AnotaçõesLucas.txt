@@ -1,0 +1,33 @@
+Códigos para o controller do admin
+    @GetMapping("/Aprovadas")
+    public ResponseEntity<List<Escola>> listarAprovadas() {
+        List<Escola> todasEscolas = escolasUseCases.getAllEscolas();
+        List<Escola> escolasAprovadas = todasEscolas.stream()
+                .filter(Escola::getAprovado)
+                .collect(Collectors.toList());
+
+        if (escolasAprovadas.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        } else {
+            return ResponseEntity.ok(escolasAprovadas);
+        }
+    }
+
+    @GetMapping("/NaoAprovadas")
+    public ResponseEntity<Map<String, Object>> listarNaoAprovadas() {
+        List<Escola> todasEscolas = escolasUseCases.getAllEscolas();
+        List<Escola> escolasNaoAprovadas = todasEscolas.stream()
+                .filter(escola -> !escola.getAprovado())
+                .collect(Collectors.toList());
+
+        Map<String, Object> response = new HashMap<>();
+        if (escolasNaoAprovadas.isEmpty()) {
+            response.put("message", "Não há escolas não aprovadas.");
+            response.put("data", Collections.emptyList());
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
+        } else {
+            response.put("message", null);
+            response.put("data", escolasNaoAprovadas);
+            return ResponseEntity.ok(response);
+        }
+    }
