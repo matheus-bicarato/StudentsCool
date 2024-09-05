@@ -47,13 +47,15 @@ header {
 
 .main_cadastro {
     background-color: #D1C7F0;
-    height: 100vh;
+    height: 100%;
     display: flex;
     flex-direction: column;
     /* justify-content: center; */
     align-items: center;
+    padding: 10px;
 }
-.barra_porple{
+
+.barra_porple {
     margin-top: 20px;
     background-color: #4E148C;
     width: 1000px;
@@ -61,6 +63,7 @@ header {
     border-radius: 20px;
     margin-bottom: -10px;
 }
+
 .container_Cadastro {
     display: flex;
     flex-direction: column;
@@ -69,15 +72,19 @@ header {
     height: 200px;
     border-radius: 0 0 10px 10px;
     align-items: center;
+    
 }
-.hr_linha{
+
+.hr_linha {
     width: 90%;
     opacity: 50%;
 }
-.title_cadastro{
+
+.title_cadastro {
     font-size: 40px;
 }
-.container_Cadastro_itens{
+
+.container_Cadastro_itens {
     display: flex;
     flex-direction: column;
     background-color: white;
@@ -85,20 +92,44 @@ header {
     height: 100px;
     border-radius: 0 0 10px 10px;
 }
-.conteudo_container_cadastro{
+
+.conteudo_container_cadastro {
     font-size: 18px;
     margin: 10px;
     text-align: justify;
 }
-.input_container{
+
+.input_container {
     padding: 12px;
     border: none;
+    /* background-color: black; */
     /* border-radius: 10px; */
 }
-.input_container:hover{
+
+.input_container:hover {
     background-color: rgb(231, 231, 231);
 }
-.hr_opacity{
+
+.hr_opacity {
     opacity: 50%;
 }
 
+.container_cadastro_button {
+    margin-top: 20px;
+    width: 1000px;
+    display: flex;
+    justify-content: end;
+    /* background-color: black; */
+
+}
+.button_cadastro{
+    padding: 10px;
+    width: 100px;
+    background-color: #c6caff;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+.button_cadastro:hover {
+    background-color: white;
+    transform: scale(1.05);
+}
