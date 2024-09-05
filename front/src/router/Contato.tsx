@@ -43,9 +43,13 @@ const Contato = () => {
             </div>
 
             <div className='Form_contado'>
-                <h1>Nos envie uma mensagem</h1>
-                <hr className='Line_contato'/>
 
+                <div className='Title_form_contato'>
+                    <span><h1>Nos envie uma mensagem</h1></span>
+                    <hr/>
+                </div>
+                
+                <div className='Inputs_form_contato'>
                 <input type="text"
                         placeholder='Nome Completo'
                         className='Nome_contato' 
@@ -70,9 +74,9 @@ const Contato = () => {
                                 className='Mensagem_contato' 
                                 maxLength={300}
                                 required/>
-
-                                <img src={Retangulo} alt="" className='Logo_contato'/>
-                                <button type="submit" className='Button_submit_contato'>Enviar</button>
+                </div>
+                <img src={Retangulo} alt="" className='Logo_contato'/>
+                <button type="submit" className='Button_submit_contato'>Enviar</button>
             </div>
         </main>
     </div>

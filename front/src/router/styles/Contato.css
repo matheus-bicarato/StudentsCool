@@ -3,6 +3,7 @@
 .main_contato {
     display: flex;
     justify-content: space-around;
+    margin-top: 20px;
 }
 
 .contatos img {
@@ -48,16 +49,39 @@
     border-radius: 20px;
 }
 
-.Line_contato{
+.Title_form_contato {
+    margin: 10px;
+    width: 400px;
+}
+
+.Title_form_contato span {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 10px;
+}
+
+.Title_form_contato h1 {
+    font-size: 20px;
+}
+
+.Title_form_contato hr {
     flex-grow: 1;
-    height: 1px;
+    height: 2px;
     border: none;
-    background-color: black; 
+    background-color: black;
+}
+
+.Inputs_form_contato {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 10px;
+
 }
 
 .Nome_contato {
     padding: 12px;
-    width: 300px;
+    width: 350px;
     border-radius: 10px;
     font-family: Arial;
     background-color: #c6caff;
