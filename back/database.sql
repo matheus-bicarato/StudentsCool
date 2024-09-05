@@ -60,3 +60,45 @@ create table users_escola_exemplo(
 )
 CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
+INSERT INTO cadastro_escolas (
+    nome,
+    email,
+    localizacao,
+    contato_alt,
+    lvl_ensino,
+    qtd_turma,
+    pre_cores,
+    dias_letivos,
+    horarios,
+    metodo_nota,
+    observacoes,
+    aprovado
+) VALUES (
+    'Escola do Futuro',
+    'contato@escolado futuro.com',
+    'Rua dos Exemplos, 123, Centro',
+    '(11) 98765-4321',
+    'Ensino Médio',
+    2,
+    'Azul e Branco',
+    'Segunda a Sexta-feira',
+    '07:00 - 12:20',
+    'Semestre',
+    'Escola com foco em tecnologia e inovação.',
+    TRUE
+);
+
+-- Adiciona todas as turmas para três séries do ensino médio
+
+-- Para a 1ª série
+INSERT INTO turmas (EscolaID, Turma, Serie) VALUES (1, 'A', 1);
+INSERT INTO turmas (EscolaID, Turma, Serie) VALUES (1, 'B', 1);
+
+-- Para a 2ª série
+INSERT INTO turmas (EscolaID, Turma, Serie) VALUES (1, 'A', 2);
+INSERT INTO turmas (EscolaID, Turma, Serie) VALUES (1, 'B', 2);
+
+-- Para a 3ª série
+INSERT INTO turmas (EscolaID, Turma, Serie) VALUES (1, 'A', 3);
+INSERT INTO turmas (EscolaID, Turma, Serie) VALUES (1, 'B', 3);
+
