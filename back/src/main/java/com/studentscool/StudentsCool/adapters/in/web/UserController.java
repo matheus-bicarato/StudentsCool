@@ -67,7 +67,7 @@ public class UserController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(errorResponse);
         } catch (DataIntegrityViolationException e) {
             Map<String, String> errorResponse = new HashMap<>();
-            errorResponse.put("Mensagem", "Erro: Email duplicado.");
+            errorResponse.put("Mensagem", "Erro: Email, CPF ou telefone duplicado.");
             return ResponseEntity.status(HttpStatus.CONFLICT).body(errorResponse);
         } catch (Exception e) {
             Map<String, String> errorResponse = new HashMap<>();
