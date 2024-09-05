@@ -20,7 +20,7 @@ const Login = () => {
                         className='pass' />
                     <a href="https://www.youtube.com/watch?v=M3_XrtBGJJ0" className='esqueci_pass'>Esqueci a senha</a>
                     <button type="submit" className='Button_submit'>Enviar</button>
-                    <a href="" className='Erro_login'>Erro em login? entre em contato</a>
+                    <Link to={"/contato"} className='Erro_login'>Erro em login? entre em contato</Link>
                 </form>
             </div>
         </div>

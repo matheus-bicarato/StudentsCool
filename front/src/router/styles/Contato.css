@@ -1,10 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,200;1,14..32,100..900&display=swap');
 
+.main_contato {
+    display: flex;
+    justify-content: space-around;
+}
+
 .contatos img {
-    width: 60px;
-    
+    width: 50px;
     padding: 10px;
-    margin: 10px;
 }
 
 .contatos span {
@@ -35,3 +38,85 @@
     margin-top: 40px;
 }
 
+.Form_contado {
+    display: flex;
+    flex-direction: column;
+    width: max-content;
+    /* background-color: red; */
+    align-items: center;
+    border: solid 1px black;
+    border-radius: 20px;
+}
+
+.Line_contato{
+    flex-grow: 1;
+    height: 1px;
+    border: none;
+    background-color: black; 
+}
+
+.Nome_contato {
+    padding: 12px;
+    width: 300px;
+    border-radius: 10px;
+    font-family: Arial;
+    background-color: #c6caff;
+    transition: background-color 0.3s ease;
+}
+
+.Nome_contato:hover {
+    background-color: white;
+}
+
+.Email_contato {
+    padding: 12px;
+    width: 200px;
+    border-radius: 10px;
+    font-family: Arial;
+    background-color: #c6caff;
+    transition: background-color 0.3s ease;
+}
+
+.Email_contato:hover {
+    background-color: white;
+}
+
+.Tel_contato {
+    padding: 12px;
+    width: 200px;
+    border-radius: 10px;
+    font-family: Arial;
+    background-color: #c6caff;
+    transition: background-color 0.5s ease;
+}
+
+.Tel_contato:hover {
+    background-color: white;
+}
+
+.Mensagem_contato{
+    padding: 12px;
+    width: 300px;
+    border-radius: 10px;
+    font-family: Arial;
+    background-color: #c6caff;
+    transition: background-color 0.5s ease;
+    font-size: 20px;
+}
+
+.Logo_contato {
+    width: 20vh;
+}
+
+.Button_submit_contato {
+    padding: 10px;
+    width: 100px;
+    background-color: #c6caff;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.Button_submit_contato:hover {
+    background-color: white;
+    transform: scale(1.05);
+}
