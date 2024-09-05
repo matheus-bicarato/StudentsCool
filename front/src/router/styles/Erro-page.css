@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: itim;
+}
+
+.main_erro {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.title_erro {
+    font-size: 50px;
+}
+
+.button_error_page {
+    padding: 20px;
+    width: 200px;
+    background-color: #c6caff;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.button_error_page:hover {
+    background-color: white;
+    transform: scale(1.05);
+}
+
+.icon_Error {
+    width: 100px;
+}
+
+.logo_error {
+    width: 200px;
+}
