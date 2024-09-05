@@ -11,7 +11,7 @@ import lombok.*;
 
 @Data
 @Entity
-@Table(name = "comentarios_contato")
+@Table(name = "contato_msg_exemplo")
 public class ContatoEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
