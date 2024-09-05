@@ -10,6 +10,7 @@ import NoticiasPopulares from './router/NoticiasPopulares.tsx'
 import NoticiasNovidade from './router/NoticiasNovidade.tsx'
 import NoticiasRecente from './router/NoticiasRecente.tsx'
 import Contato from './router/Contato.tsx'
+import Cadastro_feito from './router/cadastro_feito.tsx'
 
 
 const router = createBrowserRouter([
@@ -48,6 +49,10 @@ const router = createBrowserRouter([
       {
         path: "/Contato",
         element: <Contato/>
+      },
+      {
+        path: "/cadastro-feito",
+        element: <Cadastro_feito/>
       },
       
     ]

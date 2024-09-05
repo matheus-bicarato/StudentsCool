@@ -143,7 +143,7 @@ const Cadastro = () => {
                 </div>
 
                 <div className="container_cadastro_button">
-                    <Link to={"/"}><button className="button_cadastro">Concluir</button></Link>
+                    <Link to={"/cadastro-feito"}><button className="button_cadastro">Concluir</button></Link>
                 </div>
 
 
