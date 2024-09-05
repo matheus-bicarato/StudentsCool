@@ -66,8 +66,14 @@ footer {
     font-size: 30px;
 }
 
+.Redes_Footer {
+    display: flex;
+    margin-top: 20px;
+    gap: 10px;
+}
+
 .Redes_Footer img {
-    width: 5vh;
+    width: 6vh;
 }
 
 .Block_Footer_2 {

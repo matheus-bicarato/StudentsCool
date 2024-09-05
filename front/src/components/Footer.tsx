@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import Phone from "../assets/imagens/Phone_Icon.png";
 import Face from "../assets/imagens/Face_Icon.png";
 import Insta from "../assets/imagens/Insta_Icon.png";
-import X from "../assets/imagens/X_Icon.png";
 import TikTok from "../assets/imagens/TikTok_Icon.png";
 import LogoB from "../assets/imagens/Logo_Branco.png";
 
@@ -29,7 +28,6 @@ const Footer = () => {
                         <div className="Redes_Footer">
                             <a href=""><img src={Face} alt="" /></a>
                             <a href=""><img src={Insta} alt="" /></a>
-                            <a href=""><img src={X} alt="" /></a>
                             <a href=""><img src={TikTok} alt="" /></a>
                         </div>
                     </div>
@@ -47,7 +45,6 @@ const Footer = () => {
                             </ul>
                             <ul className="Pages_Footer">
                                 <li><Link to={"/"}>cardápio</Link></li>
-                                <li><Link to={"/"}>chamada</Link></li>
                                 <li><Link to={"/"}>noticia</Link></li>
                                 <li><Link to={"/"}>boletim</Link></li>
                             </ul>
