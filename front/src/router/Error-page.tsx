@@ -1,6 +1,11 @@
+import './styles/Erro-page.css'
+
 const Error = () => {
     return(
-        <h1>Error 440</h1>
+        <div className="main_erro">
+            <h1 className='title_erro'>Error 440</h1>
+            <img src="" alt="" />
+        </div>
     )
 }
 
