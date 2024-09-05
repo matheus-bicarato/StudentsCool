@@ -1,4 +1,6 @@
 import Header from '../components/Header';
+import Footer from '../components/Footer';
+
 
 import ZAP from '../assets/imagens/Zap_Icon.png';
 import EMAIL from '../assets/imagens/Email_Icon.png';
@@ -42,13 +44,13 @@ const Contato = () => {
                 </div>
             </div>
 
-            <div className='Form_contado'>
+            <form className='Form_contado'>
 
                 <div className='Title_form_contato'>
                     <span><h1>Nos envie uma mensagem</h1></span>
                     <hr/>
                 </div>
-                
+
                 <div className='Inputs_form_contato'>
                 <input type="text"
                         placeholder='Nome Completo'
@@ -56,29 +58,34 @@ const Contato = () => {
                         maxLength={300} 
                         required/>
 
-                        <div>
-                        <input type="email"
-                        placeholder='E-mail'
-                        className='Email_contato' 
-                        required/>
+                        <div className='Email_tel_contato'>
+                            <input 
+                            type="email"
+                            id='email'
+                            placeholder='E-mail'
+                            className='Email_contato' 
+                            required/>
 
                             <input type="tel"
-                                placeholder='Telefone'
-                                className='Tel_contato '
-                                pattern="\(\d{2}\) \d{5}-\d{4}" 
-                                required/>
+                            placeholder='Telefone'
+                            className='Tel_contato '
+                            maxLength={11} 
+                            required/>
                         </div>
 
                         <textarea
-                                placeholder='Digite sua senha'
+                                placeholder='Mensagem...'
                                 className='Mensagem_contato' 
                                 maxLength={300}
                                 required/>
                 </div>
                 <img src={Retangulo} alt="" className='Logo_contato'/>
                 <button type="submit" className='Button_submit_contato'>Enviar</button>
-            </div>
+            </form>
         </main>
+        <div className='Footer_contato'>
+            <Footer />
+        </div>
     </div>
     )
 }
