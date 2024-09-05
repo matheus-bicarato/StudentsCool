@@ -25,6 +25,28 @@ create table cadastro_escolas(
 )
 CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci
 
+-- Criação da tabela de contato
+CREATE TABLE contato_msg_exemplo (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    telefone VARCHAR(20) NOT NULL,
+    mensagem TEXT NOT NULL
+);
+
+-- Tabela turmas
+CREATE TABLE turmas (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    EscolaID BIGINT NOT NULL,
+    Turma VARCHAR(50) NOT NULL,
+    Serie INT NOT NULL,
+    CONSTRAINT fk_escola
+        FOREIGN KEY (EscolaID)
+        REFERENCES cadastro_escolas(id)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
+);
+
 -- Criação tabela "users" de cada escola
 create table users_escola_exemplo(
 	id INT AUTO_INCREMENT PRIMARY KEY,
@@ -38,17 +60,3 @@ create table users_escola_exemplo(
 )
 CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
--- Criação da tabela de contato
-CREATE TABLE contato_msg_exemplo (
-    id BIGINT AUTO_INCREMENT PRIMARY KEY,
-    nome VARCHAR(255) NOT NULL,
-    email VARCHAR(255) NOT NULL UNIQUE,
-    telefone VARCHAR(20) NOT NULL,
-    mensagem TEXT NOT NULL
-);
-
-ALTER TABLE sua_tabela
-MODIFY COLUMN email VARCHAR(255) NOT NULL,
-MODIFY COLUMN mensagem VARCHAR(255) NOT NULL,
-MODIFY COLUMN nome VARCHAR(255) NOT NULL,
-MODIFY COLUMN telefone VARCHAR(255) NOT NULL;
