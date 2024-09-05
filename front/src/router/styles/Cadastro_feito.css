@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: itim;
+}
+
+.main_cadastro_feito {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #D1C7F0;
+}
+.logo_cadastro_feito{
+    width: 250px;
+}
+.container_cadastro_feito {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    width: 600px;
+    height: 300px;
+    border-radius: 10px;
+}
+.button_cadastro_feito{
+    padding: 10px;
+    width: 200px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: #c6caff;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+.button_cadastro_feito:hover {
+    background-color: white;
+    transform: scale(1.05);
+}
+.copia_pdf{
+    color: #5829a7;
+}
+.copia_pdf:hover{
+    color: black;
+}

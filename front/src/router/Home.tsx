@@ -15,15 +15,6 @@ const Home = () => {
                 <div className="main_top">
                     <Gallery />
                 </div>
-                <div className="main_low">
-                    <h1 className='title_noticias'>
-                        <img src={lapis} alt="lapis" />
-                        Novas Informações
-                    </h1>
-                    <div className="">
-                        <Carousel/>
-                    </div>
-                </div>
             </main>
             <Footer />
         </div>

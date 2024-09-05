@@ -1,8 +1,8 @@
-import Logo_lapis from "../assets/imagens/Logo_Lapis.png"
-import Logo_bola from "../assets/imagens/Logo_branco.png"
+
 import { Link } from 'react-router-dom'
 import './styles/Cadastro.css'
 import Checkbox from "../components/Checkbox"
+import Header_simplificado from '../components/Header-simplificado';
 const Cadastro = () => {
 
     const items = [
@@ -14,20 +14,7 @@ const Cadastro = () => {
 
     return (
         <div className="">
-            <header>
-                <div className="right">
-                    <Link to={"/"}><img src={Logo_lapis} alt="Logo" className="Logo_lapis" /></Link>
-                </div>
-                <div className="left">
-                    <Link to={"/"}><img src={Logo_bola} alt="Logo" className="Logo_bola" /></Link>
-                    <div className="Title_Header">
-                        <h1><Link className="span" to={"/Login"}><span>Clique aqui</span></Link> <br />
-                            para fazer o login !</h1>
-                    </div>
-                </div>
-            </header>
-            {/* ================================================================================= */}
-
+            <Header_simplificado />
             <div className="main_cadastro">
                 <div className="barra_porple"></div>
                 <div className="container_Cadastro">
@@ -57,7 +44,7 @@ const Cadastro = () => {
                     <label htmlFor="" className="conteudo_container_cadastro">Digite um E-mail em que contatarmos.</label>
                     <input type="email"
                         className="input_container"
-                        id=""
+                        id="email"
                         placeholder="E-mail"
                         required
                     />
