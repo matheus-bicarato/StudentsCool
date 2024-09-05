@@ -49,14 +49,20 @@ CREATE TABLE turmas (
 
 -- Criação tabela "users" de cada escola
 create table users_escola_exemplo(
-	id INT AUTO_INCREMENT PRIMARY KEY,
+	id BIGINT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL UNIQUE,
     cpf INT not null unique,
     telefone INT not null unique,
     senha VARCHAR(255) NOT null,
     authority ENUM('aluno', 'professor', 'admin') not null default 'aluno',    -- COLOCAR CHAVE ESTRANGEIRA NESSA PORRA
-    turma VARCHAR(255), -- 3° A ou 3° B por exemplo
+    turma_id BIGINT NOT NULL,
+
+    CONSTRAINT fk_turma
+        FOREIGN KEY (turma_id)
+        REFERENCES turmas(id)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
 )
 CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
