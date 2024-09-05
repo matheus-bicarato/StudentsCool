@@ -13,17 +13,3 @@
     width: 100%;
     height: 500px;
 }
-.main_low{
-    background-image: url(../../assets/imagens/Fundo_roxo_inverso.png);
-    background-repeat: no-repeat;
-    background-position: right bottom;
-    width: 100%;
-    height: 600px;
-    /* background-color: black; */
-}
-.title_noticias{
-    margin-left: 25px;
-    display: flex;
-    justify-items: center;
-    align-items: center;
-}
