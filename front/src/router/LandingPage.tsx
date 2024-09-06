@@ -35,6 +35,34 @@ const LandingPage = () => {
                         e o desempenho.</p>
                     </div>
                     
+                    <div className="Card">
+                        <div className="Title_icon_LandPG">
+                            <img src={Icon1} alt="" />
+                            <h1>Comunicação</h1>
+                        </div>
+                        <p>A comunicação entre alunos e
+                        professores é assegurada por 
+                        chats por turma, uma página de 
+                        notícias escolares e o acompanhamento
+                        do progresso acadêmico, que inclui 
+                        boletins para facilitar a organização 
+                        e o desempenho.</p>
+                    </div>
+
+                    <div className="Card">
+                        <div className="Title_icon_LandPG">
+                            <img src={Icon1} alt="" />
+                            <h1>Comunicação</h1>
+                        </div>
+                        <p>A comunicação entre alunos e
+                        professores é assegurada por 
+                        chats por turma, uma página de 
+                        notícias escolares e o acompanhamento
+                        do progresso acadêmico, que inclui 
+                        boletins para facilitar a organização 
+                        e o desempenho.</p>
+                    </div>
+                    
                 </div>
             </main>
             <Footer />
