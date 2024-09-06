@@ -1,7 +1,15 @@
+/* ---------------
+    PARTE-1
+--------------- */
+
 .Banner_LandPG {
     display: flex;
     justify-content: end;
 }
+
+/* ---------------
+    PARTE-2
+--------------- */
 
 .Card {
     background-color: #4E148C;
@@ -16,7 +24,7 @@
 
 .Card h1 {
     color: white;
-    font-size: 50px;
+    font-size: 45px;
 }
 
 .Title_icon_LandPG {
@@ -28,3 +36,28 @@
     color: white;
     font-size: 25px;
 }
+
+.Cards {
+    display: flex;
+    justify-content: space-around;
+    margin-top: -50px;
+}
+
+/* ---------------
+    PARTE-3
+--------------- */
+
+.Title_Servico_LangPG {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.Servico p {
+color: #AFAFAF;
+}
+
+.Servico_Card_LangPG img {
+    width: 10vh;
+}
+
