@@ -2,6 +2,7 @@ import Header_simplificado from "../components/Header-simplificado";
 import Footer from "../components/Footer";
 
 import Banner from "../assets/imagens/banner_landingPG.png";
+import BannerAPP from "../assets/imagens/APPbanner_landing_page.png";
 import Icon1 from "../assets/imagens/Icon_lang1.png"
 import Icon2 from "../assets/imagens/Icon_lang2.png"
 import Icon3 from "../assets/imagens/Icon_lang3.png"
@@ -67,6 +68,7 @@ const LandingPage = () => {
                         <p>Conheça nosso  portfólio de serviços</p>
                     </div>
 
+                    <div className="Servico_quadros_LangPG">
                     <div className="Servico_Card_LangPG">
                         <div className="Title_icon_LandPG">
                             <img src={Icon4} alt="" />
@@ -92,7 +94,9 @@ const LandingPage = () => {
                             ajudando a monitorar o desempenho
                             e identificar áreas com notas baixas.</p>
                     </div>
+                    </div>
 
+                    <div className="Servico_quadros_LangPG">
                     <div className="Servico_Card_LangPG">
                         <div className="Title_icon_LandPG">
                             <img src={Icon6} alt="" />
@@ -116,6 +120,11 @@ const LandingPage = () => {
                             eventos, projetos estudantis e mudanças
                             no calendário</p>
                     </div>
+                    </div>
+                </div>
+
+                <div className="BannerAPP_LangPG">
+                    <img src={BannerAPP} alt=""/>
                 </div>
             </main>
             <Footer />

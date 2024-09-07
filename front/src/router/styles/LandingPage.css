@@ -27,11 +27,6 @@
     font-size: 45px;
 }
 
-.Title_icon_LandPG {
-    display: flex;
-    align-items: center;
-}
-
 .Card p {
     color: white;
     font-size: 25px;
@@ -61,3 +56,37 @@ color: #AFAFAF;
     width: 10vh;
 }
 
+.Servico_Card_LangPG {
+    display: flex;
+    flex-direction: column;
+    width: 550px;
+}
+.Servico_Card_LangPG  p {
+    margin-left: 65px;
+    font-size: 25px; 
+}
+
+.Title_icon_LandPG {
+    display: flex;
+    align-items: center;
+}
+
+.Servico_quadros_LangPG {
+    display:flex ;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 30px
+}
+
+.BannerAPP_LangPG {
+margin-top: 20vh;
+margin-bottom: 5vh;
+    
+}
+
+.BannerAPP_LangPG img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    
+}
