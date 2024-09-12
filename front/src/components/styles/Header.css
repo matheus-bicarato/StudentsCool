@@ -9,7 +9,7 @@
     justify-content: space-between;
     font-family: itim;
 }
-.logo{
+.Logo_Header{
     width: 420px;
 }
 .perfil{
@@ -34,4 +34,39 @@
 }
 .porta{
     width: 70px;
+}
+
+@media (max-width:900px) {
+
+    .Content_Logo_Header {
+        align-items: center;
+        width: max-content;
+    }
+
+    .Logo_Header {
+        width: 300px;
+        
+    }
+
+    .img-perfil {
+        width: 45px;
+        height: 45px;
+    }
+
+    .user{
+        font-size: 20px;
+    }
+    .subUser{
+        font-size: 14px;
+    }
+    .porta{
+        width: 45px;
+    }
+
+    .Navbar {
+        flex-direction: column;
+        height: 120px;
+        padding-bottom: 30px;
+        
+    }
 }
