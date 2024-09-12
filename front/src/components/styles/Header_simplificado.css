@@ -37,11 +37,23 @@
 
     .Simple_Header{
         flex-direction: column;
+        height: 140px;
     }
 
     .Logo_lapis {
         width: 300px;
     }
 
-    
+    .Logo_bola {
+        width: 60px;
+    }
+
+    .Title_Header {
+        font-size: 10px;
+    }
+
+    .left {
+        align-self: start;
+        margin-top: -30px;
+    }
 }
