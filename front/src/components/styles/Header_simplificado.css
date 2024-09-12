@@ -1,0 +1,41 @@
+.Simple_Header {
+    background-color: #858AE3;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 130px;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.Logo_bola {
+    width: 115px;
+}
+
+.Logo_lapis {
+    width: 350px;
+}
+
+.Title_Header {
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+}
+
+.left {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
+
+.span:hover {
+    color: black;
+    transition: color 0.3s ease;
+}
+
+@media (max-width:900px) {
+
+    .Simple_Header{
+        width: 100%;
+    }
+}

@@ -2,10 +2,11 @@ import { Link } from "react-router-dom";
 import Logo_lapis from "../assets/imagens/Logo_Lapis.png"
 import Logo_bola from "../assets/imagens/Logo_branco.png"
 
+import '../components/styles/Header_simplificado.css';
 
 const Header_simplificado = () => {
     return (
-        <header>
+        <header className="Simple_Header">
             <div className="right">
                 <Link to={"/"}><img src={Logo_lapis} alt="Logo" className="Logo_lapis" /></Link>
             </div>
