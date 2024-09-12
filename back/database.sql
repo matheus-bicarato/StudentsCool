@@ -34,19 +34,6 @@ CREATE TABLE contato_msg_exemplo (
     mensagem TEXT NOT NULL
 );
 
--- Tabela turmas
-CREATE TABLE turmas (
-    id BIGINT AUTO_INCREMENT PRIMARY KEY,
-    EscolaID BIGINT NOT NULL,
-    Turma VARCHAR(50) NOT NULL,
-    Serie INT NOT NULL,
-    CONSTRAINT fk_escola
-        FOREIGN KEY (EscolaID)
-        REFERENCES cadastro_escolas(id)
-        ON DELETE CASCADE
-        ON UPDATE CASCADE
-);
-
 -- Criação tabela "users" de cada escola
 create table users_escola_exemplo(
 	id BIGINT AUTO_INCREMENT PRIMARY KEY,
@@ -55,14 +42,8 @@ create table users_escola_exemplo(
     cpf INT not null unique,
     telefone INT not null unique,
     senha VARCHAR(255) NOT null,
-    authority ENUM('aluno', 'professor', 'admin') not null default 'aluno',    -- COLOCAR CHAVE ESTRANGEIRA NESSA PORRA
-    turma_id BIGINT NOT NULL,
+    authority ENUM('aluno', 'professor', 'admin') not null default 'aluno'    -- COLOCAR CHAVE ESTRANGEIRA NESSA PORRA
 
-    CONSTRAINT fk_turma
-        FOREIGN KEY (turma_id)
-        REFERENCES turmas(id)
-        ON DELETE CASCADE
-        ON UPDATE CASCADE
 )
 CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
@@ -71,12 +52,9 @@ INSERT INTO cadastro_escolas (
     email,
     localizacao,
     contato_alt,
-    lvl_ensino,
-    qtd_turma,
     pre_cores,
     dias_letivos,
     horarios,
-    metodo_nota,
     observacoes,
     aprovado
 ) VALUES (
@@ -85,26 +63,12 @@ INSERT INTO cadastro_escolas (
     'Rua dos Exemplos, 123, Centro',
     '(11) 98765-4321',
     'Ensino Médio',
-    2,
+    3,
     'Azul e Branco',
     'Segunda a Sexta-feira',
     '07:00 - 12:20',
-    'Semestre',
     'Escola com foco em tecnologia e inovação.',
     TRUE
 );
 
--- Adiciona todas as turmas para três séries do ensino médio
-
--- Para a 1ª série
-INSERT INTO turmas (EscolaID, Turma, Serie) VALUES (1, 'A', 1);
-INSERT INTO turmas (EscolaID, Turma, Serie) VALUES (1, 'B', 1);
-
--- Para a 2ª série
-INSERT INTO turmas (EscolaID, Turma, Serie) VALUES (1, 'A', 2);
-INSERT INTO turmas (EscolaID, Turma, Serie) VALUES (1, 'B', 2);
-
--- Para a 3ª série
-INSERT INTO turmas (EscolaID, Turma, Serie) VALUES (1, 'A', 3);
-INSERT INTO turmas (EscolaID, Turma, Serie) VALUES (1, 'B', 3);
 
