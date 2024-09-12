@@ -1,8 +1,8 @@
 
 import { Link } from 'react-router-dom'
 import './styles/Cadastro.css'
-import Checkbox from "../components/Checkbox"
 import Header_simplificado from '../components/Header-simplificado';
+import Footer from '../components/Footer';
 const Cadastro = () => {
 
     const items = [
@@ -56,8 +56,8 @@ const Cadastro = () => {
                     <label htmlFor="" className="conteudo_container_cadastro">Localização.</label>
                     <input type="text"
                         className="input_container"
-                        id=""
-                        placeholder="Digite sua Localização"
+                        id="Localizacao"
+                        placeholder="Localização da escola"
                         required
                     />
                     <hr className="hr_opacity" />
@@ -68,8 +68,8 @@ const Cadastro = () => {
                     <label htmlFor="" className="conteudo_container_cadastro">Outra forma de contato.</label>
                     <input type="text"
                         className="input_container"
-                        id=""
-                        placeholder="Telefone da escola ou outro e-mail"
+                        id="contato"
+                        placeholder="Email da escola ou telefone"
                         required
                     />
                     <hr className="hr_opacity" />
@@ -77,17 +77,11 @@ const Cadastro = () => {
 
                 <div className="barra_porple"></div>
                 <div className="container_Cadastro_itens">
-                    <label htmlFor="" className="conteudo_container_cadastro">Outra forma de contato.</label>
-                    <Checkbox items={items} />
-                </div>
-
-                <div className="barra_porple"></div>
-                <div className="container_Cadastro_itens">
-                    <label htmlFor="" className="conteudo_container_cadastro">Quantidade de turmas em cada Série.</label>
+                    <label htmlFor="" className="conteudo_container_cadastro">Quantidade de Alunos.</label>
                     <input type="text"
                         className="input_container"
-                        id=""
-                        placeholder="Ex: 2 turmas (A,B)"
+                        id="contato"
+                        placeholder="Ex: 0 alunos"
                         required
                     />
                     <hr className="hr_opacity" />
@@ -98,8 +92,8 @@ const Cadastro = () => {
                     <label htmlFor="" className="conteudo_container_cadastro">Dias letivos da semana.</label>
                     <input type="text"
                         className="input_container"
-                        id=""
-                        placeholder="ex: 5 dias letivos (Segunda-feira a Sexta-feira)."
+                        id="contato"
+                        placeholder="ex: segunda á sexta-feira"
                         required
                     />
                     <hr className="hr_opacity" />
@@ -107,23 +101,11 @@ const Cadastro = () => {
 
                 <div className="barra_porple"></div>
                 <div className="container_Cadastro_itens">
-                    <label htmlFor="" className="conteudo_container_cadastro">Método de nota.</label>
+                    <label htmlFor="" className="conteudo_container_cadastro">Observaçoes adicionais.</label>
                     <input type="text"
                         className="input_container"
-                        id=""
-                        placeholder="ex: Bimestre,trimestre ou semestre."
-                        required
-                    />
-                    <hr className="hr_opacity" />
-                </div>
-
-                <div className="barra_porple"></div>
-                <div className="container_Cadastro_itens">
-                    <label htmlFor="" className="conteudo_container_cadastro">Observações adicionais.</label>
-                    <input type="text"
-                        className="input_container"
-                        id=""
-                        placeholder="Observações adicionais."
+                        id="contato"
+                        placeholder="Observações adicionais"
                         required
                     />
                     <hr className="hr_opacity" />
@@ -135,6 +117,7 @@ const Cadastro = () => {
 
 
             </div>
+            <Footer/>
         </div>
     )
 }
