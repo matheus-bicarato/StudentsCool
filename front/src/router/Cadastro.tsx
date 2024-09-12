@@ -5,13 +5,6 @@ import Header_simplificado from '../components/Header-simplificado';
 import Footer from '../components/Footer';
 const Cadastro = () => {
 
-    const items = [
-        { id: 'item1', label: 'Item 1' },
-        { id: 'item2', label: 'Item 2' },
-        { id: 'item3', label: 'Item 3' },
-        { id: 'item4', label: 'Item 4' },
-    ];
-
     return (
         <div className="">
             <Header_simplificado />

@@ -36,6 +36,12 @@
 @media (max-width:900px) {
 
     .Simple_Header{
-        width: 100%;
+        flex-direction: column;
     }
+
+    .Logo_lapis {
+        width: 300px;
+    }
+
+    
 }
