@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import './styles/Login.css'
 const Login = () => {
     return (
-        <div className="background">
+        <div className="background_Login">
             <div >
                 <Link to={"/"}><img className="Logo" src={Logo} alt="logo" /></Link>
             </div>

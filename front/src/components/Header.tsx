@@ -8,8 +8,8 @@ import './styles/Header.css'
 const Header = () => {
     return (
         <header className='Navbar'>
-            <div className="logo">
-                <Link to={"/"}><img className="logo" src={logo} alt="logo" /></Link>
+            <div className="Content_Logo_Header">
+                <Link to={"/"}><img className="Logo_Header" src={logo} alt="logo" /></Link>
             </div>
             <div className="perfil">
                 <Link to={"/"}><img className='img-perfil' src={perfil} alt="perfil" /></Link>
