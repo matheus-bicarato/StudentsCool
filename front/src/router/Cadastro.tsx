@@ -6,7 +6,7 @@ import Footer from '../components/Footer';
 const Cadastro = () => {
 
     return (
-        <div className="">
+        <div>
             <Header_simplificado />
             <div className="main_cadastro">
                 <div className="barra_porple"></div>
