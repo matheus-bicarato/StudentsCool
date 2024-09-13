@@ -119,4 +119,15 @@
     .container_cadastro_button {
         width: 100%;
     }
+
+    .title_cadastro {
+
+        font-size: 200%;
+    }
+}
+
+@media (max-width:340px) {
+    .title_cadastro {
+        font-size: 24px;
+    }
 }
