@@ -1,51 +1,74 @@
-/* ---------------
-    PARTE-1
---------------- */
+@import url('https://fonts.googleapis.com/css2?family=Kavoon&display=swap');
 
-.Banner_LandPG {
+/* -------------------------------- */
+  /* Slide */
+  /* -------------------------------- */
+  
+  .slide_show {
     display: flex;
-    justify-content: end;
-}
+
+    margin: 8vh;
+    
+  }
+  
+  .Text-slide {
+    background-color: var(--button-color-transparent) ;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10vh;
+    width: 60vh;
+    gap: 10vh;
+    padding: 10px;
+    border-radius: 10px;
+    color: #fff;
+  }
+  .Text-slide h1{
+    font-size: 5vh;
+    
+  }
+  
+  .Textinho {
+    font-size: 22px;
+    font-weight: 700; /*grossura do texto*/
+   /* line-height: 43px; espaço entre linhas*/
+   text-align: justify;
+  }
+  
+  .btn {
+    border: 3px solid #fff  !important;
+    font-size: 25px !important;
+    transition: 0.5s;
+    display: inline-block;
+    margin: 0 4vh;
+    width: 70%;
+  }
+  
+  .btn:hover {
+    border:  solid #00B2CA;
+    color: #00B2CA;
+    color: #fff ;
+    transition: 0.5s;
+    transform: scale(1.2);
+  }
 
 /* ---------------
     PARTE-2
---------------- */
-
-.Card {
-    background-color: #4E148C;
-    width: 400px;
-    height: 300px;
-    padding: 20px;
-}
-
-.Card img {
-    width: 10vh;
-}
-
-.Card h1 {
-    color: white;
-    font-size: 45px;
-}
-
-.Card p {
-    color: white;
-    font-size: 25px;
-}
-
-.Cards {
-    display: flex;
-    justify-content: space-around;
-    margin-top: -50px;
-}
-
-/* ---------------
-    PARTE-3
 --------------- */
 
 .Title_Servico_LangPG {
     display: flex;
     align-items: center;
     flex-direction: column;
+}
+
+.Title_Servico_LangPG h1 {
+    font-size: 50px;
+}
+
+.Title_Servico_LangPG p {
+    font-size: 25px;
 }
 
 .Servico p {
@@ -90,3 +113,61 @@ margin-bottom: 5vh;
     object-fit: cover;
     
 }
+
+
+/* ---------------
+    Linhas
+--------------- */
+
+.divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 100px 20px 100px;
+
+  }
+  
+  .divider::before,
+  .divider::after {
+    content: '';
+    flex: 1;
+    height: 2px;
+    background: #4E148C;
+  }
+  
+  .divider-text {
+    margin: 0 10px;
+    color: #4E148C;
+    font-size: 20px;
+  }
+
+/* ---------------
+    PARTE-3
+--------------- */
+
+.Container_Grafico_landingPG {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+  .Text_graf_LandPG {
+    display: flex;
+    align-items: center;
+    background-color: #9FDFFC;
+    width: 400px;
+    height: 100px;
+    justify-content: center;
+    border-radius:  20px;
+    box-shadow: black;
+  }
+
+  .Text_graf_LandPG h1 {
+    font-family: Kavoon;
+    color: #4E148C;
+  }
+
+  .Text_graf_LandPG img {
+    width: 50px;
+  }
+

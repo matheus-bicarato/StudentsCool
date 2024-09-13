@@ -1,131 +1,113 @@
+import React, { useState } from 'react';
+
 import Header_simplificado from "../components/Header-simplificado";
 import Footer from "../components/Footer";
+import Slide from "../components/Slide";
 
-import Banner from "../assets/imagens/banner_landingPG.png";
 import BannerAPP from "../assets/imagens/APPbanner_landing_page.png";
+
 import Icon1 from "../assets/imagens/Icon_lang1.png"
 import Icon2 from "../assets/imagens/Icon_lang2.png"
 import Icon3 from "../assets/imagens/Icon_lang3.png"
 import Icon4 from "../assets/imagens/Icon_lang4.png"
-import Icon5 from "../assets/imagens/Icon_lang5.png"
-import Icon6 from "../assets/imagens/Icon_lang6.png"
-import Icon7 from "../assets/imagens/Icon_lang7.png"
+import Icon_Grafico from "../assets/imagens/Icon_Gráfico_langPG.png"
+import Grafico from "../assets/imagens/Gráfico_langPG.png"
+
+// SLide
+import imagem1 from "../assets/imagens/Banner_landingPG_1.png";
+import imagem2 from "../assets/imagens/Banner_landingPG_2.png";
 
 import './styles/LandingPage.css'
 
 const LandingPage = () => {
+
+    const images = [imagem1, imagem2];
+
     return (
         <div>
             <Header_simplificado />
             <main>
-                <div className="Banner_LandPG">
-                    <img src={Banner} alt=""  />
-                </div>
-                <div className="Cards">
-                    <div className="Card">
-                        <div className="Title_icon_LandPG">
-                            <img src={Icon1} alt="" />
-                            <h1>Comunicação</h1>
-                        </div>
-                        <p>A comunicação entre alunos e
-                        professores é assegurada por 
-                        chats por turma, uma página de 
-                        notícias escolares e o acompanhamento
-                        do progresso acadêmico, que inclui 
-                        boletins para facilitar a organização 
-                        e o desempenho.</p>
-                    </div>
-                    
-                    <div className="Card">
-                        <div className="Title_icon_LandPG">
-                            <img src={Icon2} alt="" />
-                            <h1>Gestão Escolar</h1>
-                        </div>
-                        <p>A gestão escolar organiza e coordena
-                            a escola, incluindo planejamento,
-                            administração de recursos e supervisão
-                            acadêmica, garantindo uma comunicação
-                            eficaz e a melhoria contínua.</p>
-                    </div>
-
-                    <div className="Card">
-                        <div className="Title_icon_LandPG">
-                            <img src={Icon3} alt="" />
-                            <h1>Sustentabilidade</h1>
-                        </div>
-                        <p>Escolas brasileiras enfrentam
-                            desperdício de alimentos devido
-                            à insatisfação com as refeições,
-                            comunicação ineficaz entre cantina
-                            e alunos, chamadas incorretas e
-                            desperdício de papel com impressões.</p>
-                    </div>
+                <div className="slide_show">
+                    <Slide images={images}/>
                 </div>
 
                 <div className="Servico">
                     <div className="Title_Servico_LangPG">
-                        <h1>Serviços</h1>
-                        <p>Conheça nosso  portfólio de serviços</p>
+                        <h1>Desperdício de Alimento</h1>
+                        <p>Conheça os motivos do desperdício</p>
                     </div>
 
                     <div className="Servico_quadros_LangPG">
+                    <div className="Servico_Card_LangPG">
+                        <div className="Title_icon_LandPG">
+                            <img src={Icon1} alt="" />
+                            <h1>Porções Excessivas</h1>
+                        </div>
+                        <p> Muitas vezes, as escolas servem porções
+                            maiores do que os alunos conseguem
+                            consumir, resultando em grande quantidade
+                            de alimentos que acabam sendo jogados fora.</p>
+                    </div>
+
+                    <div className="Servico_Card_LangPG">
+                        <div className="Title_icon_LandPG">
+                            <img src={Icon2} alt="" />
+                            <h1>Falta de Planejamento e Coordenação</h1>
+                        </div>
+                        <p>A falta de planejamento e coordenação nas
+                            escolas causa desperdício de alimentos devido
+                            à preparação excessiva e má gestão das refeições.
+                            Melhorar esses aspectos é crucial para reduzir o
+                            desperdício e usar os recursos de forma mais eficiente.</p>
+                    </div>
+                    </div>
+
+                    <div className="Servico_quadros_LangPG">
+                    <div className="Servico_Card_LangPG">
+                        <div className="Title_icon_LandPG">
+                            <img src={Icon3} alt="" />
+                            <h1>Preferências Alimentares e Escolhas Limitadas</h1>
+                        </div>
+                        <p>As refeições oferecidas podem não
+                            corresponder às preferências dos alunos ou
+                            não serem adequadas para todas as necessidades
+                            dietéticas. Isso pode levar a uma baixa aceitação
+                            dos alimentos, com muitos sendo deixados no</p>
+                    </div>
+
                     <div className="Servico_Card_LangPG">
                         <div className="Title_icon_LandPG">
                             <img src={Icon4} alt="" />
-                            <h1>Cardápio</h1>
+                            <h1>Preparação e Apresentação</h1>
                         </div>
-                        <p>A tela exibirá o cardápio semanal
-                            e lanches diários. Alunos podem
-                            escolher e avaliar lanches. A cantina
-                            ajusta a produção e limita quantidades
-                            com base no feedback. O cardápio
-                            semanal é acessível apenas para
-                            quem confirmar presença.</p>
+                        <p>Se a comida não for preparada de maneira
+                            atraente ou saborosa, é mais provável que os
+                            alunos não a consumam. Problemas na preparação
+                            e na apresentação dos alimentos podem levar a
+                            uma maior quantidade de restos.</p>
+                    </div>
+                    </div>
+                </div>
+
+                <div className="divider">
+                    <span className="divider-text">//</span>
+                </div>
+
+                <div className="Container_Grafico_landingPG">
+                    <div className='Text_graf_LandPG'>
+                        <h1>Grafico</h1>
+                        <img src={Icon_Grafico} alt="" />
                     </div>
 
-                    <div className="Servico_Card_LangPG">
-                        <div className="Title_icon_LandPG">
-                            <img src={Icon5} alt="" />
-                            <h1>Boletim</h1>
-                        </div>
-                        <p>O aluno poderá ver suas notas
-                            e média por matéria e receberá
-                            o boletim ao final de cada etapa,
-                            ajudando a monitorar o desempenho
-                            e identificar áreas com notas baixas.</p>
-                    </div>
-                    </div>
-
-                    <div className="Servico_quadros_LangPG">
-                    <div className="Servico_Card_LangPG">
-                        <div className="Title_icon_LandPG">
-                            <img src={Icon6} alt="" />
-                            <h1>Chat</h1>
-                        </div>
-                        <p>Os chats por turma permitirão que
-                            apenas os professores enviem mensagens,
-                            arquivos e atividades. Haverá um mural
-                            com datas importantes para ajudar os
-                            alunos a se organizarem e a não perderem
-                            conteúdo.</p>
-                    </div>
-
-                    <div className="Servico_Card_LangPG">
-                        <div className="Title_icon_LandPG">
-                            <img src={Icon7} alt="" />
-                            <h1>Notícias</h1>
-                        </div>
-                        <p>Uma página exclusiva para notícias escolares
-                            divulgará informações atualizadas, como
-                            eventos, projetos estudantis e mudanças
-                            no calendário</p>
-                    </div>
+                    <div className="Grafico_landingPG">
+                        <img src={Grafico} alt="" />
                     </div>
                 </div>
 
                 <div className="BannerAPP_LangPG">
                     <img src={BannerAPP} alt=""/>
                 </div>
+
             </main>
             <Footer />
         </div>

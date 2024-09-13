@@ -1,0 +1,25 @@
+EXEMPLO PARA USAR OS 2 COMPONENTES
+
+// SLide
+import imagem1 from "../assets/imagens/Icon_Call.png";
+import imagem2 from "../assets/imagens/Icon_Call.png";
+import imagem3 from "../assets/imagens/Icon_Call.png";
+
+// Estrelas
+import Estrelas from '../components/Estrelas';
+
+    const images = [imagem1, imagem2, imagem3];
+
+    const [rating, setRating] = useState(0);
+
+    return (
+        <div>
+            <Header_simplificado />
+            <main>
+                <div className="slide_show">
+                    <Slide images={images}/>
+                    
+                    <div>
+                    <p>Avaliação: {rating} Estrelas</p>
+                    <Estrelas rating={rating} setRating={setRating} />
+                    </div>

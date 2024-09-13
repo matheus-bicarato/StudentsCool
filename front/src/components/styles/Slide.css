@@ -1,0 +1,36 @@
+:root {
+    --button-color: #858AE3;
+    --white: #fff;
+  }
+
+.carousel {
+    display: flex;
+    justify-content: center;
+  }
+
+.carousel-image {
+    width: 100%; /* Ajusta a largura das imagens ao tamanho do contêiner */
+    height: auto; /* Mantém a proporção das imagens */
+    object-fit: cover; /* Opcional: ajusta como a imagem deve ser redimensionada para caber no contêiner */
+    border-radius: 10px;
+  }
+
+.carousel .thumb.selected, .carousel .thumb:hover{
+    border: 3px solid var(--button-color) !important;
+    border-radius: 5px;
+    transform: scale(1.2);
+    
+}
+
+.thumbs {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: solid;
+    gap: 10px;
+    margin-top: 10px;
+    width: 300px;
+    
+
+}

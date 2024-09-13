@@ -9,6 +9,16 @@ npm install react-router-dom
 instalando o firebase para funcionar o autenticador
 npm install firebase
 
+Instalando a dependencia do Slide 
+npm install react-responsive-carousel
+
+Instalar o pacote @fortawesome/react-fontawesome, que é o principal para usar ícones do FontAwesome no React.
+npm install --save @fortawesome/react-fontawesome
+
+Ícones gratuitos do FontAwesome (versão sólida)
+npm install --save @fortawesome/free-solid-svg-icons
+
+
 ================================================================
 
 Para iniciar o projeto
