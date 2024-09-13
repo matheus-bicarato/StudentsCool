@@ -11,7 +11,7 @@ import NoticiasRecente from './router/NoticiasRecente.tsx'
 import Contato from './router/Contato.tsx'
 import Cadastro_feito from './router/cadastro_feito.tsx'
 import LandingPage from './router/LandingPage.tsx'
-import Home_alunos from './router/Home_alunos.tsx'
+import Home from './router/Home.tsx'
 
 
 const router = createBrowserRouter([
@@ -56,8 +56,8 @@ const router = createBrowserRouter([
         element: <Cadastro_feito/>
       },
       {
-        path: "/Home_alunos",
-        element: <Home_alunos/>
+        path: "/Home",
+        element: <Home/>
       },
             
     ]
