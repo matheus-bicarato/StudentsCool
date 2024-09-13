@@ -1,10 +1,9 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import './styles/Gallery.css'; // Importa o CSS da galeria
 import img1 from '../assets/imagens/lousa.png';
-import Title1 from '../assets/imagens/pizza.png';
-import Title2 from '../assets/imagens/mao.png';
-import Title3 from '../assets/imagens/papell.png';
+import Title1 from '../assets/imagens/casinha.png';
+import Title2 from '../assets/imagens/exclamacao.png';
+import Title3 from '../assets/imagens/X.png';
 
 const galleryItems = [
     { id: 1, title: 'Novas escolas', imageUrl: img1, imgTitle: Title1, path: '/' },
@@ -13,7 +12,7 @@ const galleryItems = [
     // Adicione mais itens conforme necessário
 ];
 
-const Gallery_adm = () => {
+const Gallery_adm_geral = () => {
     return (
         <div className="gallery">
             {galleryItems.map(item => (
@@ -36,4 +35,4 @@ const Gallery_adm = () => {
     );
 };
 
-export default Gallery_adm;
+export default Gallery_adm_geral;

@@ -3,7 +3,7 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 16px;
-    justify-content: space-around;
+    justify-content: center;
     justify-items: center;
     padding: 20px;
     /* background-color: black; */
@@ -12,12 +12,15 @@
 
 .title {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     justify-items: center;
-    color: #613FC1; 
+    align-items: center;
+    color: #613FC1;
+    width: 88%;
 }
 .title h1{
-    font-size: 40px;
+    font-size: 38px;
 }
 .title-image{
     width: 57px;
