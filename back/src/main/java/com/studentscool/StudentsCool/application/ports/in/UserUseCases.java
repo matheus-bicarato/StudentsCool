@@ -10,9 +10,9 @@ public interface UserUseCases {
 
     List<User> getAllUsers();
 
-    User getUserById(Long id);
+    User getUserById(String id);
 
-    User updateUser(User userDetails, Long id);
+    User updateUser(User userDetails, String id);
 
-    void deleteUser(Long id);
+    void deleteUser(String id);
 }

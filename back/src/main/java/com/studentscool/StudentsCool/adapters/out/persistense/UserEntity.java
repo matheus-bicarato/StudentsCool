@@ -13,16 +13,19 @@ import lombok.*;
 @Table(name = "users_escola_exemplo")
 public class UserEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private String id;
 
+//    @Column(nullable = false, unique = false)
     private String nome;
-    private String email;
-    private Long cpf;
-    private Integer telefone;
-    private String senha;
-    private String authority;
 
-    @Column(name = "turma_id")
-    private String turma_id;
+//    @Column(nullable = false, unique = true)
+    private String email;
+
+//    @Column(nullable = false, unique = true)
+    private Long cpf;
+
+//    @Column(nullable = false, unique = true)
+    private Integer telefone;
+
+    private String authority;
 }

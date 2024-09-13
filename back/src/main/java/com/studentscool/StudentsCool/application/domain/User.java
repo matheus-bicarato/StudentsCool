@@ -7,12 +7,10 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 public class User {
-    private Long id;
+    private String id;
     private String nome;
     private String email;
     private Long cpf;
     private Integer telefone;
-    private String senha;
     private String authority;
-    private String turma_id;
 }
