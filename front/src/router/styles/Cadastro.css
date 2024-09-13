@@ -8,7 +8,7 @@
 
 .main_cadastro {
     background-color: #D1C7F0;
-    height: 100%;
+    
     display: flex;
     flex-direction: column;
     /* justify-content: center; */
@@ -23,6 +23,7 @@
     height: 20px;
     border-radius: 20px;
     margin-bottom: -10px;
+
 }
 
 .container_Cadastro {
@@ -73,11 +74,12 @@
 
 .hr_opacity {
     opacity: 50%;
+    width: 100%;
 }
 
 .container_cadastro_button {
     margin-top: 20px;
-    width: 1000px;
+    width: 67%;
     display: flex;
     justify-content: end;
     /* background-color: black; */
@@ -95,7 +97,37 @@
     transform: scale(1.05);
 }
 
-@media (max-width:900) {
+@media (max-width:1050px) {
 
+    .container_Cadastro {
+        width: 100%;
+        height: 100%;
+    }
 
+    .barra_porple {
+        width: 100%;
+    }   
+
+    .container_Cadastro_itens {
+        width: 100%;
+    }
+
+    .hr_opacity {
+        width: 100%;
+    }
+
+    .container_cadastro_button {
+        width: 100%;
+    }
+
+    .title_cadastro {
+
+        font-size: 200%;
+    }
+}
+
+@media (max-width:340px) {
+    .title_cadastro {
+        font-size: 24px;
+    }
 }

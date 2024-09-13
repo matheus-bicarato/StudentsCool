@@ -1,8 +1,8 @@
 
 import { Link } from 'react-router-dom'
-import './styles/Cadastro.css'
 import Header_simplificado from '../components/Header-simplificado';
 import Footer from '../components/Footer';
+import './styles/Cadastro.css'
 const Cadastro = () => {
 
     return (
