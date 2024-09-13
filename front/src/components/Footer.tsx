@@ -51,7 +51,9 @@ const Footer = () => {
                         </div>
                     </div>
                 </div>
-                    <Link to={"/"} className="Logo_Footer"><img src={LogoB} alt="" /></Link>
+                <div className="Logo_Footer">
+                    <Link to={"/"} ><img src={LogoB} alt="" /></Link>
+                </div>
             </div>
 
             {/* PART_3 */}
