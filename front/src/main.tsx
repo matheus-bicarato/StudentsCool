@@ -11,7 +11,9 @@ import NoticiasRecente from './router/NoticiasRecente.tsx'
 import Contato from './router/Contato.tsx'
 import Cadastro_feito from './router/cadastro_feito.tsx'
 import LandingPage from './router/LandingPage.tsx'
-import Home_alunos from './router/Home_alunos.tsx'
+import Home from './router/Home.tsx'
+import Cardapio from './router/cardapio.tsx'
+import Filtro_cardapio from './router/filtro_cardapio.tsx'
 
 
 const router = createBrowserRouter([
@@ -20,46 +22,54 @@ const router = createBrowserRouter([
 
     element: <App />,
 
-    errorElement: <Error/>,
+    errorElement: <Error />,
 
     children: [
       {
         path: "/",
-        element: <LandingPage/>
+        element: <LandingPage />
       },
       {
         path: "/Cadastro",
-        element: <Cadastro/>
+        element: <Cadastro />
       },
       {
         path: "/Login",
-        element: <Login/>
+        element: <Login />
       },
       {
         path: "/NoticiasPopulares",
-        element: <NoticiasPopulares/>
+        element: <NoticiasPopulares />
       },
       {
         path: "/NoticiasNovidade",
-        element: <NoticiasNovidade/>
+        element: <NoticiasNovidade />
       },
       {
         path: "/NoticiasRecente",
-        element: <NoticiasRecente/>
+        element: <NoticiasRecente />
       },
       {
         path: "/Contato",
-        element: <Contato/>
+        element: <Contato />
       },
       {
         path: "/cadastro-feito",
-        element: <Cadastro_feito/>
+        element: <Cadastro_feito />
       },
       {
-        path: "/Home_alunos",
-        element: <Home_alunos/>
+        path: "/Home",
+        element: <Home />
       },
-            
+      {
+        path: "/Cardapio",
+        element: <Cardapio />
+      },
+      {
+        path: "/Filtro_cardapio",
+        element: <Filtro_cardapio />
+      },
+
     ]
   }
 ])

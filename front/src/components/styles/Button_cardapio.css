@@ -1,0 +1,24 @@
+.buttons-filtro_cardapio {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .buttons-container {
+    margin: 20px;
+  }
+  
+  .day-button {
+    margin: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    background-color: lightgray;
+    color: black;
+  }
+  
+  .day-button.active {
+    background-color: blue;
+    color: white;
+  }
+  

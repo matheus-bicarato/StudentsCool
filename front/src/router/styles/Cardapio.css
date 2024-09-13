@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
+* {
+    padding: 0;
+    margin: 0;
+    font-family: itim;
+}
+.main_cardapio{
+    background-color: #D1C7F0;
+}
+.main_cardapio_top {
+    background-image: url(../../assets/imagens/Fundo_ROXO.png);
+    background-repeat: no-repeat;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.img_cardapio{
+    width: 800px;
+}
+.container_title_cardapio{
+    width: 80%;
+    
+}
+.title_cardapio{
+    color: #Fff;
+    font-size: 55px;
+}
+.span_cardapio{
+    color: #613FC1;
+}
+.container_cardapio_button {
+    display: flex;
+    justify-content: end;
+}
+.container_cardapio_button2{
+    display: flex;
+    justify-content: end;
+}
+.button_cardapio{
+    padding: 10px;
+    width: 200px;
+    margin-bottom: 20px;
+    background-color: #c6caff;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+.button_cardapio:hover {
+    background-color: white;
+    transform: scale(1.05);
+}
+.button_container_flex{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    margin-top: 20px;
+}

@@ -3,8 +3,12 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import './styles/Home.css'
 import Gallery_alunos from '../components/Gallery_alunos';
+import Gallery_cantina from '../components/Gallery_cantina';
+import Gallery_adm_geral from '../components/Gallery_adm_geral';
+import Gallery_adm_escola from '../components/Gallery_adm_escola';
 
-const Home_alunos = () => {
+
+const Home = () => {
     
     return (
         <div className="">
@@ -19,4 +23,4 @@ const Home_alunos = () => {
     )
 }
 
-export default Home_alunos;
+export default Home;

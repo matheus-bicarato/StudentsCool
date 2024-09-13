@@ -1,18 +1,19 @@
 import { Link } from 'react-router-dom';
 import './styles/Gallery.css'; // Importa o CSS da galeria
 import img1 from '../assets/imagens/lousa.png';
-import Title1 from '../assets/imagens/pizza.png';
-import Title2 from '../assets/imagens/mao.png';
+import Title1 from '../assets/imagens/hamburger.png';
+import Title2 from '../assets/imagens/pera.png';
 import Title3 from '../assets/imagens/professor.png';
 
+
 const galleryItems = [
-    { id: 1, title: 'Cardápio', imageUrl: img1, imgTitle: Title1, path: '/cardapio' },
-    { id: 2, title: 'Avaliação', imageUrl: img1, imgTitle: Title2, path: '/' },
+    { id: 1, title: 'Quantidade de Alimento', imageUrl: img1, imgTitle: Title1, path: '/' },
+    { id: 2, title: 'Alimentação diferentes', imageUrl: img1, imgTitle: Title2, path: '/' },
     { id: 3, title: 'Contato', imageUrl: img1, imgTitle: Title3, path: '/' },
     // Adicione mais itens conforme necessário
 ];
 
-const Gallery_alunos = () => {
+const Gallery_cantina = () => {
     return (
         <div className="gallery">
             {galleryItems.map(item => (
@@ -35,4 +36,4 @@ const Gallery_alunos = () => {
     );
 };
 
-export default Gallery_alunos;
+export default Gallery_cantina;
