@@ -20,7 +20,7 @@ public class UserRepositoryImp implements UserRepository {
     }
 
     @Override
-    public Optional<User> findById(Long id) {
+    public Optional<User> findById(String id) {
         return userJpaRepository.findById(id).map(this::toDomain);
     }
 
@@ -31,7 +31,7 @@ public class UserRepositoryImp implements UserRepository {
     }
 
     @Override
-    public void deleteById(Long id) {
+    public void deleteById(String id) {
         userJpaRepository.deleteById(id);
     }
 
@@ -42,9 +42,7 @@ public class UserRepositoryImp implements UserRepository {
         user.setEmail(entity.getEmail());
         user.setCpf(entity.getCpf());
         user.setTelefone(entity.getTelefone());
-        user.setSenha(entity.getSenha());
         user.setAuthority(entity.getAuthority());
-        user.setTurma_id(entity.getTurma_id());
         return user;
     }
 
@@ -55,9 +53,7 @@ public class UserRepositoryImp implements UserRepository {
         entity.setEmail(user.getEmail());
         entity.setCpf(user.getCpf());
         entity.setTelefone(user.getTelefone());
-        entity.setSenha(user.getSenha());
         entity.setAuthority(user.getAuthority());
-        entity.setTurma_id(user.getTurma_id());
         return entity;
     }
 }

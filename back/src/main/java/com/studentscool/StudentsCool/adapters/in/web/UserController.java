@@ -40,7 +40,7 @@ public class UserController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> getUserById(@PathVariable(value = "id") Long id) {
+    public ResponseEntity<?> getUserById(@PathVariable(value = "id") String id) {
         try {
             User user = userUseCases.getUserById(id);
             return ResponseEntity.status(HttpStatus.OK).body(user);
@@ -56,7 +56,7 @@ public class UserController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> atualizarUsuario(@PathVariable(value = "id") Long id,
+    public ResponseEntity<?> atualizarUsuario(@PathVariable(value = "id") String id,
                                               @RequestBody User userDetails) {
         try {
             User updateUser = userUseCases.updateUser(userDetails, id);
@@ -77,7 +77,7 @@ public class UserController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Map<String, String>> deleteUser(@PathVariable(value = "id") Long id) {
+    public ResponseEntity<Map<String, String>> deleteUser(@PathVariable(value = "id") String id) {
         try {
             List<User> todosUsers = userUseCases.getAllUsers();
 
