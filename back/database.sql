@@ -26,13 +26,16 @@ create table cadastro_escolas(
 CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 -- Criação da tabela de contato
-CREATE TABLE contato_msg_exemplo (
+CREATE TABLE contato (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(255) NOT NULL,
-    email VARCHAR(255) NOT NULL UNIQUE,
-    telefone VARCHAR(20) NOT NULL,
-    mensagem TEXT NOT NULL
+    email VARCHAR(255) NOT NULL,
+    telefone VARCHAR(20) not null,
+    mensagem VARCHAR(350) NOT NULL,
+    duvida_ou_alimentacao BOOLEAN,
+    arquivo LONGBLOB
 );
+
 
 -- Criação tabela "users" de cada escola
 create table users_escola_exemplo(
