@@ -3,6 +3,7 @@ package com.studentscool.StudentsCool.adapters.out.persistense;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.springframework.web.multipart.MultipartFile;
 
 @Getter
 @Setter
@@ -11,7 +12,7 @@ import lombok.*;
 
 @Data
 @Entity
-@Table(name = "contato_msg_exemplo")
+@Table(name = "contato")
 public class ContatoEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,4 +22,6 @@ public class ContatoEntity {
     private String email;
     private String telefone;
     private String mensagem;
+    private Boolean DuvidaOuAlimentacao;
+    private byte[] arquivo;
 }

@@ -43,6 +43,8 @@ public class ContatoRepositoryImp implements ContatoRepository {
         contato.setEmail(entity.getEmail());
         contato.setTelefone(entity.getTelefone());
         contato.setMensagem(entity.getMensagem());
+        contato.setDuvidaOuAlimentacao(entity.getDuvidaOuAlimentacao());
+        contato.setArquivo(entity.getArquivo());
 
         return contato;
     }
@@ -54,6 +56,8 @@ public class ContatoRepositoryImp implements ContatoRepository {
         entity.setEmail(contato.getEmail());
         entity.setTelefone(contato.getTelefone());
         entity.setMensagem(contato.getMensagem());
+        entity.setDuvidaOuAlimentacao(contato.getDuvidaOuAlimentacao());
+        entity.setArquivo(contato.getArquivo());
 
         return entity;
     }
