@@ -23,7 +23,7 @@ create table cadastro_escolas(
     observacoes VARCHAR(255),
     aprovado BOOLEAN default false
 )
-CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci
+CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 -- Criação da tabela de contato
 CREATE TABLE contato_msg_exemplo (
@@ -44,6 +44,17 @@ create table users_escola_exemplo(
     authority ENUM('membro', 'cantina', 'admin') not null default 'membro'
 )
 CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- Tabela item de cardapio
+create table cardapio_item(
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    periodo ENUM('manha', 'almoco', 'tarde'),
+    nome_comida VARCHAR(255) NOT NULL,
+    tamanho_porcao INT NOT NULL
+)
+CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+
 
 INSERT INTO cadastro_escolas (
     nome,
