@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Error from './router/Error-page.tsx'
-import Home from './router/Home.tsx'
 import Cadastro from './router/Cadastro.tsx'
 import Login from './router/Login.tsx'
 import NoticiasPopulares from './router/NoticiasPopulares.tsx'
@@ -12,6 +11,7 @@ import NoticiasRecente from './router/NoticiasRecente.tsx'
 import Contato from './router/Contato.tsx'
 import Cadastro_feito from './router/cadastro_feito.tsx'
 import LandingPage from './router/LandingPage.tsx'
+import Home_alunos from './router/Home_alunos.tsx'
 
 
 const router = createBrowserRouter([
@@ -25,7 +25,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Home/>
+        element: <LandingPage/>
       },
       {
         path: "/Cadastro",
@@ -56,8 +56,8 @@ const router = createBrowserRouter([
         element: <Cadastro_feito/>
       },
       {
-        path: "/landingPage",
-        element: <LandingPage/>
+        path: "/Home_alunos",
+        element: <Home_alunos/>
       },
             
     ]

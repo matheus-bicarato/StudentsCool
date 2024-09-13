@@ -1,19 +1,17 @@
 
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import Gallery from '../components/Gallery';
-import lapis from '../assets/imagens/lapis.png'
 import './styles/Home.css'
-import Carousel from '../components/Carousel';
+import Gallery_alunos from '../components/Gallery_alunos';
 
-const Home = () => {
+const Home_alunos = () => {
     
     return (
         <div className="">
             <Header />
             <main className="main_home">
                 <div className="main_top">
-                    <Gallery />
+                    <Gallery_alunos />
                 </div>
             </main>
             <Footer />
@@ -21,4 +19,4 @@ const Home = () => {
     )
 }
 
-export default Home;
+export default Home_alunos;

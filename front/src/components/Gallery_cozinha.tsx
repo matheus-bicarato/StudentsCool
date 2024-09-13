@@ -19,7 +19,7 @@ const galleryItems = [
     // Adicione mais itens conforme necessário
 ];
 
-const Gallery = () => {
+const Gallery_cozinha = () => {
     return (
         <div className="gallery">
             {galleryItems.map(item => (
@@ -42,4 +42,4 @@ const Gallery = () => {
     );
 };
 
-export default Gallery;
+export default Gallery_cozinha;
