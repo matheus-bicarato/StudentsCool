@@ -97,6 +97,13 @@
     transform: scale(1.05);
 }
 
+@media (max-width:1300px) { 
+
+    .container_cadastro_button {
+        width: 80%;
+    }
+}
+
 @media (max-width:1050px) {
 
     .container_Cadastro {

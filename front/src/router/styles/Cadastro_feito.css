@@ -22,7 +22,7 @@
     align-items: center;
     justify-content: center;
     background-color: white;
-    width: 600px;
+    width: 350px;
     height: 300px;
     border-radius: 10px;
 }
@@ -44,4 +44,14 @@
 }
 .copia_pdf:hover{
     color: black;
+}
+
+@media (max-width:390px) {
+    .container_cadastro_feito {
+        width: 300px;
+    }
+
+    .container_cadastro_feito h1 {
+        font-size: 25px;
+    }
 }
