@@ -57,6 +57,33 @@ create table cardapio_item(
 )
 CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
+-- Tabela de itens selecionados do cardapio (SEM CAMPO USUARIO)
+create table cadapio_selecionados(
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    cardapio_item_id BIGINT NOT NULL,
+    porcoes_escolhidas INT NOT NULL,
+
+    FOREIGN KEY (cardapio_item_id) REFERENCES cardapio_item(id)
+    ON DELETE CASCADE
+)
+CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- Tabela de itens selecionados do cardapio (COM O CAMPO DO USUARIO ADICIONADO)
+-- Poderia ser usado para o usuario ver o que ele ja selecionou
+create table cadapio_selecionados(
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    cardapio_item_id BIGINT NOT NULL,
+    user_id VARCHAR(255) NOT NULL,
+    porcoes_escolhidas INT NOT NULL,
+
+    FOREIGN KEY (cardapio_item_id) REFERENCES cardapio_item(id)
+    ON DELETE CASCADE,
+
+    FOREIGN KEY (user_id) REFERENCES users_escola_exemplo(id)
+    ON DELETE CASCADE
+)
+CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
 
 
 INSERT INTO cadastro_escolas (
