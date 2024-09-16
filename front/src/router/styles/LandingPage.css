@@ -159,7 +159,9 @@ margin-bottom: 5vh;
     height: 100px;
     justify-content: center;
     border-radius:  20px;
-    box-shadow: black;
+    margin: 50px;
+    box-shadow: 2vh 2vh 1px 0px rgba(0, 0, 0, 0.326);
+    position: relative;
   }
 
   .Text_graf_LandPG h1 {
@@ -171,3 +173,16 @@ margin-bottom: 5vh;
     width: 50px;
   }
 
+  .Grafico_landingPG {
+    display: flex;
+    justify-content: center;
+    background-color: #858AE3;
+    width: max-content;
+    padding: 50px;
+    margin-top: -65px;
+  }
+
+  .Grafico_landingPG img {
+    width: 90%;
+  }
+  

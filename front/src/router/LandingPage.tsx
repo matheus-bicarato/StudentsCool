@@ -1,5 +1,3 @@
-import React, { useState } from 'react';
-
 import Header_simplificado from "../components/Header-simplificado";
 import Footer from "../components/Footer";
 import Slide from "../components/Slide";
@@ -98,10 +96,13 @@ const LandingPage = () => {
                         <h1>Grafico</h1>
                         <img src={Icon_Grafico} alt="" />
                     </div>
-
                     <div className="Grafico_landingPG">
                         <img src={Grafico} alt="" />
                     </div>
+                </div>
+
+                <div className="divider">
+                    <span className="divider-text">//</span>
                 </div>
 
                 <div className="BannerAPP_LangPG">
@@ -110,6 +111,8 @@ const LandingPage = () => {
 
             </main>
             <Footer />
+
+            <div className="button-style">Gráfico I</div>
         </div>
     )
 }

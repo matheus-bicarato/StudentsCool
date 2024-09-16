@@ -82,7 +82,7 @@
 
 .Nome_contato {
     padding: 12px;
-    width: 500px;
+    width: 100%;
     border-radius: 10px;
     font-family: Arial;
     background-color: #c6caff;
@@ -100,7 +100,7 @@
 
 .Email_contato {
     padding: 12px;
-    width: 220px;
+    width: 50%;
     border-radius: 10px;
     font-family: Arial;
     background-color: #c6caff;
@@ -113,7 +113,7 @@
 
 .Tel_contato {
     padding: 12px;
-    width: 220px;
+    width: 50%;
     border-radius: 10px;
     font-family: Arial;
     background-color: #c6caff;
@@ -126,7 +126,7 @@
 
 .Mensagem_contato{
     padding: 12px;
-    width: 500px;
+    width: 100%;
     height: 200px;
     border-radius: 10px;
     font-family: Arial;
