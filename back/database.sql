@@ -5,7 +5,7 @@ create table adm_studentscool(
     email VARCHAR(255) NOT NULL UNIQUE,
     senha VARCHAR(255) NOT NULL
 )
-CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci
+CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 -- criação da tabela de cadastro de escolas
 create table cadastro_escolas(

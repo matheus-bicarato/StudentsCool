@@ -13,7 +13,8 @@ import org.springframework.data.jpa.repository.Query;
 @Entity
 @Table(name = "cardapio_item")
 public class AddCardapioEntity {
-    @Id@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String periodo;

@@ -13,26 +13,27 @@ import java.util.stream.Collectors;
 public class AddCardapioRepositoryImp implements AddCardapioRepository {
 
     @Autowired
-    private AddCardapioRepository addCardapioRepository;
+    private AddCardapioJpaRepository addCardapioJpaRepository;
 
     @Override
     public List<AddCardapio> findAll() {
-        return null;
+        return addCardapioJpaRepository.findAll().stream().map(this::toDomain).collect(Collectors.toList());
     }
 
     @Override
     public Optional<AddCardapio> findById(Long id) {
-        return Optional.empty();
+        return addCardapioJpaRepository.findById(id).map(this::toDomain);
     }
 
     @Override
     public AddCardapio save(AddCardapio addCardapio) {
-        return null;
+        AddCardapioEntity addCardapioEntity = toEntity(addCardapio);
+        return toDomain(addCardapioJpaRepository.save(addCardapioEntity));
     }
 
     @Override
     public void deleteById(Long id) {
-
+        addCardapioJpaRepository.deleteById(id);
     }
 
     private AddCardapio toDomain(AddCardapioEntity entity) {
@@ -47,9 +48,9 @@ public class AddCardapioRepositoryImp implements AddCardapioRepository {
     private AddCardapioEntity toEntity(AddCardapio addCardapio) {
         AddCardapioEntity entity = new AddCardapioEntity();
         entity.setId(addCardapio.getId());
-        entity.setPeriodo(entity.getPeriodo());
-        entity.setNome_comida(entity.getNome_comida());
-        entity.setTamanho_porcao(entity.getTamanho_porcao());
+        entity.setPeriodo(addCardapio.getPeriodo());
+        entity.setNome_comida(addCardapio.getNome_comida());
+        entity.setTamanho_porcao(addCardapio.getTamanho_porcao());
         return entity;
     }
 }
