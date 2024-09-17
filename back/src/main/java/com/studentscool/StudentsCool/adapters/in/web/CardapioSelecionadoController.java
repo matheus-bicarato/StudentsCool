@@ -29,7 +29,7 @@ public class CardapioSelecionadoController {
     @GetMapping("/qtd-total")
     public ResponseEntity<?> calcularQtdTotal() {
         try {
-            double QtdTotal = cardapioSelecionadoUseCases.calcularQuantidadeTotal();
+            List<String> QtdTotal = cardapioSelecionadoUseCases.calcularQuantidadeTotal();
             return ResponseEntity.ok(QtdTotal);
         } catch (Exception e) {
             Map<String, String> errorResponse = new HashMap<>();

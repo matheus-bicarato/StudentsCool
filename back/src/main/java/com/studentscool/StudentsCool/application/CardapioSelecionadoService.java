@@ -6,6 +6,7 @@ import com.studentscool.StudentsCool.application.ports.out.CardapioSelecionadoRe
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 
@@ -32,17 +33,22 @@ public class CardapioSelecionadoService implements CardapioSelecionadoUseCases {
     }
 
     @Override
-    public double calcularQuantidadeTotal() {
+    public List<String> calcularQuantidadeTotal() {
         List<CardapioSelecionado> itensSelecionados = repository.findAll();
-        double quantidadeTotal = 0;
+        List<String> resultados = new ArrayList<>();
 
         for (CardapioSelecionado itemSelecionado : itensSelecionados) {
+            String nomeItem = itemSelecionado.getAddCardapio().getNome_comida();
             double tamanhoPorcao = itemSelecionado.getAddCardapio().getTamanho_porcao();
             int qtdPorcao = itemSelecionado.getPorcoes_escolhidas();
-            quantidadeTotal += tamanhoPorcao * qtdPorcao;
+            double quantidadeTotal = tamanhoPorcao * qtdPorcao;
+
+            // Formatar o resultado e adicionar à lista
+            String resultado = String.format("Item: %s, Quantidade Total: %.2f", nomeItem, quantidadeTotal);
+            resultados.add(resultado);
         }
 
-        return quantidadeTotal;
+        return resultados;
     }
 
     @Override

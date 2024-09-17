@@ -11,7 +11,7 @@ public interface CardapioSelecionadoUseCases {
 
     List<CardapioSelecionado> GetAllSelecionados();
 
-    double calcularQuantidadeTotal();
+    List<String> calcularQuantidadeTotal();
 
     void deleteAll();
 }
