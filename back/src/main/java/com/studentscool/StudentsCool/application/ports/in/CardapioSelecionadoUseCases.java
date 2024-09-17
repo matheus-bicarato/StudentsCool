@@ -3,6 +3,7 @@ package com.studentscool.StudentsCool.application.ports.in;
 import com.studentscool.StudentsCool.application.domain.CardapioSelecionado;
 
 import java.util.List;
+import java.util.Map;
 
 public interface CardapioSelecionadoUseCases {
     CardapioSelecionado BuscarCardapioSelecionado(Long id);
@@ -11,7 +12,7 @@ public interface CardapioSelecionadoUseCases {
 
     List<CardapioSelecionado> GetAllSelecionados();
 
-    List<String> calcularQuantidadeTotal();
+    Map<String, Double> calcularQuantidadeTotal();
 
     void deleteAll();
 }
