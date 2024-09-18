@@ -1,20 +1,23 @@
 package com.studentscool.StudentsCool.application;
 
+import com.studentscool.StudentsCool.application.domain.AddCardapio;
 import com.studentscool.StudentsCool.application.domain.CardapioSelecionado;
 import com.studentscool.StudentsCool.application.ports.in.CardapioSelecionadoUseCases;
+import com.studentscool.StudentsCool.application.ports.out.AddCardapioRepository;
 import com.studentscool.StudentsCool.application.ports.out.CardapioSelecionadoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.NoSuchElementException;
+import java.util.*;
 
 @Service
 public class CardapioSelecionadoService implements CardapioSelecionadoUseCases {
 
     @Autowired
     private CardapioSelecionadoRepository repository;
+
+    @Autowired
+    private AddCardapioRepository addCardapioRepository;
 
     @Override
     public CardapioSelecionado BuscarCardapioSelecionado(Long id) {
@@ -33,9 +36,17 @@ public class CardapioSelecionadoService implements CardapioSelecionadoUseCases {
     }
 
     @Override
-    public List<String> calcularQuantidadeTotal() {
+    public Map<String, Double> calcularQuantidadeTotal() {
         List<CardapioSelecionado> itensSelecionados = repository.findAll();
-        List<String> resultados = new ArrayList<>();
+        List<AddCardapio> todosItens = addCardapioRepository.findAll();
+
+//        armazena qtd total de comida por item
+        Map<String, Double> qtdPorItem = new HashMap<>();
+
+//        Inicia o mapa com todos os itens do cardapio
+        for (AddCardapio item : todosItens) {
+            qtdPorItem.put(item.getNome_comida(), 0.0);
+        }
 
         for (CardapioSelecionado itemSelecionado : itensSelecionados) {
             String nomeItem = itemSelecionado.getAddCardapio().getNome_comida();
@@ -43,12 +54,11 @@ public class CardapioSelecionadoService implements CardapioSelecionadoUseCases {
             int qtdPorcao = itemSelecionado.getPorcoes_escolhidas();
             double quantidadeTotal = tamanhoPorcao * qtdPorcao;
 
-            // Formatar o resultado e adicionar à lista
-            String resultado = String.format("Item: %s, Quantidade Total: %.2f", nomeItem, quantidadeTotal);
-            resultados.add(resultado);
+            // Atualiza a quantidade total no mapa
+            qtdPorItem.put(nomeItem, qtdPorItem.getOrDefault(nomeItem, 0.0) + quantidadeTotal);
         }
 
-        return resultados;
+        return qtdPorItem;
     }
 
     @Override
