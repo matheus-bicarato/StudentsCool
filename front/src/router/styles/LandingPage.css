@@ -8,6 +8,7 @@
   .Container_slide_show {
     display: flex;
     justify-content: center;
+    margin-top: 20px;
   }
 
   .slide_show {
