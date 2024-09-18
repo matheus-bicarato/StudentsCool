@@ -65,3 +65,10 @@
 .gallery-item:hover .gallery-item-overlay {
     opacity: 50%;
 }
+
+@media (max-width:880px) {
+
+    .gallery {
+        grid-template-columns: repeat(1, 3fr);
+    }
+}

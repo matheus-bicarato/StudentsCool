@@ -23,10 +23,12 @@ const LandingPage = () => {
 
     return (
         <div>
-            <Header_simplificado />
+            <Header_simplificado  />
             <main>
-                <div className="slide_show">
-                    <Slide images={images} />
+                <div className="Container_slide_show">
+                    <div className="slide_show">
+                        <Slide images={images}/>
+                    </div>
                 </div>
 
                 <div className="Servico">
@@ -111,8 +113,6 @@ const LandingPage = () => {
 
             </main>
             <Footer />
-
-            <div className="button-style">Gráfico I</div>
         </div>
     )
 }
