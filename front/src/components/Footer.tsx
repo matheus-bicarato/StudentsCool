@@ -31,25 +31,6 @@ const Footer = () => {
                             <a href=""><img src={TikTok} alt="" /></a>
                         </div>
                     </div>
-
-                    
-                    <div className="Block_Footer_3">
-                        <h1 className="Title_Footer_3">Páginas:</h1>
-                        <div className="Container_Pages_Footer">
-                            <ul className="Pages_Footer">
-                                <li><Link to={"/"}>aluno</Link></li>
-                                <li><Link to={"/"}>professor</Link></li>
-                                <li><Link to={"/"}>login</Link></li>
-                                <li><Link to={"/"}>cadastro</Link></li>
-                                <li><Link to={"/"}>home</Link></li>
-                            </ul>
-                            <ul className="Pages_Footer">
-                                <li><Link to={"/"}>cardápio</Link></li>
-                                <li><Link to={"/"}>noticia</Link></li>
-                                <li><Link to={"/"}>boletim</Link></li>
-                            </ul>
-                        </div>
-                    </div>
                 </div>
                 <div className="Logo_Footer">
                     <Link to={"/"} ><img src={LogoB} alt="" /></Link>
