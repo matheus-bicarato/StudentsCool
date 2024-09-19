@@ -3,15 +3,18 @@ package com.studentscool.StudentsCool.adapters.in.web;
 
 import com.studentscool.StudentsCool.application.domain.CardapioSelecionado;
 import com.studentscool.StudentsCool.application.ports.in.CardapioSelecionadoUseCases;
+import jakarta.persistence.PersistenceException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.NoSuchElementException;
 
 @RestController
 @RequestMapping("/cardapioSelecionado")
@@ -44,6 +47,10 @@ public class CardapioSelecionadoController {
         try {
             CardapioSelecionado resultado = cardapioSelecionadoUseCases.AddItemSelecionado(cardapioSelecionado);
             return ResponseEntity.status(HttpStatus.CREATED).body(cardapioSelecionado);
+        } catch (DataIntegrityViolationException e) {
+            Map<String, String> errorResponse = new HashMap<>();
+            errorResponse.put("Mensagem", "Id do cardapio não foi encontrado.");
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(errorResponse);
         } catch (Exception e) {
             Map<String, String> errorResponse = new HashMap<>();
             errorResponse.put("Mensagem", e.getMessage());
