@@ -1,32 +1,48 @@
-import { useState } from 'react';
-import './styles/Checkbox.css';
+import React, { useState } from 'react';
 
-const CheckboxList = ({ items }) => {
-    const [checkedItems, setCheckedItems] = useState({});
+const CheckboxForm = () => {
+    const [selectedOptions, setSelectedOptions] = useState({});
 
-    const handleChange = (id) => {
-        setCheckedItems(prevState => ({
+    const options = [
+        { id: 1, label: 'Opção 1' },
+        { id: 2, label: 'Opção 2' },
+        { id: 3, label: 'Opção 3' },
+    ];
+
+    const handleChange = (event) => {
+        const { name, checked } = event.target;
+        setSelectedOptions((prevState) => ({
             ...prevState,
-            [id]: !prevState[id],
+            [name]: checked,
         }));
     };
 
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        // Aqui você pode processar as opções selecionadas
+        console.log('Opções selecionadas:', selectedOptions);
+    };
+
     return (
-        <div className="checkbox-list-container">
-            {items.map(item => (
-                <div key={item.id} className="checkbox-container">
-                    <input
-                        type="checkbox"
-                        id={item.id}
-                        checked={!!checkedItems[item.id]}
-                        onChange={() => handleChange(item.id)}
-                        required
-                    />
-                    <label htmlFor={item.id}>{item.label}</label>
+        <form onSubmit={handleSubmit}>
+            <h1>Escolha suas opções</h1>
+            {options.map((option) => (
+                <div key={option.id}>
+                    <label>
+                        <input
+                            type="checkbox"
+                            name={`option${option.id}`}
+                            checked={!!selectedOptions[`option${option.id}`]}
+                            onChange={handleChange}
+                        />
+                        {option.label}
+                    </label>
                 </div>
             ))}
-        </div>
+            <button className='button_cadastro' type="submit">Enviar</button>
+
+        </form>
     );
 };
 
-export default CheckboxList;
+export default CheckboxForm;

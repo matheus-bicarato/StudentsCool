@@ -69,6 +69,10 @@ const router = createBrowserRouter([
         path: "/Filtro_cardapio",
         element: <Filtro_cardapio />
       },
+      {
+        path: "/segunda",
+        element: <Filtro_cardapio />
+      }
 
     ]
   }
