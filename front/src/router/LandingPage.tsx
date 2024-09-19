@@ -98,8 +98,8 @@ const LandingPage = () => {
                         <h1>Grafico</h1>
                         <img src={Icon_Grafico} alt="" />
                     </div>
-                    <div className="Grafico_landingPG">
-                        <img src={Grafico} alt="" />
+                    <div className="Block_Grafico_landingPG">
+                        <img src={Grafico} alt="" className="Grafico_landingPG"/>
                     </div>
                 </div>
 

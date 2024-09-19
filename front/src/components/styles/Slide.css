@@ -12,11 +12,11 @@
     width: 100%; /* Ajusta a largura das imagens ao tamanho do contêiner */
     height: auto; /* Mantém a proporção das imagens */
     object-fit: cover; /* Opcional: ajusta como a imagem deve ser redimensionada para caber no contêiner */
-    border-radius: 10px;
+    border-radius: 5px;
   }
 
 .carousel .thumb.selected, .carousel .thumb:hover{
-    border: 3px solid var(--button-color) !important;
+    border: 3px solid #858AE3 !important;
     border-radius: 5px;
     transform: scale(1.2);
     
@@ -27,10 +27,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: solid;
     gap: 10px;
     margin-top: 10px;
-    width: 300px;
+    width: fit-content;
+    padding: 10px;
+
     
 
 }

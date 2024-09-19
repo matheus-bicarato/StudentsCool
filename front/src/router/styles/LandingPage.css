@@ -17,11 +17,6 @@
     align-items: center;
     
   }
-  
-  .Text-slide h1 {
-    font-size: 5vh;
-    
-  }
 
 /* ---------------
     PARTE-2
@@ -145,16 +140,67 @@ margin-bottom: 5vh;
     width: 50px;
   }
 
-  .Grafico_landingPG {
+  .Block_Grafico_landingPG {
     display: flex;
     justify-content: center;
     background-color: #858AE3;
-    width: max-content;
-    padding: 50px;
+    width: 90%;
     margin-top: -65px;
   }
 
-  .Grafico_landingPG img {
-    width: 90%;
+  .Grafico_landingPG {
+    max-width: 90%;
+    margin: 20px;
+    border: black solid;
   }
+
+  @media (max-width:900px) {
+
+    .Title_Servico_LangPG h1 {
+      font-size: 30px;
+    }
+
+    .Servico_quadros_LangPG {
+      flex-direction: column;
+      width: fit-content;
+    }
+
+    .Servico_Card_LangPG {
+      width: fit-content;
+      margin-top: 20px;
+  }
+
+    .Servico_Card_LangPG  p {
+      margin-left: 10px;
+      text-align: justify;
+      overflow-wrap: break-word;
+      align-self: center;
+      width: 90%;
+  }
+
+    .Servico_Card_LangPG  h1 {
+      font-size: 30px;
+      overflow-wrap: break-word;
+  }
+
+  .Title_icon_LandPG {
+    width: fit-content;
+  }
+
+  .Text_graf_LandPG {
+    width: 300px;
+    height: 50px;
+    box-shadow: 1vh 1vh 1px 0px rgba(0, 0, 0, 0.326);
+    border-radius: 10px;
+  }
+
+  .Block_Grafico_landingPG {
+    display: flex;
+    justify-content: center;
+    background-color: #858AE3;
+    width: 90%;
+    margin-top: -55px;
+    
+  }
+}
   
