@@ -1,4 +1,4 @@
-import Header_simplificado from '../components/Header-simplificado';
+import Header_simplificado from '../components/Header_simplificado';
 import './styles/Cadastro_feito.css'
 import logo from '../assets/imagens/Logo_Retangulo.png'
 import { Link } from 'react-router-dom';

@@ -1,4 +1,4 @@
-import Header_simplificado from "../components/Header-simplificado";
+import Header_simplificado from "../components/Header_simplificado";
 import Footer from "../components/Footer";
 import Slide from "../components/Slide";
 
