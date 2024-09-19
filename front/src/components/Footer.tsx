@@ -13,7 +13,7 @@ const Footer = () => {
         <footer>
             {/* PART_1 */}
             <div className="Container_Footer_1">
-                <h1 className="Title_Footer_1">Site Oficial do Studantscool</h1>
+                <h1 className="Title_Footer_1">Site Oficial do Studentscool</h1>
                     <Link to={"/"} className="Phone_Number">
                     <img src={Phone} alt=""/>
                     <h1 className="Number">+55 11 97044-1052</h1>
@@ -24,30 +24,11 @@ const Footer = () => {
             <div className="Container_Footer_2">
                 <div className="Block_Footer_1">
                     <div className="Block_Footer_2">
-                        <h1 className="Title_Footer_2">Redes sociais do studantscool:</h1>
+                        <h1 className="Title_Footer_2">Redes sociais do studentscool:</h1>
                         <div className="Redes_Footer">
                             <a href=""><img src={Face} alt="" /></a>
                             <a href=""><img src={Insta} alt="" /></a>
                             <a href=""><img src={TikTok} alt="" /></a>
-                        </div>
-                    </div>
-
-                    
-                    <div className="Block_Footer_3">
-                        <h1 className="Title_Footer_3">Páginas:</h1>
-                        <div className="Container_Pages_Footer">
-                            <ul className="Pages_Footer">
-                                <li><Link to={"/"}>aluno</Link></li>
-                                <li><Link to={"/"}>professor</Link></li>
-                                <li><Link to={"/"}>login</Link></li>
-                                <li><Link to={"/"}>cadastro</Link></li>
-                                <li><Link to={"/"}>home</Link></li>
-                            </ul>
-                            <ul className="Pages_Footer">
-                                <li><Link to={"/"}>cardápio</Link></li>
-                                <li><Link to={"/"}>noticia</Link></li>
-                                <li><Link to={"/"}>boletim</Link></li>
-                            </ul>
                         </div>
                     </div>
                 </div>
