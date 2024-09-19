@@ -1,12 +1,16 @@
 import React, { useState } from 'react';
+import './styles/Checkbox.css';
+import Counter from './components_filtro_cardapio/Count';
 
-const CheckboxForm = () => {
+const CheckboxList = () => {
     const [selectedOptions, setSelectedOptions] = useState({});
+    const [itemCounts, setItemCounts] = useState({});
 
-    const options = [
-        { id: 1, label: 'Opção 1' },
-        { id: 2, label: 'Opção 2' },
-        { id: 3, label: 'Opção 3' },
+    const items = [
+        {
+            id: 1, label: 'Pão integral com queijo branco 1 unidade(60 g)' },
+        { id: 2, label: 'Maçã 1 unidade (150 g)' },
+        { id: 3, label: 'Suco de laranja natural 300 ml' },
     ];
 
     const handleChange = (event) => {
@@ -15,34 +19,72 @@ const CheckboxForm = () => {
             ...prevState,
             [name]: checked,
         }));
+
+        if (checked) {
+            setItemCounts((prevState) => ({
+                ...prevState,
+                [name]: 1,
+            }));
+        } else {
+            setItemCounts((prevState) => {
+                const { [name]: removed, ...rest } = prevState;
+                return rest;
+            });
+        }
+    };
+
+    const handleCountChange = (name, increment) => {
+        setItemCounts((prevState) => {
+            const currentCount = prevState[name] || 0;
+            const newCount = Math.max(currentCount + increment, 0);
+            return {
+                ...prevState,
+                [name]: Math.min(newCount, 3), // Define o máximo como 3
+            };
+        });
     };
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        // Aqui você pode processar as opções selecionadas
         console.log('Opções selecionadas:', selectedOptions);
+        console.log('Contagem de itens:', itemCounts);
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <h1>Escolha suas opções</h1>
-            {options.map((option) => (
-                <div key={option.id}>
-                    <label>
-                        <input
-                            type="checkbox"
-                            name={`option${option.id}`}
-                            checked={!!selectedOptions[`option${option.id}`]}
-                            onChange={handleChange}
-                        />
-                        {option.label}
-                    </label>
+        <form className='form_container_filtro' onSubmit={handleSubmit}>
+            <div className="barra_porple"></div>
+            <div className="container_Filtro_itens">
+                <h1>Escolha seu Lanche</h1>
+                <div className="checkbox-container">
+                    <h1>Manhã</h1>
+                    {items.map((item) => (
+                        <div key={item.id} className='input_chacklist_filtro'>
+                            <label>
+                                <input
+                                    type="checkbox"
+                                    name={`item${item.id}`}
+                                    checked={!!selectedOptions[`item${item.id}`]}
+                                    onChange={handleChange}
+                                />
+                                {item.label}
+                            </label>
+                            {selectedOptions[`item${item.id}`] && (
+                                <Counter
+                                    count={itemCounts[`item${item.id}`] || 0}
+                                    onIncrement={() => handleCountChange(`item${item.id}`, 1)}
+                                    onDecrement={() => handleCountChange(`item${item.id}`, -1)}
+                                />
+                            )}
+                        </div>
+                    ))}
                 </div>
-            ))}
-            <button className='button_cadastro' type="submit">Enviar</button>
-
+                <hr className="hr_opacity" />
+            </div>
+            <div className="container_Filtro_button">
+                <button className="button_Filtro" type="submit">Enviar</button>
+            </div>
         </form>
     );
 };
 
-export default CheckboxForm;
+export default CheckboxList;
