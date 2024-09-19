@@ -38,18 +38,6 @@ const router = createBrowserRouter([
         element: <Login />
       },
       {
-        path: "/NoticiasPopulares",
-        element: <NoticiasPopulares />
-      },
-      {
-        path: "/NoticiasNovidade",
-        element: <NoticiasNovidade />
-      },
-      {
-        path: "/NoticiasRecente",
-        element: <NoticiasRecente />
-      },
-      {
         path: "/Contato",
         element: <Contato />
       },
