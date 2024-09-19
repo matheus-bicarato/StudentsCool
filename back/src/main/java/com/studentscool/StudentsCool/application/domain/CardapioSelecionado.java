@@ -1,5 +1,6 @@
 package com.studentscool.StudentsCool.application.domain;
 
+import com.studentscool.StudentsCool.adapters.out.persistense.AddCardapioEntity;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,9 +13,7 @@ import lombok.Setter;
 public class CardapioSelecionado {
     private Long id;
 
-//    aqui adiciona aquele item que usa o @OneToMany no entity
-//    penso que se preciso, talvez eu tenha que adiciona-lo aqui como tipo "Long"
-//    private CardapioItem cadapioItem;
+    private AddCardapioEntity addCardapio;
 
-    private int porcoes_escolhidas;
+    private Integer porcoes_escolhidas;
 }

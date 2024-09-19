@@ -2,7 +2,6 @@ package com.studentscool.StudentsCool.adapters.out.persistense;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.springframework.data.jpa.repository.Query;
 
 @Getter
 @Setter
