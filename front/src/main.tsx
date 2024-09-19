@@ -38,18 +38,6 @@ const router = createBrowserRouter([
         element: <Login />
       },
       {
-        path: "/NoticiasPopulares",
-        element: <NoticiasPopulares />
-      },
-      {
-        path: "/NoticiasNovidade",
-        element: <NoticiasNovidade />
-      },
-      {
-        path: "/NoticiasRecente",
-        element: <NoticiasRecente />
-      },
-      {
         path: "/Contato",
         element: <Contato />
       },
@@ -69,6 +57,10 @@ const router = createBrowserRouter([
         path: "/Filtro_cardapio",
         element: <Filtro_cardapio />
       },
+      {
+        path: "/segunda",
+        element: <Filtro_cardapio />
+      }
 
     ]
   }

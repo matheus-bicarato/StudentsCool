@@ -11,14 +11,19 @@
     margin: 5px;
     padding: 10px 20px;
     font-size: 16px;
-    border: none;
     cursor: pointer;
-    background-color: lightgray;
+    background-color: #c6caff;
     color: black;
+    border: solid black;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: background-color 0.4s;
   }
+  .day-button:hover {
+    background-color: white; /* Cor ao passar o mouse */
+}
   
   .day-button.active {
-    background-color: blue;
-    color: white;
+    background-color: white;
   }
   
