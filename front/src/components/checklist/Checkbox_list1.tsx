@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import './styles/Checkbox.css';
-import Counter from './components_filtro_cardapio/Count';
+import '../styles/Checkbox.css';
+import Counter from './Count';
 
-const CheckboxList = () => {
+const CheckboxList3 = () => {
     const [selectedOptions, setSelectedOptions] = useState({});
     const [itemCounts, setItemCounts] = useState({});
 
@@ -87,4 +87,4 @@ const CheckboxList = () => {
     );
 };
 
-export default CheckboxList;
+export default CheckboxList3;
