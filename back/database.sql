@@ -14,12 +14,8 @@ create table cadastro_escolas(
     email VARCHAR(255) NOT NULL UNIQUE,
     localizacao VARCHAR(255) NOT null,
     contato_alt VARCHAR(255),
-    lvl_ensino VARCHAR(255) not null,
-    qtd_turma int(255) not null,
-    pre_cores VARCHAR(255) not null,
+    qtd_alunos int(255) not null,
     dias_letivos VARCHAR(255) not null,
-    horarios VARCHAR(255) not null,
-    metodo_nota VARCHAR(255) not null,
     observacoes VARCHAR(255),
     aprovado BOOLEAN default false
 )

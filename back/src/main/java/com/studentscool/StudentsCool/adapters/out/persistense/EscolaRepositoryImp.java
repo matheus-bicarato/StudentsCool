@@ -43,12 +43,8 @@ public class EscolaRepositoryImp implements EscolaRepository {
         escola.setEmail(entity.getEmail());
         escola.setLocalizacao(entity.getLocalizacao());
         escola.setContato_alt(entity.getContato_alt());
-        escola.setLvl_ensino(entity.getLvl_ensino());
-        escola.setQtd_turma(entity.getQtd_turma());
-        escola.setPre_cores(entity.getPre_cores());
+        escola.setQtd_alunos(entity.getQtd_alunos());
         escola.setDias_letivos(entity.getDias_letivos());
-        escola.setHorarios(entity.getHorarios());
-        escola.setMetodo_nota(entity.getMetodo_nota());
         escola.setObservacoes(entity.getObservacoes());
         escola.setAprovado(entity.getAprovado());
         return escola;
@@ -61,12 +57,8 @@ public class EscolaRepositoryImp implements EscolaRepository {
         entity.setEmail(escola.getEmail());
         entity.setLocalizacao(escola.getLocalizacao());
         entity.setContato_alt(escola.getContato_alt());
-        entity.setLvl_ensino(escola.getLvl_ensino());
-        entity.setQtd_turma(escola.getQtd_turma());
-        entity.setPre_cores(escola.getPre_cores());
+        entity.setQtd_alunos(escola.getQtd_alunos());
         entity.setDias_letivos(escola.getDias_letivos());
-        entity.setHorarios(escola.getHorarios());
-        entity.setMetodo_nota(escola.getMetodo_nota());
         entity.setObservacoes(escola.getObservacoes());
         entity.setAprovado(escola.getAprovado());
         return entity;

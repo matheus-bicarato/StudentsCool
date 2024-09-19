@@ -39,12 +39,8 @@ public class EscolaService implements EscolasUseCases {
         escola.setEmail(escolaDetails.getEmail());
         escola.setLocalizacao(escolaDetails.getLocalizacao());
         escola.setContato_alt(escolaDetails.getContato_alt());
-        escola.setLvl_ensino(escolaDetails.getLvl_ensino());
-        escola.setQtd_turma(escolaDetails.getQtd_turma());
-        escola.setPre_cores(escolaDetails.getPre_cores());
+        escola.setQtd_alunos(escolaDetails.getQtd_alunos());
         escola.setDias_letivos(escolaDetails.getDias_letivos());
-        escola.setHorarios(escolaDetails.getHorarios());
-        escola.setMetodo_nota(escolaDetails.getMetodo_nota());
         escola.setObservacoes(escolaDetails.getObservacoes());
         escola.setAprovado(escolaDetails.getAprovado());
 
