@@ -14,5 +14,5 @@ public interface CardapioSelecionadoUseCases {
 
     Map<String, Double> calcularQuantidadeTotal();
 
-    void deleteAll();
+    void deleteAllCardapios();
 }

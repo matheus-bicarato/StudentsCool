@@ -62,7 +62,7 @@ public class CardapioSelecionadoService implements CardapioSelecionadoUseCases {
     }
 
     @Override
-    public void deleteAll() {
-
+    public void deleteAllCardapios() {
+            repository.deleteAll();
     }
 }

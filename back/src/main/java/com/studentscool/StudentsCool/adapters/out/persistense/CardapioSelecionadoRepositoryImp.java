@@ -33,7 +33,7 @@ public class CardapioSelecionadoRepositoryImp implements CardapioSelecionadoRepo
 
     @Override
     public void deleteAll() {
-
+        cardapioSelecionadoJpaRepository.deleteAll();
     }
 
     private CardapioSelecionado toDomain(CardapioSelecionadoEntity entity) {
