@@ -1,0 +1,17 @@
+.json de exemplo para como o front-end tem que enviar as infos para o back-end:
+
+Cardapio (POST - Rota de add o cardapio):
+{
+  "periodo": "manha",
+  "nome_comida": "Torrada",
+  "tamanho_porcao": 50
+}
+
+CardapioSelecionado (POST):
+{
+  "addCardapio": {
+    "id": 2
+  },
+  "id_user": "[ID DO USUÁRIO LOGADO AQUI]",
+  "porcoes_escolhidas": 3
+}
