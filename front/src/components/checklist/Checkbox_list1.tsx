@@ -5,7 +5,7 @@ import Counter from './Count';
 const CheckboxList = ({ title, items }) => {
     const [itemsState, setItemsState] = useState({});
 
-    const handleChange = (event) => {
+    const handleChange1 = (event) => {
         const { name, checked } = event.target;
         setItemsState((prevState) => ({
             ...prevState,
@@ -24,13 +24,13 @@ const CheckboxList = ({ title, items }) => {
         });
     };
 
-    const handleSubmit = (event) => {
+    const handleSubmit1 = (event) => {
         event.preventDefault();
         console.log('Opções selecionadas:', itemsState);
     };
 
     return (
-        <form className='form_container_filtro' onSubmit={handleSubmit}>
+        <form className='form_container_filtro' onSubmit={handleSubmit1}>
             <div className="barra_porple"></div>
             <div className="container_Filtro_itens">
                 <h1>{title}</h1>
@@ -42,7 +42,7 @@ const CheckboxList = ({ title, items }) => {
                                     type="checkbox"
                                     name={`item${item.id}`}
                                     checked={!!itemsState[`item${item.id}`]}
-                                    onChange={handleChange}
+                                    onChange={handleChange1}
                                 />
                                 {item.label}
                             </label>

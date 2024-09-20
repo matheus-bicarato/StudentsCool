@@ -1,0 +1,76 @@
+.main_user_cadastrados{
+  
+}
+
+/* Contêiner da tabela */
+.table-container {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  /* background-color: black; */
+  height: 50vh;
+}
+
+/* Estilos da tabela */
+.user-table {
+  width: 80%;
+  border-collapse: collapse;
+  background-color: #d5b4e3;
+}
+
+.table-header {
+  background-color: #9378ab;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+}
+
+.table-row {
+  border-bottom: 2px solid #9378ab;
+}
+
+.user-email {
+  padding: 10px;
+  color: #000;
+  font-size: 14px;
+  text-align: center;
+}
+
+.actions {
+  padding: 10px;
+  text-align: center;
+
+}
+
+.actions:hover {}
+
+/* Estilos dos botões */
+.btn {
+  padding: 5px 10px;
+  margin-left: 5px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 12px;
+}
+
+.delete-btn {
+  background-color: #ff6b6b;
+  color: black;
+  transition: background-color 0.3s ease;
+}
+
+.delete-btn:hover {
+  background-color: #ff4545;
+  transform: scale(1.05);
+}
+
+.view-btn {
+  background-color: #4caf50;
+  color: black;
+  transition: transform 0.3s ease;}
+
+.view-btn:hover {
+  background-color: #2cab31;
+  transform: scale(1.05);
+}

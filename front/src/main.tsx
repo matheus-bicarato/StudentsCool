@@ -5,15 +5,16 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Error from './router/Error-page.tsx'
 import Cadastro from './router/Cadastro.tsx'
 import Login from './router/Login.tsx'
-import NoticiasPopulares from './router/NoticiasPopulares.tsx'
-import NoticiasNovidade from './router/NoticiasNovidade.tsx'
-import NoticiasRecente from './router/NoticiasRecente.tsx'
 import Contato from './router/Contato.tsx'
 import Cadastro_feito from './router/cadastro_feito.tsx'
 import LandingPage from './router/LandingPage.tsx'
 import Home from './router/Home.tsx'
 import Cardapio from './router/cardapio.tsx'
 import Filtro_cardapio from './router/filtro_cardapio.tsx'
+import Cadastrar_user from './router/cadastrar_user.tsx'
+import Users_cadastrados from './router/Users_cadastradas.tsx'
+import Escolas from './router/escolas.tsx'
+import Detalhes_escola from './router/detalhes_escolas.tsx'
 
 
 const router = createBrowserRouter([
@@ -56,6 +57,22 @@ const router = createBrowserRouter([
       {
         path: "/Filtro_cardapio",
         element: <Filtro_cardapio />
+      },
+      {
+        path: "/Cadastrar_user",
+        element: <Cadastrar_user />
+      },
+      {
+        path: "/Contas_cadastradas",
+        element: <Users_cadastrados />
+      },
+      {
+        path: "/Escolas",
+        element: <Escolas />
+      },
+      {
+        path: "/Detalhes_escolas",
+        element: <Detalhes_escola />
       },
 
     ]
