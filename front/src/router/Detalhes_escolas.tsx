@@ -1,6 +1,6 @@
 import './styles/Erro-page.css'
 
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 const schoolDetails = {
     1: {
