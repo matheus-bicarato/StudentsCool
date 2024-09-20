@@ -68,7 +68,7 @@ public class CardapioSelecionadoController {
     public ResponseEntity<String> deleteALl() {
         try {
             cardapioSelecionadoUseCases.deleteAllCardapios();
-            return ResponseEntity.ok("Todas os itens do cardapio foram deletados com sucesso");
+            return ResponseEntity.ok("Todas os itens selecionados do cardapio foram deletados com sucesso");
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro ao tentar deletar as avaliações");
         }
