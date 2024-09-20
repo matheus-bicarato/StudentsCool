@@ -15,5 +15,7 @@ public class CardapioSelecionado {
 
     private AddCardapioEntity addCardapio;
 
+    private String id_user;
+
     private Integer porcoes_escolhidas;
 }

@@ -40,7 +40,6 @@ public class AddCardapioRepositoryImp implements AddCardapioRepository {
         AddCardapio addCardapio = new AddCardapio();
         addCardapio.setId(entity.getId());
         addCardapio.setPeriodo(entity.getPeriodo());
-        addCardapio.setDia_da_semana(entity.getDia_da_semana());
         addCardapio.setNome_comida(entity.getNome_comida());
         addCardapio.setTamanho_porcao(entity.getTamanho_porcao());
         return addCardapio;
@@ -50,7 +49,6 @@ public class AddCardapioRepositoryImp implements AddCardapioRepository {
         AddCardapioEntity entity = new AddCardapioEntity();
         entity.setId(addCardapio.getId());
         entity.setPeriodo(addCardapio.getPeriodo());
-        entity.setDia_da_semana(addCardapio.getDia_da_semana());
         entity.setNome_comida(addCardapio.getNome_comida());
         entity.setTamanho_porcao(addCardapio.getTamanho_porcao());
         return entity;

@@ -12,5 +12,6 @@ CardapioSelecionado (POST):
   "addCardapio": {
     "id": 2
   },
+  "id_user": "[ID DO USUÁRIO LOGADO AQUI]",
   "porcoes_escolhidas": 3
 }

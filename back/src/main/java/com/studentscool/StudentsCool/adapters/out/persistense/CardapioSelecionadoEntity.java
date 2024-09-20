@@ -20,6 +20,9 @@ public class CardapioSelecionadoEntity {
     @JoinColumn(name = "cardapio_id_item", nullable = false)
     private AddCardapioEntity addCardapio;
 
+    @Column(name = "id_user", nullable = false)
+    private String id_user;
+
     @Column(name = "porcoes_escolhidas", nullable = false)
     private Integer porcoes_escolhidas;
 }

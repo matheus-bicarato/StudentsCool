@@ -39,6 +39,7 @@ public class CardapioSelecionadoRepositoryImp implements CardapioSelecionadoRepo
     private CardapioSelecionado toDomain(CardapioSelecionadoEntity entity) {
         CardapioSelecionado cardapioSelecionado = new CardapioSelecionado();
         cardapioSelecionado.setId(entity.getId());
+        cardapioSelecionado.setId_user(entity.getId_user());
         cardapioSelecionado.setPorcoes_escolhidas(entity.getPorcoes_escolhidas());
         cardapioSelecionado.setAddCardapio(entity.getAddCardapio());
         return cardapioSelecionado;
@@ -47,6 +48,7 @@ public class CardapioSelecionadoRepositoryImp implements CardapioSelecionadoRepo
     private CardapioSelecionadoEntity toEntity (CardapioSelecionado cardapioSelecionado) {
         CardapioSelecionadoEntity entity = new CardapioSelecionadoEntity();
         entity.setId(cardapioSelecionado.getId());
+        entity.setId_user(cardapioSelecionado.getId_user());
         entity.setPorcoes_escolhidas(cardapioSelecionado.getPorcoes_escolhidas());
         entity.setAddCardapio(cardapioSelecionado.getAddCardapio());
         return entity;
