@@ -5,9 +5,9 @@ import DropdownSelect from '../components/dropdown';
 const Cadastrar_user = () => {
 
     const options = [
-        { id: 1, value: 'pao', label: 'Pão Integral' },
-        { id: 2, value: 'maca', label: 'Maçã' },
-        { id: 3, value: 'suco', label: 'Suco de Laranja' },
+        { id: 1, value: 'pao', label: 'Aluno' },
+        { id: 2, value: 'maca', label: 'Cantina' },
+        { id: 3, value: 'suco', label: 'ADM' },
     ];
 
     return (
