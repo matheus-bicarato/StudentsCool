@@ -19,9 +19,6 @@ public class AddCardapioEntity {
     @Column(name = "periodo", nullable = false)
     private String periodo;
 
-    @Column(name = "dia_da_semana", nullable = false)
-    private String dia_da_semana;
-
     @Column(name = "nome_comida", nullable = false)
     private String nome_comida;
 

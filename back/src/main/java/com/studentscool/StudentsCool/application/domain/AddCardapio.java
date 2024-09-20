@@ -9,7 +9,6 @@ import lombok.*;
 public class AddCardapio {
     private Long id;
     private String periodo;
-    private String dia_da_semana;
     private String nome_comida;
     private Integer tamanho_porcao;
 }

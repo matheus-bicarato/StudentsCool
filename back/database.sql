@@ -48,7 +48,6 @@ CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 create table cardapio_item(
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     periodo ENUM('manha', 'almoco', 'tarde'),
-    dia_da_semana ENUM('segunda', 'terca', 'quarta', 'quinta', 'sexta'),
     nome_comida VARCHAR(255) NOT NULL,
     tamanho_porcao INT NOT NULL
 )
