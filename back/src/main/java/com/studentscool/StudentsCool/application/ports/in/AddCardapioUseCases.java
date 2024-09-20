@@ -11,5 +11,5 @@ public interface AddCardapioUseCases {
 
     AddCardapio getCardapioItem(Long id);
 
-    void deleteItemCardapio(Long id);
+    void deleteAllItemCardapio();
 }

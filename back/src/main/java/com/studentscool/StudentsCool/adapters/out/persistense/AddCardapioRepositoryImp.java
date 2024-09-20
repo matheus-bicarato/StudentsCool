@@ -32,8 +32,8 @@ public class AddCardapioRepositoryImp implements AddCardapioRepository {
     }
 
     @Override
-    public void deleteById(Long id) {
-        addCardapioJpaRepository.deleteById(id);
+    public void deleteAll() {
+        addCardapioJpaRepository.deleteAll();
     }
 
     private AddCardapio toDomain(AddCardapioEntity entity) {

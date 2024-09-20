@@ -9,5 +9,5 @@ public interface AddCardapioRepository {
     List<AddCardapio> findAll();
     Optional<AddCardapio> findById(Long id);
     AddCardapio save(AddCardapio addCardapio);
-    void deleteById(Long id);
+    void deleteAll();
 }

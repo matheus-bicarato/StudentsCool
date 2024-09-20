@@ -33,8 +33,16 @@ public class AddCardapioController {
     }
 
     @GetMapping
-    public List<AddCardapio> listar() {
-        return addCardapioUseCases.getAllCardapios();
+    public ResponseEntity<List<AddCardapio>> listar() {
+        try {
+            List<AddCardapio> addCardapioList = addCardapioUseCases.getAllCardapios();
+            if (addCardapioList.isEmpty()) {
+                return ResponseEntity.status(HttpStatus.NO_CONTENT).body(null);
+            }
+            return ResponseEntity.ok(addCardapioList);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+        }
     }
 
     @GetMapping("/{id}")
@@ -53,28 +61,13 @@ public class AddCardapioController {
         }
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Map<String, String>> deleteCardapio(@PathVariable(value = "id") Long id) {
+    @DeleteMapping
+    public ResponseEntity<String> deleteAllCardapio() {
         try {
-            List<AddCardapio> todosCardapios = addCardapioUseCases.getAllCardapios();
-
-            boolean idExiste = todosCardapios.stream().anyMatch(addCardapio -> addCardapio.getId().equals(id));
-
-            if (!idExiste) {
-                Map<String, String> errorRepsponse = new HashMap<>();
-                errorRepsponse.put("Mensagem", "Erro: Item do cardapio com o ID " + id + " não foi encontrada");
-                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(errorRepsponse);
-            }
-
-            addCardapioUseCases.deleteItemCardapio(id);
-
-            Map<String, String> response = new HashMap<>();
-            response.put("message", "Item do cardapio com o ID: " + id + " foi deletada com sucesso");
-            return ResponseEntity.ok(response);
+            addCardapioUseCases.deleteAllItemCardapio();
+            return ResponseEntity.ok("Todos os itens foram macacados");
         } catch (Exception e) {
-            Map<String, String> errorResponse = new HashMap<>();
-            errorResponse.put("Mensagem", "Erro interno no servidor: " + e.getMessage());
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(errorResponse);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Deletou n mano");
         }
     }
 }

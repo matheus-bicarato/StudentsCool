@@ -32,7 +32,7 @@ public class AddCardapioService implements AddCardapioUseCases {
     }
 
     @Override
-    public void deleteItemCardapio(Long id) {
-        repository.deleteById(id);
+    public void deleteAllItemCardapio() {
+        repository.deleteAll();
     }
 }
