@@ -4,13 +4,11 @@ import img1 from '../assets/imagens/lousa.png';
 import Title1 from '../assets/imagens/pizza.png';
 import Title2 from '../assets/imagens/mao.png';
 import Title3 from '../assets/imagens/professor.png';
-import Title4 from '../assets/imagens/Home_Star.png';
 
 const galleryItems = [
     { id: 1, title: 'Cardápio', imageUrl: img1, imgTitle: Title1, path: '/cardapio' },
     { id: 2, title: 'Avaliação', imageUrl: img1, imgTitle: Title2, path: '/' },
     { id: 3, title: 'Contato', imageUrl: img1, imgTitle: Title3, path: '/' },
-    { id: 4, title: 'Alimentações Especiais', imageUrl: img1, imgTitle: Title4, path: '/' },
     // Adicione mais itens conforme necessário
 ];
 
