@@ -14,9 +14,8 @@ const Contato = () => {
     <div>
         <Header/>
         <main className='main_contato'>
-
-            <div>
-                <h1>
+            <div className='Duvidas_cont_contato'>
+                <h1 className='Duvida_contato'>
                     Alguma dúvida?
                     <br />
                     Entre em contato com a gente agora mesmo!
@@ -31,7 +30,7 @@ const Contato = () => {
                         </a></li>
                         
 
-                        <li><a href="">
+                        <li><a href="" >
                             <span><img src={EMAIL} alt="" /></span>
                             <h1>studentscool@gmail.com</h1>
                             </a></li>
@@ -44,10 +43,10 @@ const Contato = () => {
                 </div>
             </div>
 
-            <form className='Form_contado'>
+            <form className='Form_contato'>
 
                 <div className='Title_form_contato'>
-                    <span><h1>Nos envie uma mensagem</h1></span>
+                    <span className='Contato_span'><h1>Nos envie uma mensagem</h1></span>
                     <hr/>
                 </div>
 

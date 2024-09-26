@@ -1,20 +1,19 @@
 import React, { useState } from 'react';
 import './styles/dropdown.css'; // Certifique-se de que o caminho esteja correto
 
-const DropdownSelect = ({ options, title }) => {
+const DropdownSelect = ({ options, title, onChange }) => {
     const [selectedOption, setSelectedOption] = useState('');
 
     const handleChange = (event) => {
-        setSelectedOption(event.target.value);
-    };
-
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        console.log('Opção selecionada:', selectedOption);
+        const value = event.target.value;
+        setSelectedOption(value);
+        if (onChange) {
+            onChange(value); // Passa o valor selecionado para o componente pai
+        }
     };
 
     return (
-        <form className="dropdown-form" onSubmit={handleSubmit}>
+        <div className="dropdown-form">
             <label className="dropdown-label">
                 {title}
                 <select
@@ -30,7 +29,7 @@ const DropdownSelect = ({ options, title }) => {
                     ))}
                 </select>
             </label>
-        </form>
+        </div>
     );
 };
 

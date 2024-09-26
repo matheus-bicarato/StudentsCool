@@ -6,9 +6,17 @@
     margin-top: 20px;
 }
 
+.contatos {
+    margin: 20px;
+}
+
 .contatos img {
     width: 40px;
     padding: 10px;
+}
+
+.Duvida_contato {
+    margin-left: 20px;
 }
 
 .contatos span {
@@ -39,11 +47,11 @@
     margin-top: 40px;
 }
 
-.Form_contado {
+.Form_contato {
     display: flex;
     flex-direction: column;
-    width: 80vh;
     /* background-color: red; */
+    padding: 40px;
     align-items: center;
     border: solid 1px black;
     border-radius: 20px;
@@ -52,13 +60,14 @@
 
 .Title_form_contato {
     margin: 10px;
-    width:75vh;
+    width:90%;
+
 }
 
 .Title_form_contato span {
     display: flex;
-    justify-content: center;
     padding-bottom: 10px;
+    justify-content: center;
 }
 
 .Title_form_contato h1 {
@@ -70,6 +79,7 @@
     height: 2px;
     border: none;
     background-color: black;
+    
 }
 
 .Inputs_form_contato {
@@ -157,4 +167,45 @@
 
 .Footer_contato {
     margin-top: 40px;
+}
+
+@media (max-width:1160px) {
+
+    .main_contato {
+        flex-direction: column;
+        align-items: center;
+    }
+
+}
+
+@media (max-width:620px) {
+
+    .main_contato {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .Form_contato {
+        max-width: 80%;
+        width: 80%;
+        padding: 30px;
+        
+    }
+
+    .Duvida_contato {
+        margin-left: 0;
+        width: fit-content;
+        max-width: 92%;
+    }
+
+    .Duvidas_cont_contato {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        width: 100%;
+    }
+
+    .contatos h1 {
+        font-size: 25px;
+    }
 }
