@@ -1,18 +1,28 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './styles/Users_cadastradas.css';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-
-const users = [
-    { email: "cleber.silva@studentscoolportal.com.br" },
-    { email: "52149silvia.santos@studentscoolportal.com.br" },
-    { email: "giovana.anjos@studentscoolportal.com.br" },
-    { email: "andre.gomes@studentscoolportal.com.br" },
-    { email: "silvana.carvalho@studentscoolportal.com.br" },
-    { email: "4845julia.matos@studentscoolportal.com.br" }
-];
+import axios from 'axios';
 
 const contas_cadastradas = () => {
+    const [users, setUsers] = useState([])
+
+    useEffect(() => {
+        axios.get('http://localhost:8080/users')
+        .then(response => setUsers(response.data))
+        .catch(error => alert(`Não foi possível recuperar os usuários: ${error.message}`))
+    }, [])
+
+    const deleteUser = (id) => {
+        const isConfirmed = window.confirm("Tem certeza que deseja deletar esse usuário?")
+
+        if(isConfirmed) {
+            axios.delete(`http://localhost:8080/users/${id}`)
+            .then(response => setUsers(users.filter(user => user.id !== id)))
+            .catch(error => alert(`Não foi possível deletar o usuário: ${error.message}`))
+        }
+    }
+
     return (
         <div className="main_user_cadastrados">
             <Header />
@@ -25,15 +35,16 @@ const contas_cadastradas = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {users.map((user, index) => (
-                            <tr key={index} className="table-row">
+                        {users.map(user => (
+                            <tr key={user.id} className="table-row">
                                 <td className="user-email">{user.email}</td>
                                 <td className="actions">
-                                    <button className="btn delete-btn">Deletar</button>
+                                    <button className="btn delete-btn" onClick={() => deleteUser(user.id)}>Deletar</button>
                                     <button className="btn view-btn">Visualizar</button>
                                 </td>
                             </tr>
                         ))}
+                            
                     </tbody>
                 </table>
             </div>

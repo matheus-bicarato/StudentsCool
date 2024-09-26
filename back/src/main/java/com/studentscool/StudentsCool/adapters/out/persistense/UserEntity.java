@@ -15,17 +15,17 @@ public class UserEntity {
     @Id
     private String id;
 
-//    @Column(nullable = false, unique = false)
+    @Column(nullable = false, unique = false)
     private String nome;
 
-//    @Column(nullable = false, unique = true)
+    @Column(nullable = false, unique = true)
     private String email;
 
-//    @Column(nullable = false, unique = true)
+    @Column(nullable = false, unique = true)
     private Long cpf;
 
-//    @Column(nullable = false, unique = true)
-    private Integer telefone;
+    @Column(nullable = false, unique = true)
+    private Long telefone;
 
     private String authority;
 }
