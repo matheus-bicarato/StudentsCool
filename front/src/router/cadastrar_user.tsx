@@ -25,11 +25,18 @@ const Cadastrar_user = () => {
         axios.post('http://localhost:8080/users', { id: uidFire, nome: nome, email: email, cpf: cpf, telefone: telefone, authority: authority})
         .then(response => {
             if(response.status === 201) {
-                alert("CRIADO!")
+                alert(`O usuário "${nome}" foi criado com sucesso!`)
+            } else if (response.status == 409) {
+                alert("Erro: Já tem um usuário com esse email cadastrado.")
             }
         })
         .catch(error => {
-            alert(`Não foi possivel criar usuário: ${error.message}`)
+            if (error.response.status == 409) {
+                alert("Erro: Já tem um usuário com esse email ou cpf cadastrado.")
+            }
+            else {
+                alert(`Não foi possivel criar usuário: ${error.message}`)
+            }
         })
     }
 
