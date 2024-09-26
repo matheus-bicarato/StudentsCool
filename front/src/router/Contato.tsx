@@ -1,5 +1,8 @@
+import { useState } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import axios from 'axios';
+import Swal from 'sweetalert2';
 
 
 import ZAP from '../assets/imagens/Zap_Icon.png';
@@ -10,6 +13,46 @@ import Retangulo from '../assets/imagens/Logo_Retangulo.png'
 import './styles/Contato.css'
 
 const Contato = () => {
+    const [nome, setNome] = useState('');
+    const [email, setEmail] = useState('');
+    const [telefone, setTelefone] = useState('');
+    const [mensagem, setMensagem] = useState('');
+    
+    const ContatoSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+
+        const formData = new FormData();
+        formData.append('nome', nome);
+        formData.append('email', email);
+        formData.append('telefone', telefone);
+        formData.append('mensagem', mensagem);
+        formData.append('DuvidaOuAlimentacao', String(false));
+        formData.append('arquivo', String(null));
+
+
+        try {
+            const response = await axios.post('http://localhost:8080/contato', formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                },
+            });
+            setNome('');
+            setEmail('');
+            setTelefone('');
+            setMensagem('');
+            
+            Swal.fire({
+                title: 'Sucesso!',
+                text: 'Mensagem enviada com sucesso!',
+                icon: 'success',
+                confirmButtonText: 'Ok'
+            });
+            console.log('Mensagem enviada com sucesso:', response.data);
+        } catch (error) {
+            console.error('Erro ao enviar a mensagem:', error);
+        }
+    };
+
     return (
     <div>
         <Header/>
@@ -43,7 +86,11 @@ const Contato = () => {
                 </div>
             </div>
 
+<<<<<<< Updated upstream
             <form className='Form_contato'>
+=======
+            <form className='Form_contado' onSubmit={ContatoSubmit}>
+>>>>>>> Stashed changes
 
                 <div className='Title_form_contato'>
                     <span className='Contato_span'><h1>Nos envie uma mensagem</h1></span>
@@ -55,7 +102,11 @@ const Contato = () => {
                         placeholder='Nome Completo'
                         className='Nome_contato' 
                         maxLength={300} 
-                        required/>
+                        required
+                        value={nome}
+                        onChange={(e) => setNome(e.target.value)}
+                        />
+                        
 
                         <div className='Email_tel_contato'>
                             <input 
@@ -63,20 +114,29 @@ const Contato = () => {
                             id='email'
                             placeholder='E-mail'
                             className='Email_contato' 
-                            required/>
+                            required
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            />
 
                             <input type="tel"
                             placeholder='Telefone'
                             className='Tel_contato '
                             maxLength={11} 
-                            required/>
+                            required
+                            value={telefone}
+                            onChange={(e) => setTelefone(e.target.value)}
+                            />
                         </div>
 
                         <textarea
                                 placeholder='Mensagem...'
                                 className='Mensagem_contato' 
                                 maxLength={300}
-                                required/>
+                                required
+                                value={mensagem}
+                                onChange={(e) => setMensagem(e.target.value)}
+                                />
                 </div>
                 <img src={Retangulo} alt="" className='Logo_contato'/>
                 <button type="submit" className='Button_submit_contato'>Enviar</button>

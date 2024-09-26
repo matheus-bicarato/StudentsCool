@@ -1,12 +1,45 @@
 
-import { Link } from 'react-router-dom'
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Header_simplificado from '../components/Header_simplificado';
 import Footer from '../components/Footer';
-import './styles/Cadastro.css'
-const Cadastro = () => {
+import axios from 'axios';
+import './styles/Cadastro.css';
 
+const Cadastro = () => {
+    const [nomeEscola, setNomeEscola] = useState('');
+    const [email, setEmail] = useState('');
+    const [localizacao, setLocalizacao] = useState('');
+    const [contato, setContato] = useState('');
+    const [quantidadeAlunos, setQuantidadeAlunos] = useState('');
+    const [diasLetivos, setDiasLetivos] = useState('');
+    const [observacoes, setObservacoes] = useState('');
+    const navigate = useNavigate();
+
+    const EscolaSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+
+        const escolaData = {
+            nome: nomeEscola,
+            email: email,
+            localizacao: localizacao,
+            contato_alt: contato,
+            qtd_alunos: quantidadeAlunos,
+            dias_letivos: diasLetivos,
+            observacoes: observacoes,
+            aprovado: false,
+        };
+
+        try {
+            await axios.post('http://localhost:8080/escolas', escolaData);
+
+            navigate('/cadastro-feito');
+        } catch (error) {
+            console.error('Erro ao cadastrar a escola: ', error);
+        }
+    }
     return (
-        <div>
+        <form onSubmit={EscolaSubmit}>
             <Header_simplificado />
             <div className="main_cadastro">
                 <div className="barra_porple"></div>
@@ -28,6 +61,8 @@ const Cadastro = () => {
                         id=""
                         placeholder="Nome da escola"
                         required
+                        value={nomeEscola}
+                        onChange={(e) => setNomeEscola(e.target.value)}
                     />
                     <hr className="hr_opacity" />
                 </div>
@@ -40,6 +75,8 @@ const Cadastro = () => {
                         id="email"
                         placeholder="E-mail"
                         required
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
                     />
                     <hr className="hr_opacity" />
                 </div>
@@ -52,6 +89,8 @@ const Cadastro = () => {
                         id="Localizacao"
                         placeholder="Localização da escola"
                         required
+                        value={localizacao}
+                        onChange={(e) => setLocalizacao(e.target.value)}
                     />
                     <hr className="hr_opacity" />
                 </div>
@@ -64,6 +103,8 @@ const Cadastro = () => {
                         id="contato"
                         placeholder="Email da escola ou telefone"
                         required
+                        value={contato}
+                        onChange={(e) => setContato(e.target.value)}
                     />
                     <hr className="hr_opacity" />
                 </div>
@@ -76,6 +117,8 @@ const Cadastro = () => {
                         id="contato"
                         placeholder="Ex: 0 alunos"
                         required
+                        value={quantidadeAlunos}
+                        onChange={(e) => setQuantidadeAlunos(e.target.value)}
                     />
                     <hr className="hr_opacity" />
                 </div>
@@ -88,6 +131,8 @@ const Cadastro = () => {
                         id="contato"
                         placeholder="ex: segunda á sexta-feira"
                         required
+                        value={diasLetivos}
+                        onChange={(e) => setDiasLetivos(e.target.value)}
                     />
                     <hr className="hr_opacity" />
                 </div>
@@ -100,18 +145,20 @@ const Cadastro = () => {
                         id="contato"
                         placeholder="Observações adicionais"
                         required
+                        value={observacoes}
+                        onChange={(e) => setObservacoes(e.target.value)}
                     />
                     <hr className="hr_opacity" />
                 </div>
 
                 <div className="container_cadastro_button">
-                    <Link to={"/cadastro-feito"}><button className="button_cadastro">Concluir</button></Link>
+                    <button type="submit" className="button_cadastro">Concluir</button>
                 </div>
 
 
             </div>
             <Footer/>
-        </div>
+        </form>
     )
 }
 

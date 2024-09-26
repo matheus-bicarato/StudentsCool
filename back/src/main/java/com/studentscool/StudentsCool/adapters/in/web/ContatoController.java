@@ -26,42 +26,53 @@ public class ContatoController {
         return field == null || field.trim().isEmpty() || field.equals("null");
     }
 
-    @PostMapping()
+    @PostMapping
     public ResponseEntity<?> criarContato(
-            @RequestParam("arquivo") MultipartFile arquivo,
+            @RequestParam(value = "arquivo", required = false) MultipartFile arquivo,
             @RequestParam("nome") String nome,
             @RequestParam("email") String email,
             @RequestParam("telefone") String telefone,
             @RequestParam("mensagem") String mensagem,
-            @RequestParam("DuvidaOuAlimentacao") Boolean DuvidaOuAlimentacao) {
+            @RequestParam("DuvidaOuAlimentacao") Boolean duvidaOuAlimentacao) { // Adicionei a DuvidaOuAlimentacao aqui
 
         try {
-            if (arquivo.isEmpty()) {
-                return ResponseEntity.badRequest().body("Nenhum arquivo enviado.");
+            // Cria o objeto Contato
+            Contato contato = new Contato();
+            contato.setNome(nome);
+            contato.setEmail(email);
+            contato.setTelefone(telefone);
+            contato.setMensagem(mensagem);
+
+            // Verifica a lógica da DuvidaOuAlimentacao
+            if (!duvidaOuAlimentacao) {
+                // Se DuvidaOuAlimentacao for false, não deve haver arquivo
+                if (arquivo != null && !arquivo.isEmpty()) {
+                    return ResponseEntity.badRequest().body("Não é permitido enviar um arquivo quando DuvidaOuAlimentacao é false.");
+                }
+                contato.setArquivo(null); // Pode ser null se não houver arquivo
+            } else {
+                // Se DuvidaOuAlimentacao for true, pode haver um arquivo
+                if (arquivo != null && !arquivo.isEmpty()) {
+                    // Verificar se o arquivo é uma imagem PNG ou JPEG
+                    String contentType = arquivo.getContentType();
+                    if (contentType == null ||
+                            (!contentType.equals(MediaType.IMAGE_PNG_VALUE) &&
+                                    !contentType.equals(MediaType.IMAGE_JPEG_VALUE))) {
+                        return ResponseEntity.badRequest().body("Arquivo inválido. Envie uma imagem PNG ou JPEG.");
+                    }
+                    contato.setArquivo(arquivo.getBytes());
+                } else {
+                    contato.setArquivo(null); // Arquivo pode ser null se DuvidaOuAlimentacao é true
+                }
             }
 
-            // Verificar se o arquivo é uma imagem PNG ou JPEG
-            String contentType = arquivo.getContentType();
-            if (contentType == null || (!contentType.equals(MediaType.IMAGE_PNG_VALUE) && !contentType.equals(MediaType.IMAGE_JPEG_VALUE))) {
-                return ResponseEntity.badRequest().body("Arquivo inválido. Envie uma imagem PNG ou JPEG.");
-            }
-
+            // Valida os campos obrigatórios
             if (isInvalidField(email) ||
                     isInvalidField(mensagem) ||
                     isInvalidField(nome) ||
                     isInvalidField(telefone)) {
                 return ResponseEntity.badRequest().body("Formulário com falta de informações necessárias.");
             }
-
-            Contato contato = new Contato();
-            contato.setNome(nome);
-            contato.setEmail(email);
-            contato.setTelefone(telefone);
-            contato.setMensagem(mensagem);
-            contato.setDuvidaOuAlimentacao(DuvidaOuAlimentacao);
-
-            // Salvar o arquivo como um byte array
-            contato.setArquivo(arquivo.getBytes());
 
             Contato resultado = contatoUseCases.PostContato(contato);
             return ResponseEntity.ok(resultado);
@@ -71,6 +82,7 @@ public class ContatoController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro inesperado: " + e.getMessage());
         }
     }
+
 
     @GetMapping("/{id}")
     public ResponseEntity<?> getContatoById(@PathVariable(value = "id") Long id) {
