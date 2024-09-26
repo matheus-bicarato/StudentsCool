@@ -13,7 +13,7 @@ import Cardapio from './router/cardapio.tsx'
 import Filtro_cardapio from './router/filtro_cardapio.tsx'
 import Cadastrar_user from './router/cadastrar_user.tsx'
 import Users_cadastrados from './router/Users_cadastradas.tsx'
-import Escolas from './router/escolas.tsx'
+import Escolas_Em_Andamento from './router/Escolas_Em_andamento.tsx'
 import Detalhes_escola from './router/detalhes_escolas.tsx'
 
 
@@ -67,8 +67,16 @@ const router = createBrowserRouter([
         element: <Users_cadastrados />
       },
       {
-        path: "/Escolas",
-        element: <Escolas />
+        path: "/Em_andamento",
+        element: <Escolas_Em_Andamento />
+      },
+      {
+        path: "/Em_andamento",
+        element: <Escolas_Em_Andamento />
+      },
+      {
+        path: "/Cadastradas",
+        element: <Escolas_Em_Andamento />
       },
       {
         path: "/Detalhes_escolas",

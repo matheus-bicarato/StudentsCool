@@ -11,13 +11,13 @@ CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 create table cadastro_escolas(
 	id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(255) NOT NULL,
-    email VARCHAR(255) NOT NULL UNIQUE,
+    email VARCHAR(255) NOT NULL,
     localizacao VARCHAR(255) NOT null,
     contato_alt VARCHAR(255),
     qtd_alunos int(255) not null,
     dias_letivos VARCHAR(255) not null,
     observacoes VARCHAR(255),
-    aprovado BOOLEAN default false
+    aprovado BOOLEAN not null DEFAULT false
 )
 CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
@@ -28,7 +28,7 @@ CREATE TABLE contato (
     email VARCHAR(255) NOT NULL,
     telefone VARCHAR(20) not null,
     mensagem VARCHAR(350) NOT NULL,
-    duvida_ou_alimentacao BOOLEAN,
+    duvida_ou_alimentacao Not null BOOLEAN,
     arquivo LONGBLOB
 );
 

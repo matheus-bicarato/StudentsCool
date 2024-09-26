@@ -18,6 +18,8 @@ npm install --save @fortawesome/react-fontawesome
 Ícones gratuitos do FontAwesome (versão sólida)
 npm install --save @fortawesome/free-solid-svg-icons
 
+Alertas personalizados
+npm install sweetalert2
 
 ================================================================
 
