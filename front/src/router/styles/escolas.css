@@ -1,9 +1,17 @@
+.main_escolas{
+    width: 100%;
+    /* height: 100%; */
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
 .school-list-container {
+    margin-top: 40px;
     background-color: #b095d1;
     padding: 20px;
     border-radius: 10px;
     width: 80%;
-    margin: 0 auto;
+    /* margin: 0 auto; */
 }
 
 .school-item {
@@ -25,7 +33,20 @@
 
 .school-name {
     font-size: 18px;
-    font-family: 'Arial', sans-serif;
+    /* font-family: 'Arial', sans-serif; */
     font-weight: bold;
     color: #2b0d59;
+}
+.container_buttons_ancoras{
+    display: flex;
+
+    width: 100%;
+    /* background-color: black; */
+    justify-content: space-around;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.Title_escola{
+    display: flex;
+    justify-content: center;
 }
