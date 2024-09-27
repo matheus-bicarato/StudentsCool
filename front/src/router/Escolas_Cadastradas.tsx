@@ -1,18 +1,62 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './styles/escolas.css'; // Vamos criar este arquivo depois.
-import imgEscolas from '../assets/imagens/casinha.png'
+import imgEscolas from '../assets/imagens/casinha.png';
 import Header from '../components/Header';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+import Swal from 'sweetalert2';
 
-const schools = [
-    { id: 1, name: 'Colégio Novo Horizonte', imgURL: imgEscolas, path: '/' },
-    { id: 2, name: 'Instituto Educacional Sol Nascente', imgURL: imgEscolas, path: '/' },
-    { id: 3, name: 'Colégio São Francisco de Assis', imgURL: imgEscolas, path: '/' },
-    { id: 4, name: 'Colégio Integração', imgURL: imgEscolas, path: '/' },
-    { id: 5, name: 'Escola do Futuro', imgURL: imgEscolas, path: '/' },
-];
+interface School {
+    id: number;
+    nome: string;
+    aprovado: boolean;
+}
 
-const Escolas_Cadastradas = () => {
+const Escolas_Cadastradas: React.FC = () => {
+    const [schools, setSchools] = useState<School[]>([]);
+
+    useEffect(() => {
+        const fetchSchools = () => {
+            axios.get<School[]>('http://localhost:8080/escolas')
+                .then(response => {
+                    const formattedSchools = response.data.
+                        filter(school => school.aprovado)
+                        .map(school => ({
+                        id: school.id,
+                        nome: school.nome,
+                        aprovado: school.aprovado,
+                    }));
+                    setSchools(formattedSchools); 
+                })
+                .catch(error => {
+                    console.error('Erro ao buscar escolas:', error);
+                });
+        };
+
+        fetchSchools();
+    }, []);
+
+    const handleDelete = (id: number) => {
+        Swal.fire({
+            title: "Você tem certeza que deseja deletar esta escola?",
+            showDenyButton: true,
+            confirmButtonText: "Deletar",
+            denyButtonText: "Não deletar"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                axios.delete(`http://localhost:8080/escolas/${id}`)
+                    .then(() => {
+                        setSchools(prevSchools => prevSchools.filter(school => school.id !== id));
+                        Swal.fire("Deletado!", "A escola foi removida com sucesso.", "success");
+                    })
+                    .catch(error => {
+                        console.error('Erro ao deletar escola:', error);
+                        Swal.fire("Erro!", "Não foi possível deletar a escola.", "error");
+                    });
+            }
+        });
+    };
+
     return (
         <div className="">
             <Header />
@@ -21,9 +65,6 @@ const Escolas_Cadastradas = () => {
                     <div className="container_buttons_ancoras">
                         <Link to={'/Cadastradas'}>
                             <button className='button_padrao'>Cadastradas</button>
-                        </Link>
-                        <Link to={'/Em_Andamento'}>
-                            <button className='button_padrao'>Em Andamento</button>
                         </Link>
                         <Link to={'/Nao_cadastradas'}>
                             <button className='button_padrao'>Não cadastradas</button>
@@ -34,13 +75,17 @@ const Escolas_Cadastradas = () => {
                     </div>
                     {schools.map((school) => (
                         <div key={school.id} className="school-item">
-                            <Link className='itens_esquerda_escolas' to={''}>
-                                <img src={school.imgURL} alt="School Icon" className="school-icon" />
-                                <span className="school-name">{school.name}</span>
-
+                            <Link className='itens_esquerda_escolas' to={'#'}>
+                                <img src={imgEscolas} alt="School Icon" className="school-icon" />
+                                <span className="school-name">{school.nome}</span> {/* Use 'nome' aqui */}
                             </Link>
                             <div className="">
-                                <button className="btn delete-btn">Deletar</button>
+                                <button 
+                                    className="btn delete-btn" 
+                                    onClick={() => handleDelete(school.id)} // Chama a função de deletar
+                                >
+                                    Deletar
+                                </button>
                                 <button className="btn view-btn">Visualizar</button>
                             </div>
                         </div>
