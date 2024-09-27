@@ -13,46 +13,6 @@ import Retangulo from '../assets/imagens/Logo_Retangulo.png'
 import './styles/Contato.css'
 
 const Contato = () => {
-    const [nome, setNome] = useState('');
-    const [email, setEmail] = useState('');
-    const [telefone, setTelefone] = useState('');
-    const [mensagem, setMensagem] = useState('');
-
-    const ContatoSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-
-        const formData = new FormData();
-        formData.append('nome', nome);
-        formData.append('email', email);
-        formData.append('telefone', telefone);
-        formData.append('mensagem', mensagem);
-        formData.append('DuvidaOuAlimentacao', String(false));
-        formData.append('arquivo', String(null));
-
-
-        try {
-            const response = await axios.post('http://localhost:8080/contato', formData, {
-                headers: {
-                    'Content-Type': 'multipart/form-data',
-                },
-            });
-            setNome('');
-            setEmail('');
-            setTelefone('');
-            setMensagem('');
-
-            Swal.fire({
-                title: 'Sucesso!',
-                text: 'Mensagem enviada com sucesso!',
-                icon: 'success',
-                confirmButtonText: 'Ok'
-            });
-            console.log('Mensagem enviada com sucesso:', response.data);
-        } catch (error) {
-            console.error('Erro ao enviar a mensagem:', error);
-        }
-    };
-
     return (
         <div>
             <Header />
