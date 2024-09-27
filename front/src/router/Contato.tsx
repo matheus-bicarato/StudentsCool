@@ -18,7 +18,7 @@ const Contato = () => {
     const [telefone, setTelefone] = useState('');
     const [mensagem, setMensagem] = useState('');
 
-    const ContatoSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    const ContatoSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
     
         const formData = new FormData();
@@ -29,13 +29,12 @@ const Contato = () => {
         formData.append('DuvidaOuAlimentacao', String(false));
         formData.append('arquivo', String(null));
     
-    
-        try {
-            const response = await axios.post('http://localhost:8080/contato', formData, {
-                headers: {
-                    'Content-Type': 'multipart/form-data',
-                },
-            });
+        axios.post('http://localhost:8080/contato', formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data',
+            },
+        })
+        .then((response) => {
             setNome('');
             setEmail('');
             setTelefone('');
@@ -48,9 +47,44 @@ const Contato = () => {
                 confirmButtonText: 'Ok'
             });
             console.log('Mensagem enviada com sucesso:', response.data);
-        } catch (error) {
+        })
+        .catch((error) => {
+            if (error.response) {
+                // O servidor respondeu com um código de status fora da faixa 2xx
+                if (error.response.status === 500) {
+                    Swal.fire({
+                        title: 'Erro Interno!',
+                        text: 'Ocorreu um erro no servidor. Tente novamente mais tarde.',
+                        icon: 'error',
+                        confirmButtonText: 'Ok'
+                    });
+                } else if (error.response.status === 400) {
+                    Swal.fire({
+                        title: 'Contato não permetido!',
+                        text: 'Revise as informações necessárias.',
+                        icon: 'error',
+                        confirmButtonText: 'Ok'
+                    });
+                } else {
+                    Swal.fire({
+                        title: 'Erro!',
+                        text: 'Não foi possível enviar a mensagem.',
+                        icon: 'error',
+                        confirmButtonText: 'Ok'
+                    });
+                }
+            } else {
+                // Erro na configuração da requisição ou outro erro
+                Swal.fire({
+                    title: 'Erro!',
+                    text: 'Verifique sua conexão ou tente novamente mais tarde.',
+                    icon: 'error',
+                    confirmButtonText: 'Ok'
+                });
+            }
+            
             console.error('Erro ao enviar a mensagem:', error);
-        }
+        });    
     };
     
     
