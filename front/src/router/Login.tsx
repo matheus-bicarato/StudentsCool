@@ -25,10 +25,10 @@ const Login = () => {
                         icon: "success",
                         title: `Bem vindo ao Students Cool!`, 
                         showConfirmButton: false,
-                        timer: 1500
+                        timer: 3000
                     })
                     .then(() => {
-                        window.location.href = '/home'
+                        window.location.href = '/'
                     })
                 } else {
                     alert('Erro: Nenhum usuário retornado.');
