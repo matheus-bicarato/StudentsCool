@@ -1,0 +1,39 @@
+.fundo_Tabela {
+    background-color: #d1c4e9;
+}
+
+.tabela-container {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+
+    /* Cor de fundo similar ao lilás */
+    height: 50vh;
+}
+
+.tabela {
+    width: 70%;
+    border-collapse: collapse;
+    background-color: white;
+    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.tabela th,
+.tabela td {
+    border: 1px solid #000;
+    padding: 12px 20px;
+    text-align: center;
+}
+
+.tabela th {
+    background-color: #f0f0f0;
+    font-weight: bold;
+}
+
+.tabela td {
+    font-size: 16px;
+}
+.button_tabela{
+    display: flex;
+    justify-content: center;
+}

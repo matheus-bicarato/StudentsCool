@@ -15,6 +15,9 @@ import Cadastrar_user from './router/cadastrar_user.tsx'
 import Users_cadastrados from './router/Users_cadastradas.tsx'
 import Escolas_Em_Andamento from './router/Escolas_Em_andamento.tsx'
 import Detalhes_escola from './router/detalhes_escolas.tsx'
+import Escolas_nao_cadastradas from './router/escolas_nao_cadastradas.tsx'
+import Escolas_Cadastradas from './router/Escolas_Cadastradas.tsx'
+import Tabela_notricao from './router/Tabela_de_comida.tsx'
 
 
 const router = createBrowserRouter([
@@ -71,16 +74,20 @@ const router = createBrowserRouter([
         element: <Escolas_Em_Andamento />
       },
       {
-        path: "/Em_andamento",
-        element: <Escolas_Em_Andamento />
+        path: "/Nao_cadastradas",
+        element: <Escolas_nao_cadastradas />
       },
       {
         path: "/Cadastradas",
-        element: <Escolas_Em_Andamento />
+        element: <Escolas_Cadastradas />
       },
       {
         path: "/Detalhes_escolas",
         element: <Detalhes_escola />
+      },
+      {
+        path: "/quantidade_de_alimentos",
+        element: <Tabela_notricao />
       },
 
     ]

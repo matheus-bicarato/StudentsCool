@@ -12,7 +12,7 @@ const schools = [
     { id: 5, name: 'Escola do Futuro', imgURL: imgEscolas, path: '/' },
 ];
 
-const escolas_Cadastradas = () => {
+const Escolas_Cadastradas = () => {
     return (
         <div className="">
             <Header />
@@ -25,19 +25,24 @@ const escolas_Cadastradas = () => {
                         <Link to={'/Em_Andamento'}>
                             <button className='button_padrao'>Em Andamento</button>
                         </Link>
-                        <Link to={'/Nao cadastradas'}>
+                        <Link to={'/Nao_cadastradas'}>
                             <button className='button_padrao'>Não cadastradas</button>
                         </Link>
                     </div>
                     <div className="Title_escola">
-                        <h1>Em Andamento</h1>
+                        <h1>Escolas cadastradas</h1>
                     </div>
                     {schools.map((school) => (
                         <div key={school.id} className="school-item">
-                            <Link to={''}>
+                            <Link className='itens_esquerda_escolas' to={''}>
                                 <img src={school.imgURL} alt="School Icon" className="school-icon" />
                                 <span className="school-name">{school.name}</span>
+
                             </Link>
+                            <div className="">
+                                <button className="btn delete-btn">Deletar</button>
+                                <button className="btn view-btn">Visualizar</button>
+                            </div>
                         </div>
                     ))}
                 </div>
@@ -46,4 +51,4 @@ const escolas_Cadastradas = () => {
     );
 };
 
-export default escolas_Cadastradas;
+export default Escolas_Cadastradas;
