@@ -92,11 +92,12 @@
 
 .Nome_contato {
     padding: 12px;
-    width: 100%;
+    width: 92.5%;
     border-radius: 10px;
     font-family: Arial;
     background-color: #c6caff;
     transition: background-color 0.3s ease;
+    font-size: 14px;
 }
 
 .Nome_contato:hover {
@@ -115,6 +116,7 @@
     font-family: Arial;
     background-color: #c6caff;
     transition: background-color 0.3s ease;
+    font-size: 14px;
 }
 
 .Email_contato:hover {
@@ -128,6 +130,7 @@
     font-family: Arial;
     background-color: #c6caff;
     transition: background-color 0.5s ease;
+    font-size: 14px;
 }
 
 .Tel_contato:hover {
@@ -136,7 +139,7 @@
 
 .Mensagem_contato{
     padding: 12px;
-    width: 100%;
+    width: 92.5%;
     height: 200px;
     border-radius: 10px;
     font-family: Arial;
@@ -144,7 +147,8 @@
     transition: background-color 0.5s ease;
     font-size: 20px;
     resize: none;
-    
+    border: 2px solid black;
+    font-size: 14px;
 }
 
 .Logo_contato {
