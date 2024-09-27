@@ -28,9 +28,13 @@ CREATE TABLE contato (
     email VARCHAR(255) NOT NULL,
     telefone VARCHAR(20) not null,
     mensagem VARCHAR(350) NOT NULL,
-    duvida_ou_alimentacao Not null BOOLEAN,
-    arquivo LONGBLOB
+    duvida_ou_alimentacao BOOLEAN,
+    arquivo LONGBLOB,
+    CHECK (telefone REGEXP '^[0-9]+$')
 );
+ALTER TABLE contato MODIFY COLUMN arquivo LONGBLOB;
+SHOW VARIABLES LIKE 'max_allowed_packet';
+SET GLOBAL max_allowed_packet = 16777216;
 
 
 -- Criação tabela "users" de cada escola

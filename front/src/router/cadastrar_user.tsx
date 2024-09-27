@@ -4,6 +4,8 @@ import './styles/cadastrar_user.css'
 import DropdownSelect from '../components/dropdown';
 import { useState } from 'react';
 import axios from 'axios';
+import Swal from 'sweetalert2';
+
 const Cadastrar_user = () => {
     const [uidFire, setUidFire] = useState('')
     const [nome, setNome] = useState('')
@@ -25,17 +27,36 @@ const Cadastrar_user = () => {
         axios.post('http://localhost:8080/users', { id: uidFire, nome: nome, email: email, cpf: cpf, telefone: telefone, authority: authority})
         .then(response => {
             if(response.status === 201) {
-                alert(`O usuário "${nome}" foi criado com sucesso!`)
-            } else if (response.status == 409) {
-                alert("Erro: Já tem um usuário com esse email cadastrado.")
-            }
+                Swal.fire({
+                    title: 'Sucesso!',
+                    text: `O usuário "${nome}" foi cadastrado com sucesso!`,
+                    icon: 'success',
+                    confirmButtonText: 'Ok'
+                })
+
+                setUidFire('')
+                setNome('')
+                setEmail('')
+                setCpf('')
+                setTelefone('')
+            } 
         })
         .catch(error => {
             if (error.response.status == 409) {
-                alert("Erro: Já tem um usuário com esse email ou cpf cadastrado.")
+                Swal.fire({
+                    title: 'Erro!',
+                    text: `Já existe um usuário com esse email ou cpf cadastrado.`,
+                    icon: 'error',
+                    confirmButtonText: 'Ok'
+                })
             }
             else {
-                alert(`Não foi possivel criar usuário: ${error.message}`)
+                Swal.fire({
+                    title: 'Erro!',
+                    text: `Erro interno no servidor.`,
+                    icon: 'error',
+                    confirmButtonText: 'Ok'
+                })
             }
         })
     }
@@ -48,6 +69,11 @@ const Cadastrar_user = () => {
             <div className="form">
                 <form action="" className='Inputs' onSubmit={handleCadastro}>
                     <h1>Cadastre o usuário</h1>
+
+                    <div className='cadastro-firebase-div'>
+                        <a href="https://console.firebase.google.com/u/0/project/studentscool-91f85/authentication/users?hl=pt" className='carastro-firebase' target='blank'>Cadastre o usuário primeiro no firebase</a>
+                    </div>
+
                     <input type="text"
                         id="Uid"
                         placeholder='Uid Firebase'
@@ -87,7 +113,6 @@ const Cadastrar_user = () => {
 
                     <button type="submit" className='Button_submit'>Enviar</button>
                     <Link to={"/contato"} className='Erro_login'>Erro em Cadastrar? entre em contato</Link>
-
                 </form>
             </div>
         </div>

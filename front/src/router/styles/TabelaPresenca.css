@@ -1,14 +1,20 @@
 .fundo_Tabela {
     background-color: #d1c4e9;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+
 }
 
 .tabela-container {
     display: flex;
     justify-content: center;
     padding: 20px;
+    width: 80%;
 
-    /* Cor de fundo similar ao lilás */
-    height: 50vh;
+    /* height: 50vh; */
 }
 
 .tabela {
@@ -33,7 +39,15 @@
 .tabela td {
     font-size: 16px;
 }
-.button_tabela{
+
+.button_tabela {
     display: flex;
     justify-content: center;
+    
+}
+
+.title_Nutricionista {
+    color: #4E148C;
+    align-items: center;
+
 }

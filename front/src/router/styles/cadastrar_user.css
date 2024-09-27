@@ -99,6 +99,23 @@
     color: #5829a7;
 }
 
+.cadastro-firebase-div {
+    /* background-color: red; */
+    width: 100%;
+    display: inline-flex;
+    justify-content: center;
+}
+
+.carastro-firebase {
+    font-size: 18px;
+    text-decoration: none;
+    color: #003899;
+}
+
+.carastro-firebase:hover {
+    text-decoration: underline;
+}
+
 /* ------------------
     RESPONSIVIDADE
 ------------------ */
