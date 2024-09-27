@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import Header_simplificado from '../components/Header_simplificado';
 import Footer from '../components/Footer';
 import axios from 'axios';
+import Swal from 'sweetalert2';
 import './styles/Cadastro.css';
 
 const Cadastro = () => {
@@ -18,7 +19,7 @@ const Cadastro = () => {
 
     const EscolaSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-
+    
         const escolaData = {
             nome: nomeEscola,
             email: email,
@@ -29,15 +30,49 @@ const Cadastro = () => {
             observacoes: observacoes,
             aprovado: false,
         };
-
-        try {
-            await axios.post('http://localhost:8080/escolas', escolaData);
-
-            navigate('/cadastro-feito');
-        } catch (error) {
-            console.error('Erro ao cadastrar a escola: ', error);
-        }
-    }
+    
+        axios.post('http://localhost:8080/escolas', escolaData)
+            .then(response => {
+                console.log('Escola cadastrada com sucesso:', response.data); // Mensagem de confirmação no console
+                Swal.fire({
+                    title: 'Sucesso!',
+                    text: 'Escola cadastrada com sucesso!',
+                    icon: 'success',
+                    confirmButtonText: 'Ok'
+                });
+                navigate('/cadastro-feito');
+            })
+            .catch(error => {
+                if (error.response) {
+                    // O servidor respondeu com um código de status fora do intervalo 2xx
+                    if (error.response.status === 500) {
+                        console.error('Erro 500: Erro interno do servidor');
+                        Swal.fire({
+                            title: 'Erro!',
+                            text: 'Ocorreu um erro interno no servidor. Tente novamente mais tarde.',
+                            icon: 'error',
+                            confirmButtonText: 'Ok'
+                        });
+                    } else {
+                        // Outros erros de resposta do servidor
+                        Swal.fire({
+                            title: 'Erro!',
+                            text: `Erro: ${error.response.data}`,
+                            icon: 'error',
+                            confirmButtonText: 'Ok'
+                        });
+                    }
+                } else if (error.request) {
+                    console.error('Erro de requisição:', error.request);
+                    Swal.fire({
+                        title: 'Erro!',
+                        text: 'Erro ao conectar ao servidor. Verifique sua conexão.',
+                        icon: 'error',
+                        confirmButtonText: 'Ok'
+                    });
+                } 
+            });
+};
     return (
         <form onSubmit={EscolaSubmit}>
             <Header_simplificado />
@@ -144,7 +179,6 @@ const Cadastro = () => {
                         className="input_container"
                         id="contato"
                         placeholder="Observações adicionais"
-                        required
                         value={observacoes}
                         onChange={(e) => setObservacoes(e.target.value)}
                     />
