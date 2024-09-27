@@ -5,18 +5,12 @@ import '../../firebase_connect'
 import { auth } from '../../firebase_connect'
 import { useEffect, useState } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
+import Swal from 'sweetalert2'
 
 const Login = () => {
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
     const [user] = useAuthState(auth);
-    
-    let userEmail, userUid;
-
-    if(user) {
-        userEmail = user.email;
-        userUid = user.uid;
-    }
 
     const handleLogin = (e) => {
         e.preventDefault(); // Previne o reload da página
@@ -26,22 +20,39 @@ const Login = () => {
             .then(userCredentials => {
                 const user = userCredentials?.user; // Verificação se o objeto user existe
                 if (user) {
-
-                    alert(`Login realizado com sucesso! Email: ${user.email}`);
+                    Swal.fire({
+                        position: "center", 
+                        icon: "success",
+                        title: `Bem vindo ao Students Cool!`, 
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                    .then(() => {
+                        window.location.href = '/home'
+                    })
                 } else {
                     alert('Erro: Nenhum usuário retornado.');
                 }
             })
             .catch(error => {
-                alert(`Erro ao fazer login: ${error.code}`);
+                let errorMessage;
+
+                switch (error.code) {
+                    case 'auth/invalid-credential':
+                        errorMessage = "Email ou senha incorretos"
+                        break;
+                    default:
+                        errorMessage = `Erro: ${error}, contate um administrador ou tente novamente mais tarde.`
+                        break;
+                }
+
+                Swal.fire({
+                    icon: "error",
+                    title: "Erro",
+                    text: `${errorMessage}`,
+                });
             });
     };
-
-    const handleLogout = () => {
-        auth.signOut().then().catch((error) => {
-            alert(error)
-        })
-    }
 
     return (
         <div className="background_Login">
@@ -51,11 +62,6 @@ const Login = () => {
             <div className="form">
                 <form action="" className='Inputs' onSubmit={handleLogin}>
                     <h1>Login StudentsCool</h1>
-
-                    <p>Informações do usuário: <br />
-                    Email:  {userEmail}<br />
-                    Uid:  {userUid}<br />
-                    </p>
 
                     <input type="email"
                         id="email"
@@ -71,7 +77,6 @@ const Login = () => {
                         className='button_padrao' />
                     <a href="https://www.youtube.com/watch?v=M3_XrtBGJJ0" className='esqueci_pass'>Esqueci a senha</a>
                     <button type="submit" className='Button_submit'>Entrar</button>
-                    <button className='Button_submit' onClick={() => handleLogout()}>sair</button>
                     <Link to={"/contato"} className='Erro_login'>Erro em login? entre em contato</Link>
                 </form>
             </div>
