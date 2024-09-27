@@ -26,6 +26,10 @@ public class ContatoController {
         return field == null || field.trim().isEmpty() || field.equals("null");
     }
 
+    private boolean isTelefoneValido(String telefone) {
+        return telefone != null && telefone.matches("\\d+");
+    }
+
     @PostMapping
     public ResponseEntity<?> criarContato(
             @RequestParam(value = "arquivo", required = false) MultipartFile arquivo,
@@ -33,18 +37,23 @@ public class ContatoController {
             @RequestParam("email") String email,
             @RequestParam("telefone") String telefone,
             @RequestParam("mensagem") String mensagem,
-            @RequestParam("DuvidaOuAlimentacao") Boolean duvidaOuAlimentacao) { // Adicionei a DuvidaOuAlimentacao aqui
+            @RequestParam("DuvidaOuAlimentacao") Boolean DuvidaOuAlimentacao) {
 
         try {
+            if (!isTelefoneValido(telefone)) {
+                return ResponseEntity.badRequest().body("O telefone deve conter apenas números.");
+            }
+
             // Cria o objeto Contato
             Contato contato = new Contato();
             contato.setNome(nome);
             contato.setEmail(email);
             contato.setTelefone(telefone);
             contato.setMensagem(mensagem);
+            contato.setDuvidaOuAlimentacao(DuvidaOuAlimentacao);
 
             // Verifica a lógica da DuvidaOuAlimentacao
-            if (!duvidaOuAlimentacao) {
+            if (!DuvidaOuAlimentacao) {
                 // Se DuvidaOuAlimentacao for false, não deve haver arquivo
                 if (arquivo != null && !arquivo.isEmpty()) {
                     return ResponseEntity.badRequest().body("Não é permitido enviar um arquivo quando DuvidaOuAlimentacao é false.");

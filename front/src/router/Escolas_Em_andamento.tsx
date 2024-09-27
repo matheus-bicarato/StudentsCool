@@ -12,7 +12,7 @@ const schools = [
     { id: 5, name: 'Escola do Futuro', imgURL: imgEscolas, path: '/' },
 ];
 
-const escolas_em_andamento = () => {
+const Escolas_em_andamento = () => {
     return (
         <div className="">
             <Header />
@@ -25,7 +25,7 @@ const escolas_em_andamento = () => {
                         <Link to={'/Em_Andamento'}>
                             <button className='button_padrao'>Em Andamento</button>
                         </Link>
-                        <Link to={'/Nao cadastradas'}>
+                        <Link to={'/Nao_cadastradas'}>
                             <button className='button_padrao'>Não cadastradas</button>
                         </Link>
                     </div>
@@ -34,10 +34,12 @@ const escolas_em_andamento = () => {
                     </div>
                     {schools.map((school) => (
                         <div key={school.id} className="school-item">
-                            <Link to={''}>
-                                <img src={school.imgURL} alt="School Icon" className="school-icon" />
-                                <span className="school-name">{school.name}</span>
+                            <Link className='itens_esquerda_escolas' to={''}>
+                                    <img src={school.imgURL} alt="School Icon" className="school-icon" />
+                                    <span className="school-name">{school.name}</span>
+                                
                             </Link>
+                            <h3>Ver mais...</h3>
                         </div>
                     ))}
                 </div>
@@ -46,4 +48,4 @@ const escolas_em_andamento = () => {
     );
 };
 
-export default escolas_em_andamento;
+export default Escolas_em_andamento;
