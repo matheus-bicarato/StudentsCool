@@ -9,6 +9,7 @@ const Tabela_notricao = () => {
         <div className="">
             <Header />
             <div className="fundo_Tabela">
+                <h1 className='title_Nutricionista'>Nutricionista</h1>
                 <div className="tabela-container">
                     <table className="tabela">
                         <thead>

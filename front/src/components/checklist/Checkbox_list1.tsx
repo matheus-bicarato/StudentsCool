@@ -31,7 +31,7 @@ const CheckboxList = ({ title, items }) => {
 
     return (
         <form className='form_container_filtro' onSubmit={handleSubmit1}>
-            <div className="barra_porple"></div>
+            <div className="filtro_cardapio"></div>
             <div className="container_Filtro_itens">
                 <h1>{title}</h1>
                 <div className="checkbox-container">

@@ -2,17 +2,24 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  
 }
-
+.filtro_cardapio{
+  margin-top: 20px;
+    background-color: #4E148C;
+    width: 100% ;
+    height: 20px;
+    border-radius: 20px;
+    margin-bottom: -10px;
+}
 .container_Filtro_itens {
   display: flex;
   flex-direction: column;
   background-color: white;
-  width: 100%;
+  width: 130vh;
   height: 140px;
   border-radius: 0 0 10px 10px;
   align-items: center;
+
 }
 
 .input_container {
@@ -26,10 +33,7 @@
   background-color: rgb(231, 231, 231);
 }
 
-.hr_opacity {
-  opacity: 50%;
-  width: 100%;
-}
+
 
 .container_Filtro_button {
   margin-top: 10px;
@@ -42,7 +46,7 @@
 
 .button_Filtro {
   padding: 10px;
-  width: 100px;
+  width: 20vh;
   background-color: #c6caff;
   border-radius: 10px;
   transition: transform 0.3s ease;
@@ -69,10 +73,10 @@
   justify-items: center;
   margin-right: 5px;
 
-  /* Alinha verticalmente os elementos no centro */
+  /* Alinha verticalmente os elementos no centro  */
 }
 
-input[type="checkbox"] {
+.input_chacklist_filtro input[type="checkbox"] {
   margin-right: 10px;
   /* Espaço entre o checkbox e o label */
 }
@@ -110,4 +114,30 @@ input[type="checkbox"] {
   align-items: center;
   margin-top: 5px;
   /* Adiciona um espaço entre o texto e o contador */
+}
+
+@media (max-width:980px) {
+  
+  .container_Filtro_itens {
+    width: 100vh;
+    height: 200px;  
+  }
+  
+}
+@media (max-width:770px) {
+  
+  .container_Filtro_itens {
+    width: 50vh;
+    height: 300px;  
+  }
+
+  .title_cardapio{
+    color: #Fff;
+    font-size: 35px;
+}
+
+  .span_cardapio{
+    color: #613FC1;
+}
+  
 }

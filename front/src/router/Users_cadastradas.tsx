@@ -3,6 +3,7 @@ import './styles/Users_cadastradas.css';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import axios from 'axios';
+import Swal from 'sweetalert2';
 
 const contas_cadastradas = () => {
     const [users, setUsers] = useState([])
@@ -13,14 +14,41 @@ const contas_cadastradas = () => {
         .catch(error => alert(`Não foi possível recuperar os usuários: ${error.message}`))
     }, [])
 
-    const deleteUser = (id) => {
-        const isConfirmed = window.confirm("Tem certeza que deseja deletar esse usuário?")
+    // 
+    const deleteUser = (id, nome) => {
+        Swal.fire({
+            title: "Confirme",
+            text: `Você realmente quer deletar o usuário "${nome}" ?`,
+            icon: "question",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Deletar",
+            cancelButtonText: "Cancelar"
+          }).then((result) => {
+            if (result.isConfirmed) {
+                // logica do axios
+                axios.delete(`http://localhost:8080/users/${id}`)
+                .then(response => {
+                    setUsers(users.filter(user => user.id !== id))
 
-        if(isConfirmed) {
-            axios.delete(`http://localhost:8080/users/${id}`)
-            .then(response => setUsers(users.filter(user => user.id !== id)))
-            .catch(error => alert(`Não foi possível deletar o usuário: ${error.message}`))
-        }
+                    Swal.fire({
+                        title: "Deletado!",
+                        text: `O usuário "${nome}" foi deletado com sucesso`,
+                        icon: "success"
+                    });
+                })
+                .catch(error => {
+                    Swal.fire({
+                        title: "Erro!",
+                        text: `Não foi possível deletar esse usuário.`,
+                        icon: "error"
+                    });
+                })
+
+                
+            }
+          });
     }
 
     return (
@@ -39,7 +67,7 @@ const contas_cadastradas = () => {
                             <tr key={user.id} className="table-row">
                                 <td className="user-email">{user.email}</td>
                                 <td className="actions">
-                                    <button className="btn delete-btn" onClick={() => deleteUser(user.id)}>Deletar</button>
+                                    <button className="btn delete-btn" onClick={() => deleteUser(user.id, user.nome)}>Deletar</button>
                                     <button className="btn view-btn">Visualizar</button>
                                 </td>
                             </tr>
