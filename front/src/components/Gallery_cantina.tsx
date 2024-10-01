@@ -7,9 +7,9 @@ import Title3 from '../assets/imagens/professor.png';
 
 
 const galleryItems = [
-    { id: 1, title: 'Quantidade de Alimento', imageUrl: img1, imgTitle: Title1, path: '/' },
+    { id: 1, title: 'Quantidade de Alimento', imageUrl: img1, imgTitle: Title1, path: '/quantidade_de_alimentos' },
     { id: 2, title: 'Alimentação diferentes', imageUrl: img1, imgTitle: Title2, path: '/' },
-    { id: 3, title: 'Contato', imageUrl: img1, imgTitle: Title3, path: '/' },
+    { id: 3, title: 'Contato', imageUrl: img1, imgTitle: Title3, path: '/Contato' },
     // Adicione mais itens conforme necessário
 ];
 
