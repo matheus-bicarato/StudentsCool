@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-import logo from '../assets/imagens/logo_lapis.png'
+import logo from '../assets/imagens/Logo_Lapis.png'
 import perfil from '../assets/imagens/Perfil.png'
 import porta from '../assets/imagens/Porta.png'
 import './styles/Header.css'

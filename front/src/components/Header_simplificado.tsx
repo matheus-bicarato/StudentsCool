@@ -39,7 +39,7 @@ const Header_simplificado = () => {
                 <div className="left">
                     <Link to={"/"}><img src={Logo_bola} alt="Logo" className="Logo_bola" /></Link>
                     <div className="Title_Header">
-                        <h1>Olá {userInfo ? `Olá ${userInfo.nome.split(' ').slice(0, 2).join(' ')}!` : "Carregando..."} <br />
+                        <h1>{userInfo ? `Olá ${userInfo.nome.split(' ').slice(0, 2).join(' ')}!` : "Carregando..."} <br />
 
                             <Link className="span" to={"/home"}><span>Clique aqui</span></Link> <button onClick={() => handleLogout()}>Sair da conta</button> <br />
                             para entrar na home !</h1>

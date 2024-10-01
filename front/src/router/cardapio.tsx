@@ -1,6 +1,6 @@
 import Footer from '../components/Footer';
 import Header from '../components/Header';
-import img_cardapio from '../assets/imagens/Cardapio.png'
+import img_cardapio from "../assets/imagens/cardapio.png"
 import './styles/Cardapio.css'
 import { Link } from 'react-router-dom';
 

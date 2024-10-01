@@ -13,7 +13,8 @@ import { useEffect, useState } from 'react';
 
 const Home = () => {
     const [user] = useAuthState(auth);
-    const [userInfo, setUserInfo] = useState(null)
+    const [userInfo, setUserInfo] = useState({})
+    const [autoridade, setAutoridade] = useState("")
 
     let userUid;
 
@@ -22,20 +23,16 @@ const Home = () => {
             userUid = user.uid;
 
             axios.get(`http://localhost:8080/users/${userUid}`)
-                .then(response => setUserInfo(response.data))
+                .then(response => {
+                    const autoridade = response.data.authority;
+
+                    setAutoridade(autoridade);
+
+                    setUserInfo(response.data)
+                })
                 .catch(error => console.log(`Erro ao puxar infos do usuário: ${error.message}`))
         }
     }, [user])
-
-    useEffect(() => {
-        if(user) {
-            // alert("logado")]
-        } else {
-            window.location.href = '/login'
-        }
-    }, [user])
-    
-    const autoridade = userInfo.authority
 
     return (
         <div className="">
@@ -49,9 +46,8 @@ const Home = () => {
                     ) : autoridade === "admin" ? (
                         <Gallery_adm_escola />
                     ) : (
-                        <p>deu merda</p>
+                        <p>Erro interno no servidor.</p>
                     )}
-                    
                 </div>
             </main>
             <Footer />

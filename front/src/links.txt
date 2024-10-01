@@ -21,6 +21,12 @@ npm install --save @fortawesome/free-solid-svg-icons
 Alertas personalizados
 npm install sweetalert2
 
+Comunicação com a API
+npm i axios
+
+Biblioteca de loadings
+npm install ldrs
+
 ================================================================
 
 Para iniciar o projeto

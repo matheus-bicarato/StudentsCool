@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import Phone from "../assets/imagens/Phone_Icon.png";
 import Face from "../assets/imagens/Face_Icon.png";
 import Insta from "../assets/imagens/Insta_Icon.png";
-import TikTok from "../assets/imagens/TikTok_Icon.png";
-import LogoB from "../assets/imagens/Logo_Branco.png";
+import TikTok from '../assets/imagens/TikTok_icon.png'
+import LogoB from "../assets/imagens/Logo_branco.png"
 
 import "./styles/Footer.css";
 
