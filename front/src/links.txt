@@ -31,3 +31,10 @@ npm install ldrs
 
 Para iniciar o projeto
 npm run dev
+
+Contas para entrar no projeto:
+
+
+email: floradm@studentscool.com
+- para mudar o cargo, mudar a parte "adm" para "membro" ou "cantina"
+senha: teste123
