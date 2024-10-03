@@ -12,7 +12,7 @@ public interface CardapioSelecionadoUseCases {
 
     List<CardapioSelecionado> GetAllSelecionados();
 
-    Map<String, Double> calcularQuantidadeTotal();
+    Map<String, Map<String, Double>> calcularQuantidadeTotal();
 
     void deleteAllCardapios();
 }

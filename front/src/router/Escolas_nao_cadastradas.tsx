@@ -18,8 +18,19 @@ interface School {
     aprovado: boolean;
 }
 
+interface InfoSchool {
+    nome: string;
+    email: string;
+    localizacao: string;
+    qtd_alunos: number;
+    observacoes: string;
+    dias_letivos: number;
+    contato_alt: string;
+}
+
 const Escolas_nao_cadastradas: React.FC = () => {
     const [schools, setSchools] = useState<School[]>([]);
+    const [infoSchools, setInfoSchools] = useState<InfoSchool[]>([]);
 
     useEffect(() => {
         const fetchSchools = () => {
@@ -85,13 +96,51 @@ const Escolas_nao_cadastradas: React.FC = () => {
                         setSchools(prevSchools => 
                             prevSchools.map(s => s.id === school.id ? updatedSchool : s)
                         );
-                        Swal.fire("Aprovada!", "A escola foi aprovada com sucesso.", "success");
+                        Swal.fire("Aprovada!", "A escola foi aprovada com sucesso.", "success")
+                        .then(() => {
+                            window.location.href = '/cadastradas'
+                        })
                     })
                     .catch(error => {
                         console.error('Erro ao aprovar escola:', error);
                         Swal.fire("Erro!", "Não foi possível aprovar a escola.", "error");
                     });
             }
+        });
+    };
+
+    const handleView = (id: number) => {
+        axios.get<InfoSchool>(`http://localhost:8080/escolas/${id}`)
+        .then(response => {
+            const infoSchool = {
+                nome: response.data.nome,
+                email: response.data.email,
+                localizacao: response.data.localizacao,
+                qtd_alunos: response.data.qtd_alunos,
+                observacoes: response.data.observacoes,
+                dias_letivos: response.data.dias_letivos,
+                contato_alt: response.data.contato_alt
+            };
+    
+            setInfoSchools([infoSchool]);
+
+            Swal.fire({
+                title: `${infoSchool.nome}`,
+                icon: "info",
+                html:  `<h3 style="font-weight: 200;">Email: ${infoSchool.email}</br>
+                        Localização: ${infoSchool.localizacao}</br>
+                        Quantidade de alunos: ${infoSchool.qtd_alunos}</br>
+                        Observações: ${infoSchool.observacoes}</br>
+                        Dias letivos: ${infoSchool.dias_letivos}</br>
+                        Contato alternativo: ${infoSchool.contato_alt}</h3>`,
+            });
+        })
+        .catch(error => {
+            Swal.fire({
+                title: `Erro!`,
+                icon: "error",
+                text: `Erro ao vizualizar informações: ${error.message}`,
+            });
         });
     };
 
@@ -124,7 +173,12 @@ const Escolas_nao_cadastradas: React.FC = () => {
                                 >
                                     Deletar
                                 </button>
-                                <button className="btn view-btn amarela">Visualizar</button>
+                                <button 
+                                    className="btn view-btn amarela"
+                                    onClick={() => handleView(school.id)}
+                                >
+                                    Visualizar
+                                </button>
                                 <button 
                                     className="btn view-btn" 
                                     onClick={() => handleAccept(school)} // Chama a função de aceitar

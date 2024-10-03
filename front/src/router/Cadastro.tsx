@@ -19,6 +19,17 @@ const Cadastro = () => {
 
     const EscolaSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+
+        // Verificação dos campos obrigatórios
+        if (!nomeEscola || !email || !localizacao || !contato || !quantidadeAlunos || !diasLetivos) {
+            Swal.fire({
+                title: 'Erro!',
+                text: 'Por favor, preencha todos os campos obrigatórios.',
+                icon: 'error',
+                confirmButtonText: 'Ok'
+            });
+            return; // Não continua com o envio se algum campo estiver vazio
+        }
     
         const escolaData = {
             nome: nomeEscola,
@@ -150,7 +161,7 @@ const Cadastro = () => {
                     <input type="text"
                         className="input_container"
                         id="contato"
-                        placeholder="Ex: 0 alunos"
+                        placeholder="Ex: 421"
                         required
                         value={quantidadeAlunos}
                         onChange={(e) => setQuantidadeAlunos(e.target.value)}
