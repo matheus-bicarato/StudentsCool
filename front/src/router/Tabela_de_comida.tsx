@@ -14,7 +14,7 @@ const Tabela_notricao = () => {
                     <table className="tabela">
                         <thead>
                             <tr>
-                                <th>SEMANA</th>
+                                <th>Periodo</th>
                                 <th>ALUNOS PRESENTES</th>
                                 <th>QUANTIDADE DE ALIMENTOS</th>
                             </tr>

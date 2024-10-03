@@ -23,6 +23,7 @@ import { auth } from '../firebase_connect';
 import { ring2 } from 'ldrs'
 // importa o css para fazer o carregamento da pag ficar bonitin
 import './router/styles/Main.css'
+import Add_cardapio from './router/add_cardapio.tsx'
 
 
 const AppRoutes = () => {
@@ -38,12 +39,12 @@ const AppRoutes = () => {
           stroke="5"
           stroke-length="0.25"
           bg-opacity="0.1"
-          speed="0.8" 
-          color="#00aaff" 
+          speed="0.8"
+          color="#00aaff"
         ></l-ring-2>
       </body>
     )
-    
+
   }
 
   // caso dê erro no carregamento
@@ -104,6 +105,10 @@ const AppRoutes = () => {
     {
       path: "/quantidade_de_alimentos",
       element: <Tabela_notricao />
+    },
+    {
+      path: "/Adicionar_cardapio",
+      element: <Add_cardapio />
     },
   ]
   // rotas que o usuário não logado pode acessar
