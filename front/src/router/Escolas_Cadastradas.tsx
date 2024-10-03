@@ -5,6 +5,7 @@ import Header from '../components/Header';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import { iconName } from '@fortawesome/free-solid-svg-icons/fa0';
 
 interface School {
     id: number;
@@ -12,8 +13,19 @@ interface School {
     aprovado: boolean;
 }
 
+interface InfoSchool {
+    nome: string;
+    email: string;
+    localizacao: string;
+    qtd_alunos: number;
+    observacoes: string;
+    dias_letivos: number;
+    contato_alt: string;
+}
+
 const Escolas_Cadastradas: React.FC = () => {
     const [schools, setSchools] = useState<School[]>([]);
+    const [infoSchools, setInfoSchools] = useState<InfoSchool[]>([]);
 
     useEffect(() => {
         const fetchSchools = () => {
@@ -35,6 +47,42 @@ const Escolas_Cadastradas: React.FC = () => {
 
         fetchSchools();
     }, []);
+
+    const handleView = (id: number) => {
+        axios.get<InfoSchool>(`http://localhost:8080/escolas/${id}`)
+        .then(response => {
+            const infoSchool = {
+                nome: response.data.nome,
+                email: response.data.email,
+                localizacao: response.data.localizacao,
+                qtd_alunos: response.data.qtd_alunos,
+                observacoes: response.data.observacoes,
+                dias_letivos: response.data.dias_letivos,
+                contato_alt: response.data.contato_alt
+            };
+    
+            setInfoSchools([infoSchool]);
+
+            Swal.fire({
+                title: `${infoSchool.nome}`,
+                icon: "info",
+                html:  `<h3 style="font-weight: 200;">Email: ${infoSchool.email}</br>
+                        Localização: ${infoSchool.localizacao}</br>
+                        Quantidade de alunos: ${infoSchool.qtd_alunos}</br>
+                        Observações: ${infoSchool.observacoes}</br>
+                        Dias letivos: ${infoSchool.dias_letivos}</br>
+                        Contato alternativo: ${infoSchool.contato_alt}</h3>`,
+            });
+        })
+        .catch(error => {
+            Swal.fire({
+                title: `Erro!`,
+                icon: "error",
+                text: `Erro ao vizualizar informações: ${error.message}`,
+            });
+        });
+    };
+    
 
     const handleDelete = (id: number) => {
         Swal.fire({
@@ -86,7 +134,7 @@ const Escolas_Cadastradas: React.FC = () => {
                                 >
                                     Deletar
                                 </button>
-                                <button className="btn view-btn">Visualizar</button>
+                                <button className="btn view-btn" onClick={() => handleView(school.id)}>Visualizar</button>
                             </div>
                         </div>
                     ))}

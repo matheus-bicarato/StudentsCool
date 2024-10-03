@@ -36,30 +36,38 @@ public class CardapioSelecionadoService implements CardapioSelecionadoUseCases {
     }
 
     @Override
-    public Map<String, Double> calcularQuantidadeTotal() {
+    public Map<String, Map<String, Double>> calcularQuantidadeTotal() {
         List<CardapioSelecionado> itensSelecionados = repository.findAll();
         List<AddCardapio> todosItens = addCardapioRepository.findAll();
 
-//        armazena qtd total de comida por item
-        Map<String, Double> qtdPorItem = new HashMap<>();
+        // Armazena qtd total de comida por período e por item
+        Map<String, Map<String, Double>> qtdPorPeriodoEItem = new HashMap<>();
 
-//        Inicia o mapa com todos os itens do cardapio
+        // Inicia o mapa com todos os itens do cardápio
         for (AddCardapio item : todosItens) {
-            qtdPorItem.put(item.getNome_comida(), 0.0);
+            qtdPorPeriodoEItem.put(item.getPeriodo(), new HashMap<>());
         }
 
         for (CardapioSelecionado itemSelecionado : itensSelecionados) {
             String nomeItem = itemSelecionado.getAddCardapio().getNome_comida();
+            String periodo = itemSelecionado.getAddCardapio().getPeriodo();
             double tamanhoPorcao = itemSelecionado.getAddCardapio().getTamanho_porcao();
             int qtdPorcao = itemSelecionado.getPorcoes_escolhidas();
             double quantidadeTotal = tamanhoPorcao * qtdPorcao;
 
-            // Atualiza a quantidade total no mapa
+            // Verifica se já existe uma entrada para o período no mapa
+            if (!qtdPorPeriodoEItem.containsKey(periodo)) {
+                qtdPorPeriodoEItem.put(periodo, new HashMap<>());
+            }
+
+            // Atualiza a quantidade total no mapa com base no nome do item
+            Map<String, Double> qtdPorItem = qtdPorPeriodoEItem.get(periodo);
             qtdPorItem.put(nomeItem, qtdPorItem.getOrDefault(nomeItem, 0.0) + quantidadeTotal);
         }
 
-        return qtdPorItem;
+        return qtdPorPeriodoEItem;
     }
+
 
     @Override
     public void deleteAllCardapios() {
