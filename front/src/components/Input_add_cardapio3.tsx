@@ -40,24 +40,33 @@ const LancheForm3 = () => {
 
     return (
         <form onSubmit={handleSubmit} className="form-container">
-            <h1 className="form-header">Lanche da Tarde</h1>
+            <h1 className="form-header">Café da Manha</h1>
 
             {/* Inputs organizados em linha */}
             <div className="inputs-container">
                 {opcoes.map((opcao, index) => (
                     <div key={index} className="input-item">
-                        <input
-                            type="text"
-                            placeholder={`Opção ${index + 1}`}
-                            value={opcao.nome}
-                            onChange={(event) => handleInputChange(index, event)}
-                            className="form-input"
-                        />
-                        <button 
-                            type="button" 
-                            onClick={() => handleRemoveOpcao(index)} 
+                        <div className="inputs_container_itens">
+                            <input
+                                type="text"
+                                placeholder={`Opção ${index + 1}`}
+                                value={opcao.nome}
+                                onChange={(event) => handleInputChange(index, event)}
+                                className="form-input"
+                            />
+                            <input
+                                type="text"
+                                placeholder='unidade em grama'
+                                value={opcao.nome}
+                                onChange={(event) => handleInputChange(index, event)}
+                                className="form_input_unidade"
+                            />
+                        </div>
+                        <button
+                            type="button"
+                            onClick={() => handleRemoveOpcao(index)}
                             className="delete-button">
-                        tirar opção
+                            tirar opção
                         </button>
                     </div>
                 ))}
