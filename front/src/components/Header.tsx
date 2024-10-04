@@ -25,6 +25,16 @@ const Header = () => {
         }
     }, [user])
 
+    const handleLogout = () => {
+        auth.signOut()
+            .then(() => {
+                window.location.href = '/'
+            })
+            .catch((error) => {
+                alert(error)
+            })
+    }
+
     if(user) {
         return (
             <header className='Navbar'>
@@ -34,7 +44,9 @@ const Header = () => {
                 <div className="perfil">
                     <Link to={"/"}><img className='img-perfil' src={perfil} alt="perfil" /></Link>
                     <h2 className='user'>{userInfo ? `Olá ${userInfo.nome.split(' ').slice(0, 2).join(' ')}!` : "Carregando..."} <br /> <Link to={"/Cadastro"}><span className="subUser">STUDENTSCOOL</span></Link></h2>
-                    <Link to={"/Login"}><img className="porta" src={porta} alt="porta" /></Link>
+                    <button className="Button-porta" title="Sair da conta" onClick={() => handleLogout()}>
+                        <img className="porta" src={porta} alt="porta" />
+                    </button>
                 </div>
             </header>
         )

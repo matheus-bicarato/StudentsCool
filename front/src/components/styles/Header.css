@@ -31,6 +31,12 @@
 }
 .subUser{
     font-size: 16px;
+
+}
+.Button-porta {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
 }
 .porta{
     width: 70px;
