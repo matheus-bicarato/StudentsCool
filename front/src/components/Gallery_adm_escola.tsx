@@ -3,12 +3,10 @@ import './styles/Gallery.css'; // Importa o CSS da galeria
 import img1 from '../assets/imagens/lousa.png';
 import Title1 from '../assets/imagens/mais_cadastro.png';
 import Title2 from '../assets/imagens/livro.png';
-import Title3 from '../assets/imagens/pizza.png';
 
 const galleryItems = [
-    { id: 1, title: 'Cadastrar Alunos', imageUrl: img1, imgTitle: Title1, path: '/Cadastrar_user' },
-    { id: 2, title: 'Contas cadastradas', imageUrl: img1, imgTitle: Title2, path: '/Contas_cadastradas' },
-    { id: 3, title: 'Inserir Cardápio', imageUrl: img1, imgTitle: Title3, path: '/' },
+    { id: 1, title: 'Cadastrar escola', imageUrl: img1, imgTitle: Title1, path: '/Nao_cadastradas' },
+    { id: 2, title: 'Escolas cadastradas', imageUrl: img1, imgTitle: Title2, path: '/Cadastradas' },
     // Adicione mais itens conforme necessário
 ];
 
