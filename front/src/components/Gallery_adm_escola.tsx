@@ -14,7 +14,7 @@ const galleryItems = [
 
 const Gallery_adm_geral = () => {
     return (
-        <div className="gallery">
+        <div className="gallery_adm_escola">
             {galleryItems.map(item => (
                 <Link
                     to={item.path}
