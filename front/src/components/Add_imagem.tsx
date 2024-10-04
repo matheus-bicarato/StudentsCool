@@ -7,6 +7,9 @@ const ImageUpload: React.FC = () => {
     const [selectedImage, setSelectedImage] = useState<File | null>(null);
     const [previewUrl, setPreviewUrl] = useState<string | null>(null);
 
+    // variável para mandar a img sempre no msm id do banco
+    const idImage = 1;
+
     const handleImageChange = async (e) => {
         const file = e.target.files?.[0]; // Pega o primeiro arquivo selecionado
 
@@ -35,6 +38,7 @@ const ImageUpload: React.FC = () => {
 
         if (selectedImage) {
             axios.post('http://localhost:8080/CardapioImage', {
+                id: idImage,
                 imagem_cardapio: selectedImage
             })
             .then(response => {

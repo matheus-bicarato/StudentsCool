@@ -13,7 +13,6 @@ import lombok.*;
 @Table(name = "imagem_cardapio")
 public class CardapioImageEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(length = Integer.MAX_VALUE)
