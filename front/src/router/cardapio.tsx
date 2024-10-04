@@ -4,6 +4,8 @@ import img_cardapio from "../assets/imagens/cardapio.png"
 import './styles/Cardapio.css'
 import { Link } from 'react-router-dom';
 
+import Avaliar from '../components/AvaliacaoCardapio'
+
 
 const Cardapio = () => {
     return (
@@ -24,6 +26,14 @@ const Cardapio = () => {
                         </div>
                     </div>
                 </div>
+
+                <div>
+                    <div className='contStar'>
+                        <Avaliar />
+                    </div>
+
+                </div>
+
             </main>
             <Footer />
         </div>
