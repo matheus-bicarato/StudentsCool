@@ -1,13 +1,19 @@
 import React, { useState } from 'react';
 import './styles/add_cardapio_input.css'; // Importando o CSS
 
-const LancheForm = () => {
+const LancheForm2 = () => {
     const [opcoes, setOpcoes] = useState([{ nome: "" }, { nome: "" }, { nome: "" }]);
     const [mensagem, setMensagem] = useState("");
 
     // Adiciona uma nova opção
     const handleAddOpcao = () => {
         setOpcoes([...opcoes, { nome: "" }]);
+    };
+
+    // Remove uma opção pelo índice
+    const handleRemoveOpcao = (indexToRemove) => {
+        const novasOpcoes = opcoes.filter((_, index) => index !== indexToRemove);
+        setOpcoes(novasOpcoes);
     };
 
     // Atualiza o valor da opção de input
@@ -34,19 +40,26 @@ const LancheForm = () => {
 
     return (
         <form onSubmit={handleSubmit} className="form-container">
-            <h2 className="form-header">Escolha seu Lanche da Tarde</h2>
+            <h1 className="form-header">Opção de almoço</h1>
 
             {/* Inputs organizados em linha */}
             <div className="inputs-container">
                 {opcoes.map((opcao, index) => (
-                    <input
-                        key={index}
-                        type="text"
-                        placeholder={`Opção ${index + 1}`}
-                        value={opcao.nome}
-                        onChange={(event) => handleInputChange(index, event)}
-                        className="form-input"
-                    />
+                    <div key={index} className="input-item">
+                        <input
+                            type="text"
+                            placeholder={`Opção ${index + 1}`}
+                            value={opcao.nome}
+                            onChange={(event) => handleInputChange(index, event)}
+                            className="form-input"
+                        />
+                        <button 
+                            type="button" 
+                            onClick={() => handleRemoveOpcao(index)} 
+                            className="delete-button">
+                        tirar opção
+                        </button>
+                    </div>
                 ))}
             </div>
 
@@ -63,4 +76,4 @@ const LancheForm = () => {
     );
 };
 
-export default LancheForm;
+export default LancheForm2;

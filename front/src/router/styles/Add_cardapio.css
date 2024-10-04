@@ -1,0 +1,7 @@
+.container_main_add_cardapio{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+}

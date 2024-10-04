@@ -1,16 +1,19 @@
 import './styles/Add_cardapio.css'
 import Footer from '../components/Footer';
 import Header from '../components/Header';
-import './styles/filtro_cardapio.css'
-import '../components/styles/Checkbox.css'
-import Input_Add_cardapio from '../components/input_add_cardapio'
+import Input_Add_cardapio1 from '../components/Input_add_cardapio1'
+import Input_Add_cardapio2 from '../components/Input_add_cardapio2'
+import Input_Add_cardapio3 from '../components/Input_add_cardapio3'
+
 
 const Add_cardapio = () => {
     return (
         <div>
             <Header />
-            <div className="">
-                <Input_Add_cardapio />
+            <div className="container_main_add_cardapio">
+                <Input_Add_cardapio1 />
+                <Input_Add_cardapio2 />
+                <Input_Add_cardapio3 />
             </div>
             <Footer />
         </div>
