@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './styles/add_cardapio_input.css'; // Importando o CSS
+import axios from 'axios';
 
 const LancheForm2 = () => {
     const [opcoes, setOpcoes] = useState([{ nome: "", unidade: "" }, { nome: "", unidade: "" }, { nome: "", unidade: "" }]);
@@ -24,15 +25,31 @@ const LancheForm2 = () => {
     };
 
     // Lida com o envio do formulário e validação
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
 
         // Verifica se todos os campos estão preenchidos
         const preenchido = opcoes.every(opcao => opcao.nome.trim() !== "" && opcao.unidade.trim() !== "");
 
         if (preenchido) {
-            console.log("Opções escolhidas:", opcoes);
-            setMensagem("Opções enviadas com sucesso!");
+            try {
+                const promises = opcoes.map(opcao => {
+                    return axios.post("http://localhost:8080/cardapio", {
+                        nome_comida: opcao.nome,
+                        periodo: "almoco",
+                        tamanho_porcao: opcao.unidade
+                    });
+                });
+
+                await Promise.all(promises);
+
+                setMensagem("Opções enviadas com sucesso")
+
+                setOpcoes([])
+            } catch (error) {
+                alert(`Erro ao enviar opções: ${error.message}`)
+                setMensagem("Deu merda, tenta novamente aí.")
+            }
         } else {
             setMensagem("Preencha todas as opções antes de enviar.");
         }

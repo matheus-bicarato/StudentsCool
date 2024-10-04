@@ -33,7 +33,7 @@ const ImageUpload: React.FC = () => {
     };
 
     return (
-        <div className="image-upload-container">
+        <form className="image-upload-container">
             <input
                 type="file"
                 accept="image/*"
@@ -64,7 +64,7 @@ const ImageUpload: React.FC = () => {
             >
                 Fazer Upload
             </button>
-        </div>
+        </form>
     );
 };
 
