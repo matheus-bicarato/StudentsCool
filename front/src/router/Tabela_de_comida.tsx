@@ -1,12 +1,47 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './styles/Menu.css';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { auth } from '../../firebase_connect';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import Swal from 'sweetalert2';
 
 const Menu = () => {
+    const [user] = useAuthState(auth);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if (user) {
+            const userUid = user.uid;
+
+            // Verifica a autoridade do usuário logado
+            axios.get(`http://localhost:8080/users/${userUid}`)
+                .then(response => {
+                    const autoridade = response.data.authority;
+
+                    if (autoridade !== 'cantina') {
+                        navigate('/error-page'); // Redireciona para a página de erro se não for admin
+                    }
+                })
+                .catch(error => {
+                    Swal.fire({
+                        title: 'Erro!',
+                        text: `Erro ao verificar autoridade: ${error.message}`,
+                        icon: 'error',
+                        confirmButtonText: 'Ok'
+                    });
+                });
+        } else {
+            // Redireciona se o usuário não estiver logado
+            navigate('/error-page');
+        }
+    }, [user, navigate]);
+
     return (
-        <div className="">
-            <Header/>
+        <div>
+            <Header />
             <div className="menu-page">
                 <h1 className="menu-title">Nutricionista</h1>
 
@@ -88,9 +123,9 @@ const Menu = () => {
                     <button className="menu-button special-button">Alimentação Especial</button>
                 </div>
             </div>
-            <Footer/>
+            <Footer />
         </div>
     );
-}
+};
 
 export default Menu;

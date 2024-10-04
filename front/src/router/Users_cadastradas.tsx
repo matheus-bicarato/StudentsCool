@@ -4,15 +4,46 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { auth } from '../../firebase_connect';
+import { useNavigate } from 'react-router-dom';
 
 const contas_cadastradas = () => {
     const [users, setUsers] = useState([])
+    const [user] = useAuthState(auth);
+    const navigate = useNavigate();
 
     useEffect(() => {
-        axios.get('http://localhost:8080/users')
-        .then(response => setUsers(response.data))
-        .catch(error => alert(`Não foi possível recuperar os usuários: ${error.message}`))
-    }, [])
+        if (user) {
+            const userUid = user.uid;
+            
+            // Verifica a autoridade do usuário logado
+            axios.get(`http://localhost:8080/users/${userUid}`)
+                .then(response => {
+                    const autoridade = response.data.authority;
+                    
+                    if (autoridade !== 'admin') {
+                        navigate('/error-page'); // Redireciona para a página de erro se não for admin
+                    } else {
+                        // Se for admin, recupera a lista de usuários
+                        axios.get('http://localhost:8080/users')
+                            .then(response => setUsers(response.data))
+                            .catch(error => Swal.fire({
+                                title: 'Erro!',
+                                text: `Não foi possível recuperar os usuários: ${error.message}`,
+                                icon: 'error',
+                                confirmButtonText: 'Ok'
+                            }));
+                    }
+                })
+                .catch(error => Swal.fire({
+                    title: 'Erro!',
+                    text: `Erro ao verificar autoridade: ${error.message}`,
+                    icon: 'error',
+                    confirmButtonText: 'Ok'
+                }));
+        }
+    }, [user, navigate]);
 
     // 
     const deleteUser = (id, nome) => {
