@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import './styles/add_cardapio_input.css'; // Importando o CSS
 
 const LancheForm3 = () => {
-    const [opcoes, setOpcoes] = useState([{ nome: "" }, { nome: "" }, { nome: "" }]);
+    const [opcoes, setOpcoes] = useState([{ nome: "", unidade: "" }, { nome: "", unidade: "" }, { nome: "", unidade: "" }]);
     const [mensagem, setMensagem] = useState("");
 
     // Adiciona uma nova opção
     const handleAddOpcao = () => {
-        setOpcoes([...opcoes, { nome: "" }]);
+        setOpcoes([...opcoes, { nome: "", unidade: "" }]);
     };
 
     // Remove uma opção pelo índice
@@ -16,10 +16,10 @@ const LancheForm3 = () => {
         setOpcoes(novasOpcoes);
     };
 
-    // Atualiza o valor da opção de input
-    const handleInputChange = (index, event) => {
+    // Atualiza o valor dos campos de input
+    const handleInputChange = (index, event, field) => {
         const novasOpcoes = [...opcoes];
-        novasOpcoes[index].nome = event.target.value;
+        novasOpcoes[index][field] = event.target.value;
         setOpcoes(novasOpcoes);
     };
 
@@ -28,7 +28,7 @@ const LancheForm3 = () => {
         event.preventDefault();
 
         // Verifica se todos os campos estão preenchidos
-        const preenchido = opcoes.every(opcao => opcao.nome.trim() !== "");
+        const preenchido = opcoes.every(opcao => opcao.nome.trim() !== "" && opcao.unidade.trim() !== "");
 
         if (preenchido) {
             console.log("Opções escolhidas:", opcoes);
@@ -51,14 +51,14 @@ const LancheForm3 = () => {
                                 type="text"
                                 placeholder={`Opção ${index + 1}`}
                                 value={opcao.nome}
-                                onChange={(event) => handleInputChange(index, event)}
+                                onChange={(event) => handleInputChange(index, event, 'nome')}
                                 className="form-input"
                             />
                             <input
                                 type="text"
-                                placeholder='unidade em grama'
-                                value={opcao.nome}
-                                onChange={(event) => handleInputChange(index, event)}
+                                placeholder='Unidade em gramas'
+                                value={opcao.unidade}
+                                onChange={(event) => handleInputChange(index, event, 'unidade')}
                                 className="form_input_unidade"
                             />
                         </div>

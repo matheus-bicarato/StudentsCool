@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
 import './styles/add_cardapio_input.css'; // Importando o CSS
-import axios from 'axios';
 
 const LancheForm1 = () => {
-    const [opcoes, setOpcoes] = useState([{ nome: "" }, { nome: "" }, { nome: "" }]);
+    const [opcoes, setOpcoes] = useState([{ nome: "", unidade: "" }, { nome: "", unidade: "" }, { nome: "", unidade: "" }]);
     const [mensagem, setMensagem] = useState("");
 
     // Adiciona uma nova opção
     const handleAddOpcao = () => {
-        setOpcoes([...opcoes, { nome: "" }]);
+        setOpcoes([...opcoes, { nome: "", unidade: "" }]);
     };
 
     // Remove uma opção pelo índice
@@ -17,37 +16,23 @@ const LancheForm1 = () => {
         setOpcoes(novasOpcoes);
     };
 
-    // Atualiza o valor da opção de input
-    const handleInputChange = (index, event) => {
+    // Atualiza o valor dos campos de input
+    const handleInputChange = (index, event, field) => {
         const novasOpcoes = [...opcoes];
-        novasOpcoes[index].nome = event.target.value;
+        novasOpcoes[index][field] = event.target.value;
         setOpcoes(novasOpcoes);
     };
 
     // Lida com o envio do formulário e validação
-    const handleSubmit = async (event) => {
+    const handleSubmit = (event) => {
         event.preventDefault();
 
         // Verifica se todos os campos estão preenchidos
-        const preenchido = opcoes.every(opcao => opcao.nome.trim() !== "");
+        const preenchido = opcoes.every(opcao => opcao.nome.trim() !== "" && opcao.unidade.trim() !== "");
 
         if (preenchido) {
-            try {
-                const promises = opcoes.map(opcao => {
-                    return axios.post("http://localhost:8080/cardapio", {
-                        nome_comida: opcao.nome,
-                        periodo: "manha",
-                        tamanho_porcao: 9000
-                    });
-                });
-
-                await Promise.all(promises);
-
-                setMensagem("Opções enviadas com sucesso")
-            } catch (error) {
-                alert(`Erro ao enviar opções: ${error.message}`)
-                setMensagem("Deu merda, tenta novamente aí.")
-            }
+            console.log("Opções escolhidas:", opcoes);
+            setMensagem("Opções enviadas com sucesso!");
         } else {
             setMensagem("Preencha todas as opções antes de enviar.");
         }
@@ -66,14 +51,14 @@ const LancheForm1 = () => {
                                 type="text"
                                 placeholder={`Opção ${index + 1}`}
                                 value={opcao.nome}
-                                onChange={(event) => handleInputChange(index, event)}
+                                onChange={(event) => handleInputChange(index, event, 'nome')}
                                 className="form-input"
                             />
                             <input
                                 type="text"
-                                placeholder='unidade em grama'
-                                value={opcao.nome}
-                                onChange={(event) => handleInputChange(index, event)}
+                                placeholder='Unidade em gramas'
+                                value={opcao.unidade}
+                                onChange={(event) => handleInputChange(index, event, 'unidade')}
                                 className="form_input_unidade"
                             />
                         </div>

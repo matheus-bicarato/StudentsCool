@@ -61,7 +61,6 @@ const LancheForm2 = () => {
                                 onChange={(event) => handleInputChange(index, event, 'unidade')}
                                 className="form_input_unidade"
                             />
-                            seu cu gigantesco
                         </div>
                         <button
                             type="button"
