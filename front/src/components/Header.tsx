@@ -8,6 +8,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../../firebase_connect";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 const Header = () => {
     const [userInfo, setUserInfo] = useState(null)
@@ -26,13 +27,23 @@ const Header = () => {
     }, [user])
 
     const handleLogout = () => {
-        auth.signOut()
-            .then(() => {
-                window.location.href = '/'
+        Swal.fire({
+            title: "Você tem certeza que deseja sair da conta?",
+            showDenyButton: true,
+            denyButtonText: "Não",
+            confirmButtonText: "Sair",
+            icon: "question"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                auth.signOut()
+                    .then(() => {
+                        window.location.href = '/'
+                    })
+                    .catch((error) => {
+                        alert(error)
             })
-            .catch((error) => {
-                alert(error)
-            })
+            }
+        })
     }
 
     if(user) {
