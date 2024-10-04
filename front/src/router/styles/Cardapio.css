@@ -57,3 +57,28 @@
     gap: 20px;
     margin-top: 20px;
 }
+
+/* AVALIACAO */
+
+.contStar {
+    display: flex;
+    justify-content: center;
+}
+
+.button_avalia {
+    padding: 12px;
+    width: 100px;
+    border-radius: 10px;
+    font-family: Arial;
+    background-color: #c6caff;
+    transition: background-color 0.3s ease;
+}
+
+.button_avalia:hover {
+    background-color: white;
+}
+
+.contAvalia {
+    display: flex;
+    justify-content: end;
+}
