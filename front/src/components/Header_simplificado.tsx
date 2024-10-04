@@ -24,12 +24,6 @@ const Header_simplificado = () => {
         }
     }, [user])
 
-    const handleLogout = () => {
-        auth.signOut().then().catch((error) => {
-            alert(error)
-        })
-    }
-
     if(user) {
         return (
             <header className="Simple_Header">
@@ -41,7 +35,7 @@ const Header_simplificado = () => {
                     <div className="Title_Header">
                         <h1>{userInfo ? `Olá ${userInfo.nome.split(' ').slice(0, 2).join(' ')}!` : "Carregando..."} <br />
 
-                            <Link className="span" to={"/home"}><span>Clique aqui</span></Link> <button onClick={() => handleLogout()}>Sair da conta</button> <br />
+                            <Link className="span" to={"/home"}><span>Clique aqui</span></Link><br />
                             para entrar na home !</h1>
                     </div>
                 </div>
