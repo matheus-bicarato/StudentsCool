@@ -10,6 +10,7 @@ import axios from 'axios';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from '../../firebase_connect'
 import { useEffect, useState } from 'react';
+import Gallery_adm_geral from '../components/Gallery_adm_escola';
 
 const Home = () => {
     const [user] = useAuthState(auth);

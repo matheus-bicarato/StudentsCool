@@ -1,6 +1,26 @@
 /* src/Gallery.css */
 .gallery {
     display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    justify-content: center;
+    justify-items: center;
+    padding: 20px;
+    /* background-color: black; */
+    width: 80%;
+}
+.gallery_alunos{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    justify-content: center;
+    justify-items: center;
+    padding: 20px;
+    /* background-color: black; */
+    width: 80%;
+}
+.gallery_cantina{
+    display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 16px;
     justify-content: center;

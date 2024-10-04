@@ -9,13 +9,13 @@ import Title3 from '../assets/imagens/professor.png';
 const galleryItems = [
     { id: 1, title: 'Quantidade de Alimento', imageUrl: img1, imgTitle: Title1, path: '/quantidade_de_alimentos' },
     { id: 2, title: 'Alimentação diferentes', imageUrl: img1, imgTitle: Title2, path: '/' },
-    { id: 3, title: 'Contato', imageUrl: img1, imgTitle: Title3, path: '/Contato' },
+    { id: 3, title: 'Adicionar cardapio', imageUrl: img1, imgTitle: Title3, path: '/Adicionar_cardapio' },
     // Adicione mais itens conforme necessário
 ];
 
 const Gallery_cantina = () => {
     return (
-        <div className="gallery">
+        <div className="gallery_cantina">
             {galleryItems.map(item => (
                 <Link
                     to={item.path}
