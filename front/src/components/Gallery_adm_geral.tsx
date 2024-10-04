@@ -6,9 +6,8 @@ import Title2 from '../assets/imagens/exclamacao.png';
 import Title3 from '../assets/imagens/X.png';
 
 const galleryItems = [
-    { id: 1, title: 'Novas escolas', imageUrl: img1, imgTitle: Title1, path: '/' },
-    { id: 2, title: 'Informação', imageUrl: img1, imgTitle: Title2, path: '/' },
-    { id: 3, title: 'Remover', imageUrl: img1, imgTitle: Title3, path: '/' },
+    { id: 1, title: 'Cadastrar escola', imageUrl: img1, imgTitle: Title1, path: '/Nao_cadastradas' },
+    { id: 2, title: 'Escolas cadastradas', imageUrl: img1, imgTitle: Title2, path: '/Cadastradas' },
     // Adicione mais itens conforme necessário
 ];
 
