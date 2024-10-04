@@ -1,28 +1,68 @@
 import React, { useState } from 'react';
 import './styles/add_imagem.css'; // Importa o arquivo de estilo
+import axios from 'axios';
+import Swal from 'sweetalert2';
 
 const ImageUpload: React.FC = () => {
     const [selectedImage, setSelectedImage] = useState<File | null>(null);
     const [previewUrl, setPreviewUrl] = useState<string | null>(null);
 
-    const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleImageChange = async (e) => {
         const file = e.target.files?.[0]; // Pega o primeiro arquivo selecionado
 
-        if (file) {
-            setSelectedImage(file);
+        const base64 = await convertToBase64(file);
 
+        setSelectedImage(base64);
+
+        if (file) {
             // Cria um URL temporário para exibir a imagem
             const imageUrl = URL.createObjectURL(file);
             setPreviewUrl(imageUrl);
         }
     };
 
+    const convertToBase64 = (file) => {
+        return new Promise((resolve, reject) => {
+          const reader = new FileReader();
+          reader.readAsDataURL(file);
+          reader.onload = () => resolve(reader.result);
+          reader.onerror = (error) => reject(error);
+        });
+      };
+
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault(); // Impede o comportamento padrão do form
 
         if (selectedImage) {
-            console.log('Imagem selecionada:', selectedImage);
-            // Aqui você pode adicionar a lógica para enviar a imagem ao servidor ou banco de dados
+            axios.post('http://localhost:8080/CardapioImage', {
+                imagem_cardapio: selectedImage
+            })
+            .then(response => {
+                if(response.status === 201) {
+                    Swal.fire({
+                        position: "center",
+                        title: 'Sucesso!',
+                        text: `A imagem foi enviada para o banco de dados com sucesso!`,
+                        icon: 'success',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                    .then(() => {
+                        setPreviewUrl(null)
+                        setSelectedImage(null)
+                    })
+                }
+            })
+            .catch(error => {
+                if(error.response.status  === 500) {
+                    Swal.fire({
+                        title: 'Erro!',
+                        text: `Erro interno no servidor: ${error.message}`,
+                        icon: 'error',
+                        confirmButtonText: 'Ok'
+                    })
+                }
+            })
         }
     };
 
