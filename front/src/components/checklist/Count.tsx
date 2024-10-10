@@ -4,9 +4,9 @@ import React from 'react';
 const Counter = ({ count, onIncrement, onDecrement }) => {
     return (
         <div className="counter-buttons">
-            <button onClick={onDecrement}>-</button>
+            <button onClick={(e) => { e.preventDefault(); onDecrement(); }}>-</button>
             <span>{count}</span>
-            <button onClick={onIncrement}>+</button>
+            <button onClick={(e) => { e.preventDefault(); onIncrement(); }}>+</button>
         </div>
     );
 };

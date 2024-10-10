@@ -5,3 +5,19 @@
     align-items: center;
     height: 100%;
 }
+
+.btn-delete-items-cardapio {
+    border: 2px solid rgb(200, 0, 0);
+    color: rgb(200, 0, 0);
+    border-radius: 6px;
+    background-color: transparent;
+    padding: 15px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.btn-delete-items-cardapio:hover {
+    border: 2px solid red;
+    color: red;
+}

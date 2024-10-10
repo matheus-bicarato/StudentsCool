@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './styles/Menu.css';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -11,6 +11,11 @@ import Swal from 'sweetalert2';
 const Menu = () => {
     const [user] = useAuthState(auth);
     const navigate = useNavigate();
+    const [meals, setMeals] = useState({
+        almoco: {},
+        manha: {},
+        tarde: {}
+    });
 
     useEffect(() => {
         if (user) {
@@ -33,11 +38,59 @@ const Menu = () => {
                         confirmButtonText: 'Ok'
                     });
                 });
+            
+                axios.get('http://localhost:8080/cardapioSelecionado/qtd-total')
+                    .then(response => {
+                        // Garantindo que sempre teremos objetos para `almoco`, `manha` e `tarde`
+                        setMeals({
+                            almoco: response.data.almoco || {}, // Se for null ou undefined, usa objeto vazio
+                            manha: response.data.manha || {},
+                            tarde: response.data.tarde || {}
+                        });
+                    })
+                    .catch(error => {
+                        console.error('Erro ao buscar os dados da API:', error);
+                    });
+
         } else {
             // Redireciona se o usuário não estiver logado
             navigate('/error-page');
         }
     }, [user, navigate]);
+
+    const deletarTodasAvaliacoes = () => {
+        Swal.fire({
+            title: "Você tem certeza que deseja deletar todas as avaliações?",
+            showDenyButton: true,
+            confirmButtonText: "Deletar",
+            denyButtonText: "Não deletar"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                axios.delete('http://localhost:8080/cardapioSelecionado')
+                .then(response => {
+                    Swal.fire({
+                        position: "center", 
+                        icon: "success",
+                        title: `Avaliações do cardapio deletadas com sucesso.`, 
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                    .then(() => {
+                        window.location.href = '/quantidade_de_alimentos'
+                    })
+                })
+                .catch(responseError => {
+                    Swal.fire({
+                        position: "center", 
+                        icon: "error",
+                        title: `Erro ao deletar avaliações ${responseError}`, 
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                })
+            }
+        });
+    }
 
     return (
         <div>
@@ -50,21 +103,16 @@ const Menu = () => {
                         <p className="meal-units">Unidades a ser produzidas:</p>
                         <h2 className="meal-name">Lanche da Manhã</h2>
                         <div className="meal-items morning-items">
-                            <div className="meal-item">
-                                <p>Pão integral com queijo branco</p>
-                                <p>• 1 unidade 60 g</p>
-                                <p>460 Unidades</p>
-                            </div>
-                            <div className="meal-item">
-                                <p>Maçã</p>
-                                <p>• 1 unidade 150 g</p>
-                                <p>174 Unidades</p>
-                            </div>
-                            <div className="meal-item">
-                                <p>Suco de laranja natural</p>
-                                <p>• 1 unidade 300 ml</p>
-                                <p>145 L</p>
-                            </div>
+                            {Object.keys(meals.manha).length > 0 ? (
+                                Object.keys(meals.manha).map((item, index) => (
+                                    <div className="meal-item" key={index}>
+                                        <p>{item}</p>
+                                        <p>• Quantidade: {meals.manha[item]}g</p>
+                                    </div>
+                                ))
+                            ) : (
+                                <p>Nenhum item disponível no cardápio para o lanche da manhã.</p>
+                            )}
                         </div>
                     </div>
 
@@ -72,31 +120,16 @@ const Menu = () => {
                         <p className="meal-units">Unidades a ser produzidas:</p>
                         <h2 className="meal-name">Almoço</h2>
                         <div className="meal-items lunch-items">
-                            <div className="meal-item">
-                                <p>Arroz integral</p>
-                                <p>• 1 porção 250 g</p>
-                                <p>400 kg</p>
-                            </div>
-                            <div className="meal-item">
-                                <p>Frango grelhado</p>
-                                <p>• 2 filés 250 g</p>
-                                <p>450 kg</p>
-                            </div>
-                            <div className="meal-item">
-                                <p>Brócolis a vapor</p>
-                                <p>• 1 porção 80 g</p>
-                                <p>250 kg</p>
-                            </div>
-                            <div className="meal-item">
-                                <p>Salada de cenoura com pepino</p>
-                                <p>• 1 porção 100 g</p>
-                                <p>250 kg</p>
-                            </div>
-                            <div className="meal-item">
-                                <p>Pera</p>
-                                <p>• 1 unidade 130 g</p>
-                                <p>230 Unidades</p>
-                            </div>
+                            {Object.keys(meals.almoco).length > 0 ? (
+                                Object.keys(meals.almoco).map((item, index) => (
+                                    <div className="meal-item" key={index}>
+                                        <p>{item}</p>
+                                        <p>• Quantidade: {meals.almoco[item]}g</p>
+                                    </div>
+                                ))
+                            ) : (
+                                <p>Nenhum item disponível no cardápio para o almoço.</p>
+                            )}
                         </div>
                     </div>
 
@@ -104,22 +137,23 @@ const Menu = () => {
                         <p className="meal-units">Unidades a ser produzidas:</p>
                         <h2 className="meal-name">Lanche da Tarde</h2>
                         <div className="meal-items afternoon-items">
-                            <div className="meal-item">
-                                <p>Iogurte natural com granola</p>
-                                <p>• 1 unidade 200 ml</p>
-                                <p>500 Unidades</p>
-                            </div>
-                            <div className="meal-item">
-                                <p>Biscoito integral</p>
-                                <p>• 1 unidade 150 g</p>
-                                <p>480 Unidades</p>
-                            </div>
+                            {Object.keys(meals.tarde).length > 0 ? (
+                                Object.keys(meals.tarde).map((item, index) => (
+                                    <div className="meal-item" key={index}>
+                                        <p>{item}</p>
+                                        <p>• Quantidade: {meals.tarde[item]}g</p>
+                                    </div>
+                                ))
+                            ) : (
+                                <p>Nenhum item disponível no cardápio para o lanche da tarde.</p>
+                            )}
                         </div>
                     </div>
                 </div>
 
                 <div className="menu-buttons">
                     <Link to={''}><button className="menu-button evaluate-button">Avaliação do Cardápio</button></Link>
+                    <button className='btn_deletar_avaliacoes menu-button' onClick={() => deletarTodasAvaliacoes()}>Deletar avaliações</button>
                     <Link to={'/Alimentacao_especiais'}><button className="menu-button special-button">Alimentação Especial</button></Link>
                 </div>
             </div>

@@ -43,10 +43,45 @@ const Add_cardapio = () => {
         }
     }, [user, navigate]);
 
+    const deletarTodoCardapio = () => {
+        Swal.fire({
+            title: "Você tem certeza que deseja deletar o cardápio inteiro?",
+            showDenyButton: true,
+            confirmButtonText: "Deletar",
+            denyButtonText: "Não deletar"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                axios.delete('http://localhost:8080/cardapio')
+                .then(response => {
+                    Swal.fire({
+                        position: "center", 
+                        icon: "success",
+                        title: `Cardapio deletado com sucesso!`, 
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                    .then(() => {
+                        window.location.href = '/Adicionar_cardapio'
+                    })
+                })
+                .catch(responseError => {
+                    Swal.fire({
+                        position: "center", 
+                        icon: "error",
+                        title: `Erro ao deletar avaliações ${responseError}`, 
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                })
+            }
+        });
+    }
+
     return (
         <div>
             <Header />
             <div className="container_main_add_cardapio">
+                <button className='btn-delete-items-cardapio' onClick={() => deletarTodoCardapio()} title='Deletar cardápio'>Deletar todos os itens do cardápio</button>
                 <Input_Add_cardapio1 />
                 <Input_Add_cardapio2 />
                 <Input_Add_cardapio3 />

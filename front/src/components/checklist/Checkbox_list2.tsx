@@ -6,10 +6,10 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from "../../../firebase_connect";
 import Swal from 'sweetalert2';
 
-const CheckboxList1 = ({ title, items }) => {
+const CheckboxList2 = ({ title, items }) => {
     const [itemsState, setItemsState] = useState({});
     const [user] = useAuthState(auth);
-    const [isManhaSelected, setIsManhaSelected] = useState(false);
+    const [isAlmocoSelected, setIsAlmocoSelected] = useState(false);
     let userUid;
 
     useEffect(() => {
@@ -20,11 +20,11 @@ const CheckboxList1 = ({ title, items }) => {
                 try {
                     const response = await axios.get("http://localhost:8080/cardapioSelecionado");
     
-                    const cardapioManha = response.data.filter(item => item.addCardapio.periodo === "manha");
-                    const resultadoManha = cardapioManha.find(item => item.id_user === userUid)
+                    const cardapioAlmoco = response.data.filter(item => item.addCardapio.periodo === "almoco");
+                    const resultadoAlmoco = cardapioAlmoco.find(item => item.id_user === userUid)
 
-                    if(resultadoManha) {
-                        setIsManhaSelected(true);
+                    if(resultadoAlmoco) {
+                        setIsAlmocoSelected(true);
                     }
                 } catch(error) {
                     console.error(error)
@@ -75,7 +75,7 @@ const CheckboxList1 = ({ title, items }) => {
             Swal.fire({
                 position: "center", 
                 icon: "success",
-                title: `Cardapio da manhã foi selecionado!`, 
+                title: `Cardapio do almoço foi selecionado!`, 
                 showConfirmButton: false,
                 timer: 1500
             })
@@ -116,8 +116,8 @@ const CheckboxList1 = ({ title, items }) => {
                 </div>
             </div>
             <div className="container_Filtro_button">
-                {isManhaSelected ? (
-                    <p style={{"color" : "red"}}>Cardápio da manhã já foi selecionado.</p>
+                {isAlmocoSelected ? (
+                    <p style={{"color" : "red"}}>Cardápio do almoço já foi selecionado.</p>
                 ) : (
                     <button className="button_Filtro" type="submit">Enviar</button>
                 )}
@@ -126,4 +126,4 @@ const CheckboxList1 = ({ title, items }) => {
     );
 };
 
-export default CheckboxList1;
+export default CheckboxList2;
