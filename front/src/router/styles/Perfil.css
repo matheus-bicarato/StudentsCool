@@ -2,8 +2,10 @@
     background-color: #DBF4FF;
     height: 100vh;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 20px;
 }
 
 .container_perfil {
@@ -38,10 +40,33 @@
     display: flex;
     flex-direction: column;
     gap: 15px;
+    justify-content: center;
 }
+
 .itens_perfil hr{
     opacity: 50%;
+    width: 100%;
 }
 .span_perfil{
     color: #858AE3;
+}
+
+.container_name_escola{
+    width: 80%;
+    height: 50px;
+    padding: 10px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    border: solid black 0.1px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+.font_escola{
+    font-size: 40px;
+}
+.title_perfil_escola{
+    display: flex;
+    flex-direction: row;
 }
