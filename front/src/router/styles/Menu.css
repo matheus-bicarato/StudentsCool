@@ -87,6 +87,16 @@
     background-color: #b1b3e7;
 }
 
+.btn_deletar_avaliacoes {
+    border-color: rgb(194, 0, 0);
+    color: rgb(194, 0, 0);
+}
+
+.btn_deletar_avaliacoes:hover {
+    border-color: red;
+    color: red;
+}
+
 /* Botões específicos */
 .evaluate-button {}
 

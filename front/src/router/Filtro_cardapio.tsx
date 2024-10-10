@@ -1,4 +1,6 @@
-import CheckboxList from '../components/checklist/Checkbox_list1';
+import CheckboxList1 from '../components/checklist/Checkbox_list1';
+import CheckboxList2 from '../components/checklist/Checkbox_list2';
+import CheckboxList3 from '../components/checklist/Checkbox_list3';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 import './styles/filtro_cardapio.css';
@@ -47,7 +49,7 @@ const Filtro_cardapio = () => {
 
                 // console.log("Itens resgatados:", response.data);
             } catch (error) {
-                alert(error);
+                console.error(error);
             }
         };
 
@@ -78,6 +80,8 @@ const Filtro_cardapio = () => {
                         confirmButtonText: 'Ok'
                     });
                 });
+            
+            
         } else {
             // Redireciona se o usuário não estiver logado
             navigate('/error-page');
@@ -89,9 +93,9 @@ const Filtro_cardapio = () => {
             <Header />
             <div className="main_filtro_cardapio">
                 <h1 className='title_cardapio'>Veja o cardápio de <span className='span_cardapio'>HOJE!</span></h1>
-                <div><CheckboxList title="Escolha seu Lanche da Manhã" items={manha} /></div>
-                <CheckboxList title="Escolha seu Almoço" items={almoco} />
-                <div><CheckboxList title="Escolha seu Lanche da Tarde" items={tarde} /></div>
+                <div><CheckboxList1 title="Escolha seu Lanche da Manhã" items={manha} /></div>
+                <CheckboxList2 title="Escolha seu Almoço" items={almoco} />
+                <div><CheckboxList3 title="Escolha seu Lanche da Tarde" items={tarde} /></div>
             </div>
             <Footer />
         </div>
