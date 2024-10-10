@@ -1,15 +1,96 @@
 import Header_simplificado from "../components/Header_simplificado";
 import Footer from "../components/Footer";
+import Add_imagem from "../components/Add_imagem"
 
 import { Link } from 'react-router-dom';
 
-import './styles/LandingPage.css'
+import './styles/ContatoAlimentEX.css'
+
+import Food from '../assets/imagens/Food_Icon.png';
+import ZAP from '../assets/imagens/Zap_Icon.png';
+import EMAIL from '../assets/imagens/Email_Icon.png';
+import INSTA from '../assets/imagens/Insta_Black_Icon.png'
 
 const ContatoAlimentEX = () => {
     return (
         <div>
             <Header_simplificado />
             <main>
+                <div className="Container_Pai_EX">
+                    <div className="Infos_EX">
+                        <div className="Title_EX">
+                            <h1>Alimentação Especial</h1>
+                            <img src={Food} alt="" />
+                        </div>
+                        <div className="contatos_EX">
+                            <ul className="contatosUl_EX">
+
+                                <li><a href="">
+                                    <span><img src={ZAP} alt="ZAP" /></span>
+                                    <h1>(11) 97044-1052</h1>
+                                </a></li>
+
+                                <li><a href="" >
+                                    <span><img src={EMAIL} alt="" /></span>
+                                    <h1>studentscool@gmail.com</h1>
+                                </a></li>
+
+                                <li><a href="">
+                                    <span><img src={INSTA} alt="" /></span>
+                                    <h1>@studentscool</h1>
+                                </a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <form className='Form_contato'>
+
+                        <div className='Inputs_form_contato_EX'>
+                            <input type="text"
+                                placeholder='Nome Completo'
+                                className='Nome_contato'
+                                maxLength={300}
+                                required
+                            // value={nome}
+                            // onChange={(e) => setNome(e.target.value)}
+                            />
+
+                            <div className='Email_tel_contato'>
+                                <input
+                                    type="email"
+                                    id='email'
+                                    placeholder='E-mail'
+                                    className='Email_contato'
+                                    required
+                                // value={email}
+                                // onChange={(e) => setEmail(e.target.value)}
+                                />
+
+                                <input type="tel"
+                                    placeholder='Telefone'
+                                    className='Tel_contato '
+                                    maxLength={11}
+                                    required
+                                // value={telefone}
+                                // onChange={(e) => setTelefone(e.target.value)}
+                                />
+                            </div>
+
+                            <textarea
+                                placeholder='Mensagem...'
+                                className='Mensagem_contato'
+                                maxLength={300}
+                                required
+                            // value={mensagem}
+                            // onChange={(e) => setMensagem(e.target.value)}
+                            />
+
+                            <Add_imagem />
+
+                        </div>
+                        <button type="submit" className='Button_submit_contato'>Enviar</button>
+                    </form>
+                </div>
             </main>
             <Footer />
         </div>
