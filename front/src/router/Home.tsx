@@ -4,13 +4,12 @@ import Footer from '../components/Footer';
 import './styles/Home.css'
 import Gallery_alunos from '../components/Gallery_alunos';
 import Gallery_cantina from '../components/Gallery_cantina';
-// import Gallery_adm_geral from '../components/Gallery_adm_geral';
+import Gallery_adm_geral from '../components/Gallery_adm_geral';
 import Gallery_adm_escola from '../components/Gallery_adm_escola';
 import axios from 'axios';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from '../../firebase_connect'
 import { useEffect, useState } from 'react';
-import Gallery_adm_geral from '../components/Gallery_adm_escola';
 
 const Home = () => {
     const [user] = useAuthState(auth);
@@ -44,8 +43,10 @@ const Home = () => {
                         <Gallery_alunos />  
                     ) : autoridade === "cantina" ? (
                         <Gallery_cantina />
-                    ) : autoridade === "admin" ? (
+                    ) : autoridade === "adminEscola" ? (
                         <Gallery_adm_escola />
+                    ) : autoridade === "adminGeral" ? (
+                        <Gallery_adm_geral />
                     ) : (
                         <p>Erro interno no servidor.</p>
                     )}

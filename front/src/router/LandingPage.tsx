@@ -1,6 +1,7 @@
 import Header_simplificado from "../components/Header_simplificado";
 import Footer from "../components/Footer";
 import Slide from "../components/Slide";
+import { Link } from 'react-router-dom';
 
 import BannerAPP from "../assets/imagens/APPbanner_landing_page.png";
 
@@ -10,10 +11,12 @@ import Icon3 from "../assets/imagens/Icon_lang3.png"
 import Icon4 from "../assets/imagens/Icon_lang4.png"
 import Icon_Grafico from "../assets/imagens/Icon_Gráfico_langPG.png"
 import Grafico from "../assets/imagens/Gráfico_langPG.png"
+import IconHouse from "../assets/imagens/Icon_House.png"
 
 // SLide
 import imagem1 from "../assets/imagens/Banner_landingPG_1.png";
 import imagem2 from "../assets/imagens/Banner_landingPG_2.png";
+import imagem3 from "../assets/imagens/Banner_landingPG_3.png";
 
 import './styles/LandingPage.css'
 
@@ -23,11 +26,11 @@ const LandingPage = () => {
 
     return (
         <div>
-            <Header_simplificado  />
+            <Header_simplificado />
             <main>
                 <div className="Container_slide_show">
                     <div className="slide_show">
-                        <Slide images={images}/>
+                        <Slide images={images} />
                     </div>
                 </div>
 
@@ -99,12 +102,45 @@ const LandingPage = () => {
                         <img src={Icon_Grafico} alt="" />
                     </div>
                     <div className="Block_Grafico_landingPG">
-                        <img src={Grafico} alt="" className="Grafico_landingPG"/>
+                        <img src={Grafico} alt="" className="Grafico_landingPG" />
                     </div>
                 </div>
 
                 <div className="divider">
                     <span className="divider-text">//</span>
+                </div>
+
+                <div className="Sobre_Container_LangPG">
+                    <div className="BannerAPP_LangPG">
+                        <Link to={"/Cadastro"}>
+                            <img src={imagem3} alt="" />
+                        </Link>
+                    </div>
+
+                    <div className="Text_banner3_LangPG">
+
+                        <div className='Text_image3_LandPG'>
+                            <h1>StudentsCool</h1>
+                            <img src={IconHouse} alt="" />
+                        </div>
+                        <p className="P_banner3_LangPG">O STUDENTSCOOL é uma proposta de plataforma destinada a combater o
+                            desperdício de alimentos nas escolas. Atualmente, o controle do
+                            cardápio e as intenções de consumo dos alunos são realizados de
+                            forma manual. Nas escolas, os funcionários da cantina perguntam
+                            quantas pessoas estão presentes na sala de aula, mas essa
+                            abordagem gera uma margem de erro significativa, resultando na
+                            falta de precisão nos dados sobre a quantidade de alunos que
+                            realmente irão se alimentar. Além disso, muitos alunos podem não
+                            comer, e a escola muitas vezes não tem conhecimento do motivo exato
+                            para isso. Desenvolvida a partir de pesquisas sobre desperdício de
+                            alimentos e comunicação escolar, a solução visa reduzir o desperdício
+                            e melhorar a eficiência na gestão alimentar, tornando-se uma ferramenta
+                            acessível e eficaz para todas as escolas. Com o STUDENTSCOOL, os alunos
+                            poderão visualizar o cardápio, indicar suas intenções de consumo e
+                            fornecer feedback, otimizando a comunicação entre alunos e a cantina.
+                            A plataforma também facilitará o fluxo de trabalho da cozinha, permitindo
+                            uma melhor organização na preparação dos alimentos.</p>
+                    </div>
                 </div>
 
                 <div className="BannerAPP_LangPG">

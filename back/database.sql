@@ -1,12 +1,3 @@
--- Criação da tabela de administradores do site
-create table adm_studentscool(
-	id INT AUTO_INCREMENT PRIMARY KEY,
-    nome VARCHAR(255) NOT NULL,
-    email VARCHAR(255) NOT NULL UNIQUE,
-    senha VARCHAR(255) NOT NULL
-)
-CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-
 -- criação da tabela de cadastro de escolas
 create table cadastro_escolas(
 	id INT AUTO_INCREMENT PRIMARY KEY,
@@ -44,7 +35,7 @@ create table users_escola_exemplo(
     email VARCHAR(255) NOT NULL UNIQUE,
     cpf INT not null unique,
     telefone INT not null unique,
-    authority ENUM('membro', 'cantina', 'admin') not null default 'membro'
+    authority ENUM('membro', 'cantina', 'adminEscola', 'adminGeral') not null default 'membro'
 )
 CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 

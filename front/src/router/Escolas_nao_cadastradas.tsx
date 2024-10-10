@@ -4,7 +4,10 @@ import imgEscolas from '../assets/imagens/casinha.png';
 import Header from '../components/Header';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { auth } from '../../firebase_connect';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import Swal from 'sweetalert2';
+import { useNavigate } from 'react-router-dom';
 
 interface School {
     id: number;
@@ -31,7 +34,30 @@ interface InfoSchool {
 const Escolas_nao_cadastradas: React.FC = () => {
     const [schools, setSchools] = useState<School[]>([]);
     const [infoSchools, setInfoSchools] = useState<InfoSchool[]>([]);
+    const [authority, setAuthority] = useState('')
+    const [user] = useAuthState(auth);
+    const navigate = useNavigate();
 
+
+    useEffect(() => {
+        if (user) {
+            const userUid = user.uid;
+
+            axios.get(`http://localhost:8080/users/${userUid}`)
+                .then(response => {
+                    const autoridade = response.data.authority;
+
+                    setAuthority(autoridade);
+
+                    // Verifica se a autoridade é "admin"
+                    if (autoridade !== 'adminGeral') {
+                        navigate('/error-page'); // Redireciona para a página de erro
+                    }
+                })
+                .catch(error => console.log(`Erro ao puxar infos do usuário: ${error.message}`));
+        }
+    }, [user, navigate]);
+    
     useEffect(() => {
         const fetchSchools = () => {
             axios.get<School[]>('http://localhost:8080/escolas')
