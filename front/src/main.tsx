@@ -2,6 +2,14 @@ import React, { useEffect, useState } from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { auth } from '../firebase_connect';
+import { ring2 } from 'ldrs'
+import axios from 'axios'
+// importa o css para fazer o carregamento da pag ficar bonitin
+import './router/styles/Main.css'
+
 import Error from './router/Error-page.tsx'
 import Cadastro from './router/Cadastro.tsx'
 import Login from './router/Login.tsx'
@@ -18,13 +26,9 @@ import Escolas_nao_cadastradas from './router/Escolas_nao_cadastradas.tsx'
 import Escolas_Cadastradas from './router/Escolas_Cadastradas.tsx'
 import Tabela_notricao from './router/Tabela_de_comida.tsx'
 import Add_cardapio from './router/add_cardapio.tsx'
-
-import { useAuthState } from 'react-firebase-hooks/auth';
-import { auth } from '../firebase_connect';
-import { ring2 } from 'ldrs'
-import axios from 'axios'
-// importa o css para fazer o carregamento da pag ficar bonitin
-import './router/styles/Main.css'
+import Alimentacao_diferente from './router/Alimentacao_diferente.tsx'
+import Perfil from './router/perfil.tsx'
+import ContatoAlimentEX from './router/Contato_Alimentação_especial.tsx'
 
   // rotas que o usuário logado pode acessar
   const rotas = [
@@ -42,6 +46,9 @@ import './router/styles/Main.css'
     { path: "/Detalhes_escolas", element: <Detalhes_escola /> },
     { path: "/quantidade_de_alimentos", element: <Tabela_notricao /> },
     { path: "/Adicionar_cardapio", element: <Add_cardapio /> },
+    { path: "/Alimentacao_especiais", element: <Alimentacao_diferente/> },
+    { path: "/usuario", element: <Perfil/> },
+    { path: "/ContatoAlimentEX", element: <ContatoAlimentEX/> },
   ];
   // rotas que o usuário não logado pode acessar
   const rotasNaoLogado = [
