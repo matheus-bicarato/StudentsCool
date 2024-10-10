@@ -238,14 +238,18 @@ margin-bottom: 5vh;
     border-radius: 10px;
   }
 
-
   .Block_Grafico_landingPG {
     display: flex;
     justify-content: center;
     background-color: #858AE3;
     width: 90%;
     margin-top: -55px;
-    
+  }
+
+  .BannerAPP_LangPG {
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+        
   }
 }
   
