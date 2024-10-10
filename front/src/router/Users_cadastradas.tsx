@@ -22,7 +22,7 @@ const contas_cadastradas = () => {
                 .then(response => {
                     const autoridade = response.data.authority;
                     
-                    if (autoridade !== 'adminEscola') {
+                    if (autoridade !== 'admin') {
                         navigate('/error-page'); // Redireciona para a página de erro se não for admin
                     } else {
                         // Se for admin, recupera a lista de usuários

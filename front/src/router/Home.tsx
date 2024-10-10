@@ -43,7 +43,7 @@ const Home = () => {
                         <Gallery_alunos />  
                     ) : autoridade === "cantina" ? (
                         <Gallery_cantina />
-                    ) : autoridade === "adminEscola" ? (
+                    ) : autoridade === "admin" ? (
                         <Gallery_adm_escola />
                     ) : autoridade === "adminGeral" ? (
                         <Gallery_adm_geral />

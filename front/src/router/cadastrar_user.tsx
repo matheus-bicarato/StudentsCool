@@ -30,7 +30,7 @@ const Cadastrar_user = () => {
                     setAuthority(autoridade);
 
                     // Verifica se a autoridade é "admin"
-                    if (autoridade !== 'adminEscola') {
+                    if (autoridade !== 'admin') {
                         navigate('/error-page'); // Redireciona para a página de erro
                     }
                 })
@@ -41,7 +41,7 @@ const Cadastrar_user = () => {
     const options = [
         { id: 1, value: 'membro', label: 'Aluno' },
         { id: 2, value: 'cantina', label: 'Cantina' },
-        { id: 3, value: 'adminEscola', label: 'ADM' },
+        { id: 3, value: 'admin', label: 'ADM' },
     ];
 
     const handleCadastro = (e) => {

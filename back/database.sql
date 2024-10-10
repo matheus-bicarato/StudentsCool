@@ -35,7 +35,7 @@ create table users_escola_exemplo(
     email VARCHAR(255) NOT NULL UNIQUE,
     cpf INT not null unique,
     telefone INT not null unique,
-    authority ENUM('membro', 'cantina', 'adminEscola', 'adminGeral') not null default 'membro'
+    authority ENUM('membro', 'cantina', 'admin', 'adminGeral') not null default 'membro'
 )
 CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
