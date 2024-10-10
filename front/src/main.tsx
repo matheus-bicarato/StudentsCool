@@ -25,6 +25,8 @@ import { ring2 } from 'ldrs'
 import axios from 'axios'
 // importa o css para fazer o carregamento da pag ficar bonitin
 import './router/styles/Main.css'
+import Alimentacao_diferente from './router/Alimentacao_diferente.tsx'
+import Perfil from './router/perfil.tsx'
 
   // rotas que o usuário logado pode acessar
   const rotas = [
@@ -42,6 +44,8 @@ import './router/styles/Main.css'
     { path: "/Detalhes_escolas", element: <Detalhes_escola /> },
     { path: "/quantidade_de_alimentos", element: <Tabela_notricao /> },
     { path: "/Adicionar_cardapio", element: <Add_cardapio /> },
+    { path: "/Alimentacao_especiais", element: <Alimentacao_diferente/> },
+    { path: "/usuario", element: <Perfil/> },
   ];
   // rotas que o usuário não logado pode acessar
   const rotasNaoLogado = [

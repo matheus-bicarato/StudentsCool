@@ -1,0 +1,76 @@
+/* Container geral do cartão */
+.medical-card {
+    background-color: #efefef;
+    border-radius: 15px;
+    padding: 20px;
+    max-width: 700px;
+    margin: 50px auto;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+  }
+.main_alimentação_fresco{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+}
+.title_alimentacao_fescos{
+    font-size: 3rem;
+
+}
+  /* Estilo do cabeçalho */
+  .medical-card__header {
+    text-align: center;
+    border-bottom: 4px solid purple;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .medical-card__name {
+    font-family: 'Arial', sans-serif;
+    font-size: 2rem;
+    margin: 0;
+  }
+  
+  /* Estilo da descrição */
+  .medical-card__description {
+    margin-bottom: 20px;
+  }
+  
+  .medical-card__description-title {
+    font-family: 'Arial', sans-serif;
+    color: purple;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .medical-card__description-text {
+    border: 1.5px solid black;
+    border-radius: 10px;
+    padding: 15px;
+    background-color: white;
+  }
+  
+  /* Estilo do botão de download */
+  .medical-card__download-button {
+    background-color: #858AE3;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .medical-card__download-icon {
+    font-size: 1.2rem;
+  }
+  
+  /* Sombras para dar destaque */
+  .medical-card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  

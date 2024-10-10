@@ -4,7 +4,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from '../../firebase_connect';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 
@@ -119,8 +119,8 @@ const Menu = () => {
                 </div>
 
                 <div className="menu-buttons">
-                    <button className="menu-button evaluate-button">Avaliação do Cardápio</button>
-                    <button className="menu-button special-button">Alimentação Especial</button>
+                    <Link to={''}><button className="menu-button evaluate-button">Avaliação do Cardápio</button></Link>
+                    <Link to={'/Alimentacao_especiais'}><button className="menu-button special-button">Alimentação Especial</button></Link>
                 </div>
             </div>
             <Footer />
