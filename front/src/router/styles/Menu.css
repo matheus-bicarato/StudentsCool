@@ -50,12 +50,16 @@
 /* Itens da refeição */
 .meal-items {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     text-align: left;
 }
 
 .meal-item {
-    flex: 1;
+    width: fit-content;
+}
+
+.meal-item p {
+    width: fit-content;
 }
 
 .morning-items {}
