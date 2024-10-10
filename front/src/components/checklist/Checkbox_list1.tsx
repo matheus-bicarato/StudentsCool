@@ -1,32 +1,57 @@
 import React, { useState } from 'react';
 import '../styles/Checkbox.css';
 import Counter from './Count';
+import axios from 'axios';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { auth } from "../../../firebase_connect";
 
 const CheckboxList = ({ title, items }) => {
     const [itemsState, setItemsState] = useState({});
+    const [user] = useAuthState(auth);
+    let userUid;
 
     const handleChange1 = (event) => {
         const { name, checked } = event.target;
+
+        const id = parseInt(name.replace('item', ''));
+
         setItemsState((prevState) => ({
             ...prevState,
-            [name]: checked ? { count: 1 } : undefined,
+            [name]: checked ? { count: 1, id: id } : undefined,
         }));
     };
 
     const handleCountChange = (name, increment) => {
         setItemsState((prevState) => {
-            const currentItem = prevState[name] || { count: 0 };
+            const currentItem = prevState[name] || { count: 0, id: parseInt(name.replace('item', '')) };
             const newCount = Math.max(currentItem.count + increment, 0);
             return {
                 ...prevState,
-                [name]: newCount > 0 ? { count: Math.min(newCount, 3) } : undefined,
+                [name]: newCount > 0 ? { count: Math.min(newCount, 3), id: currentItem.id } : undefined,
             };
         });
     };
 
-    const handleSubmit1 = (event) => {
-        event.preventDefault();
-        console.log('Opções selecionadas:', itemsState);
+    const handleSubmit1 = async (e) => {
+        e.preventDefault();
+        const userUid = user.uid;
+        
+        const selectedItems = Object.entries(itemsState)
+        .filter(([key, value]) => value !== undefined)
+        .map(([key, value]) => ({
+            addCardapio: { id: value.id },
+            id_user: userUid,
+            porcoes_escolhidas: value.count,
+        }));
+
+        try {
+            for (const item of selectedItems) {
+                await axios.post('http://localhost:8080/cardapioSelecionado', item);
+            }
+            alert("Enviado com sucesso")
+        } catch (error) {
+            alert(`Deu merda: ${error}`)
+        }
     };
 
     return (
