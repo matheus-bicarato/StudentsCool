@@ -154,6 +154,43 @@ margin-bottom: 5vh;
     border: black solid;
   }
 
+  .Text_image3_LandPG {
+    display: flex;
+    align-items: center;
+    background-color: #9FDFFC;
+    width: 400px;
+    height: 100px;
+    justify-content: center;
+    border-radius:  20px;
+    box-shadow: 2vh 2vh 1px 0px rgba(0, 0, 0, 0.326);
+    position: relative;
+    gap: 15px;
+  }
+
+  .Text_image3_LandPG h1 {
+    font-family: Kavoon;
+    color: #4E148C;
+  }
+
+  .Text_image3_LandPG img {
+    width: 50px;
+  }
+
+  .Text_banner3_LangPG {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .P_banner3_LangPG {
+    word-wrap: break-word;
+    width: 80%;
+    font-size: 25px;
+    color: #AFAFAF;
+  }
+
+
   @media (max-width:900px) {
 
     .Title_Servico_LangPG h1 {
@@ -193,6 +230,14 @@ margin-bottom: 5vh;
     box-shadow: 1vh 1vh 1px 0px rgba(0, 0, 0, 0.326);
     border-radius: 10px;
   }
+
+  .Text_image3_LandPG {
+    width: 300px;
+    height: 50px;
+    box-shadow: 1vh 1vh 1px 0px rgba(0, 0, 0, 0.326);
+    border-radius: 10px;
+  }
+
 
   .Block_Grafico_landingPG {
     display: flex;
