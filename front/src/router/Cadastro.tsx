@@ -1,10 +1,12 @@
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Header_simplificado from '../components/Header_simplificado';
 import Footer from '../components/Footer';
 import axios from 'axios';
-import Swal from 'sweetalert2';
+import { auth } from '../../firebase_connect';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import Swal from 'sweetalert2'
 import './styles/Cadastro.css';
 
 const Cadastro = () => {
@@ -15,8 +17,29 @@ const Cadastro = () => {
     const [quantidadeAlunos, setQuantidadeAlunos] = useState('');
     const [diasLetivos, setDiasLetivos] = useState('');
     const [observacoes, setObservacoes] = useState('');
+    const [authority, setAuthority] = useState('')
+    const [user] = useAuthState(auth);
     const navigate = useNavigate();
 
+    useEffect(() => {
+        if (user) {
+            const userUid = user.uid;
+
+            axios.get(`http://localhost:8080/users/${userUid}`)
+                .then(response => {
+                    const autoridade = response.data.authority;
+
+                    setAuthority(autoridade);
+
+                    // Verifica se a autoridade é "admin"
+                    if (autoridade !== 'adminGeral') {
+                        navigate('/error-page'); // Redireciona para a página de erro
+                    }
+                })
+                .catch(error => console.log(`Erro ao puxar infos do usuário: ${error.message}`));
+        }
+    }, [user, navigate]);
+    
     const EscolaSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
