@@ -86,7 +86,7 @@ const Cadastrar_user = () => {
     return (
         <div className="background_Login">
             <div>
-                <Link to={"/"}><img className="Logo" src={Logo} alt="logo" /></Link>
+                <Link to={"/home"} title='Página inicial'><img className="Logo" src={Logo} alt="logo" /></Link>
             </div>
             <div className="form">
                 <form className='Inputs' onSubmit={handleCadastro}>

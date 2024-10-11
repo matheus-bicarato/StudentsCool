@@ -50,11 +50,11 @@ const Header = () => {
         return (
             <header className='Navbar'>
                 <div className="Content_Logo_Header">
-                    <Link to={"/"}><img className="Logo_Header" src={logo} alt="logo" /></Link>
+                    <Link to={"/home"} title="Página inicial"><img className="Logo_Header" src={logo} alt="logo" /></Link>
                 </div>
                 <div className="perfil">
-                    <Link to={"/"}><img className='img-perfil' src={perfil} alt="perfil" /></Link>
-                    <h2 className='user'>{userInfo ? `Olá ${userInfo.nome.split(' ').slice(0, 2).join(' ')}!` : "Carregando..."} <br /> <Link to={"/Cadastro"}><span className="subUser">STUDENTSCOOL</span></Link></h2>
+                    <Link to={"/usuario"} title="Perfil"><img className='img-perfil' src={perfil} alt="perfil" /></Link>
+                    <h2 className='user'>{userInfo ? `Olá ${userInfo.nome.split(' ').slice(0, 2).join(' ')}!` : "Carregando..."}<br /></h2>
                     <button className="Button-porta" title="Sair da conta" onClick={() => handleLogout()}>
                         <img className="porta" src={porta} alt="porta" />
                     </button>
