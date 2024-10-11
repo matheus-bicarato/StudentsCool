@@ -18,9 +18,16 @@ public class AvaliacaoEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Long alimentoId;
-    private int estrela;
-    private String periodo;
-    private String diaSemana;
+    private int estrelaManha;
+    private int estrelaAlmoco;
+    private int estrelaTarde;
+
+    @Column(name = "data_avaliacao", updatable = false)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date dataAvaliacao;
+
+    @PrePersist
+    protected void onCreate() {
+        dataAvaliacao = new Date();
+    }
 }

@@ -13,29 +13,29 @@ import java.util.Date;
 @NoArgsConstructor
 public class Avaliacao {
     private Long id;
-    private Long alimentoId;
-    private int estrela;
-    private String periodo;
-    private String diaSemana;
+    private int estrelaManha;
+    private int estrelaAlmoco;
+    private int estrelaTarde;
     private Date dataAvaliacao;
 
-    public void setEstrela(int estrela) {
+    private void validarEstrela(int estrela) {
         if (estrela < 0 || estrela > 5) {
             throw new IllegalArgumentException("Estrela deve ser entre 0 e 5.");
         }
-        this.estrela = estrela;
     }
 
-//    @Override
-//    public String toString() {
- //       return "Avaliacoes{" +
-//                "id=" + id +
-//                ", alimentoId=" + alimentoId +
-//                ", estrela=" + estrela +
-//                ", periodo='" + periodo + '\'' +
-//               ", diaSemana='" + diaSemana + '\'' +
- //               ", dataAvaliacao=" + dataAvaliacao +
- //               '}';
-  //  }
+    public void setEstrelaManha(int estrela) {
+        validarEstrela(estrela);
+        this.estrelaManha = estrela;
+    }
 
+    public void setEstrelaAlmoco(int estrela) {
+        validarEstrela(estrela);
+        this.estrelaAlmoco = estrela;
+    }
+
+    public void setEstrelaTarde(int estrela) {
+        validarEstrela(estrela);
+        this.estrelaTarde = estrela;
+    }
 }

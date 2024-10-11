@@ -76,14 +76,12 @@ create table cadapio_selecionados(
 CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 -- Tabela das avaliações
-CREATE TABLE avaliacao (
+CREATE TABLE avaliacoes (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
-    alimento_id BIGINT NOT NULL,
-    estrela INT NOT NULL,
-    periodo VARCHAR(255) NOT NULL,
-    dia_semana VARCHAR(20) NOT NULL,
-    data_avaliacao DATE NOT NULL,
-    FOREIGN KEY (alimento_id) REFERENCES cardapio_item(id)
+    estrela_manha INT NOT NULL,
+    estrela_almoco INT NOT NULL,
+    estrela_tarde INT NOT NULL,
+    data_avaliacao DATETIME(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6)
 );
 
 

@@ -33,10 +33,9 @@ public class AvaliacaoRepositoryImp implements AvaliacaoRepository {
     private Avaliacao toDomain(AvaliacaoEntity entity) {
         Avaliacao avaliacao = new Avaliacao();
         avaliacao.setId(entity.getId());
-        avaliacao.setAlimentoId(entity.getAlimentoId());
-        avaliacao.setEstrela(entity.getEstrela());
-        avaliacao.setPeriodo(entity.getPeriodo());
-        avaliacao.setDiaSemana(entity.getDiaSemana());
+        avaliacao.setEstrelaManha(entity.getEstrelaManha());
+        avaliacao.setEstrelaAlmoco(entity.getEstrelaAlmoco());
+        avaliacao.setEstrelaTarde(entity.getEstrelaTarde());
         avaliacao.setDataAvaliacao(entity.getDataAvaliacao());
 
         return avaliacao;
@@ -45,12 +44,10 @@ public class AvaliacaoRepositoryImp implements AvaliacaoRepository {
     private AvaliacaoEntity toEntity(Avaliacao avaliacao) {
         AvaliacaoEntity entity = new AvaliacaoEntity();
         entity.setId(avaliacao.getId());
-        entity.setAlimentoId(avaliacao.getAlimentoId());
-        entity.setEstrela(avaliacao.getEstrela());
-        entity.setPeriodo(avaliacao.getPeriodo());
-        entity.setDiaSemana(avaliacao.getDiaSemana());
+        entity.setEstrelaManha(avaliacao.getEstrelaManha());
+        entity.setEstrelaAlmoco(avaliacao.getEstrelaAlmoco());
+        entity.setEstrelaTarde(avaliacao.getEstrelaTarde());
         entity.setDataAvaliacao(avaliacao.getDataAvaliacao());
-
         return entity;
     }
 }
