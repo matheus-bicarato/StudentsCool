@@ -6,11 +6,17 @@ import { Link } from 'react-router-dom';
 
 import Avaliar from '../components/AvaliacaoCardapio'
 import { useEffect, useState } from 'react';
+import { auth } from '../../firebase_connect';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 
 const Cardapio = () => {
     const [imagemBASE64, setImagemBASE64] = useState("");
+    const [authority, setAuthority] = useState('')
+    const [user] = useAuthState(auth);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const atualizarImgCardapio = () => {
@@ -22,6 +28,25 @@ const Cardapio = () => {
 
         atualizarImgCardapio();
     }, [])
+
+    useEffect(() => {
+        if (user) {
+            const userUid = user.uid;
+
+            axios.get(`http://localhost:8080/users/${userUid}`)
+                .then(response => {
+                    const autoridade = response.data.authority;
+
+                    setAuthority(autoridade);
+
+                    // Verifica se a autoridade é "admin"
+                    if (autoridade !== 'membro') {
+                        navigate('/error-page'); // Redireciona para a página de erro
+                    }
+                })
+                .catch(error => console.log(`Erro ao puxar infos do usuário: ${error.message}`));
+        }
+    }, [user, navigate]);
 
     return (
         <div className="">
