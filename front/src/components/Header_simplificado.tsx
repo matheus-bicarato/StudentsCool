@@ -28,15 +28,12 @@ const Header_simplificado = () => {
         return (
             <header className="Simple_Header">
                 <div className="right">
-                    <Link to={"/"}><img src={Logo_lapis} alt="Logo" className="Logo_lapis" /></Link>
+                    <Link to={"/home"} title="Página inicial"><img src={Logo_lapis} alt="Logo" className="Logo_lapis" /></Link>
                 </div>
                 <div className="left">
                     <Link to={"/"}><img src={Logo_bola} alt="Logo" className="Logo_bola" /></Link>
                     <div className="Title_Header">
-                        <h1>{userInfo ? `Olá ${userInfo.nome.split(' ').slice(0, 2).join(' ')}!` : "Carregando..."} <br />
-
-                            <Link className="span" to={"/home"}><span>Clique aqui</span></Link><br />
-                            para entrar na home !</h1>
+                        <h1>{userInfo ? `Olá ${userInfo.nome.split(' ').slice(0, 2).join(' ')}!` : "Carregando..."} <br /></h1>
                     </div>
                 </div>
             </header>

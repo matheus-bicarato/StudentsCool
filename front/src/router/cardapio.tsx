@@ -33,9 +33,6 @@ const Cardapio = () => {
                     </div>
                     <img className='img_cardapio' src={imagemBASE64} alt="cardapio" />
                     <div className="button_container_flex">
-                        <div className="container_cardapio_button">
-                            <Link to={"/"}><button className="button_cardapio">AVALIE O NOSSO CARDÁPIO</button></Link>
-                        </div>
                         <div className="container_cardapio_button2">
                             <Link to={"/Filtro_cardapio"}><button className="button_cardapio">VEJA AS POÇÔES!</button></Link>
                         </div>

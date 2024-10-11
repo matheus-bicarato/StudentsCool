@@ -3,17 +3,18 @@ import './styles/Gallery.css'; // Importa o CSS da galeria
 import img1 from '../assets/imagens/lousa.png';
 import Title1 from '../assets/imagens/casinha.png';
 import Title2 from '../assets/imagens/exclamacao.png';
-import Title3 from '../assets/imagens/X.png';
+import Title3 from '../assets/imagens/botao-adicionar.png';
 
 const galleryItems = [
-    { id: 1, title: 'Cadastrar escola', imageUrl: img1, imgTitle: Title1, path: '/Nao_cadastradas' },
-    { id: 2, title: 'Escolas cadastradas', imageUrl: img1, imgTitle: Title2, path: '/Cadastradas' },
+    { id: 1, title: 'Escolas cadastradas', imageUrl: img1, imgTitle: Title2, path: '/Cadastradas' },
+    { id: 2, title: 'Cadastrar escolas', imageUrl: img1, imgTitle: Title3, path: '/Cadastro' },
+    { id: 3, title: 'Escolas não cadastradas', imageUrl: img1, imgTitle: Title1, path: '/Nao_cadastradas' },
     // Adicione mais itens conforme necessário
 ];
 
 const Gallery_adm_geral = () => {
     return (
-        <div className="gallery">
+        <div className="gallery_adm_geral">
             {galleryItems.map(item => (
                 <Link
                     to={item.path}
