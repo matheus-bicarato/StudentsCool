@@ -9,6 +9,16 @@
     /* background-color: black; */
     width: 80%;
 }
+.gallery_adm_geral{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    justify-content: center;
+    justify-items: center;
+    padding: 20px;
+    /* background-color: black; */
+    width: 80%;
+}
 .gallery_alunos{
     display: grid;
     grid-template-columns: repeat(3, 1fr);

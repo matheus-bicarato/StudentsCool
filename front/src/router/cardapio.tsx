@@ -6,11 +6,17 @@ import { Link } from 'react-router-dom';
 
 import Avaliar from '../components/AvaliacaoCardapio'
 import { useEffect, useState } from 'react';
+import { auth } from '../../firebase_connect';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 
 const Cardapio = () => {
     const [imagemBASE64, setImagemBASE64] = useState("");
+    const [authority, setAuthority] = useState('')
+    const [user] = useAuthState(auth);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const atualizarImgCardapio = () => {
@@ -23,6 +29,25 @@ const Cardapio = () => {
         atualizarImgCardapio();
     }, [])
 
+    useEffect(() => {
+        if (user) {
+            const userUid = user.uid;
+
+            axios.get(`http://localhost:8080/users/${userUid}`)
+                .then(response => {
+                    const autoridade = response.data.authority;
+
+                    setAuthority(autoridade);
+
+                    // Verifica se a autoridade é "admin"
+                    if (autoridade !== 'membro') {
+                        navigate('/error-page'); // Redireciona para a página de erro
+                    }
+                })
+                .catch(error => console.log(`Erro ao puxar infos do usuário: ${error.message}`));
+        }
+    }, [user, navigate]);
+
     return (
         <div className="">
             <Header />
@@ -33,9 +58,6 @@ const Cardapio = () => {
                     </div>
                     <img className='img_cardapio' src={imagemBASE64} alt="cardapio" />
                     <div className="button_container_flex">
-                        <div className="container_cardapio_button">
-                            <Link to={"/"}><button className="button_cardapio">AVALIE O NOSSO CARDÁPIO</button></Link>
-                        </div>
                         <div className="container_cardapio_button2">
                             <Link to={"/Filtro_cardapio"}><button className="button_cardapio">VEJA AS POÇÔES!</button></Link>
                         </div>

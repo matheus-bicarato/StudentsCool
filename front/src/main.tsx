@@ -29,6 +29,7 @@ import Add_cardapio from './router/add_cardapio.tsx'
 import Alimentacao_diferente from './router/Alimentacao_diferente.tsx'
 import Perfil from './router/perfil.tsx'
 import ContatoAlimentEX from './router/Contato_Alimentação_especial.tsx'
+import Contatos_mandados from './router/contatos_mandados.tsx';
 
   // rotas que o usuário logado pode acessar
   const rotas = [
@@ -49,6 +50,7 @@ import ContatoAlimentEX from './router/Contato_Alimentação_especial.tsx'
     { path: "/Alimentacao_especiais", element: <Alimentacao_diferente/> },
     { path: "/usuario", element: <Perfil/> },
     { path: "/ContatoAlimentEX", element: <ContatoAlimentEX/> },
+    { path: "/FeedBacks", element: <Contatos_mandados/> },
   ];
   // rotas que o usuário não logado pode acessar
   const rotasNaoLogado = [
