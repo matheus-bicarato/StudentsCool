@@ -180,7 +180,7 @@ const Cadastro = () => {
 
                 <div className="barra_porple"></div>
                 <div className="container_Cadastro_itens">
-                    <label htmlFor="" className="conteudo_container_cadastro">Quantidade de Alunos.</label>
+                    <label htmlFor="" className="conteudo_container_cadastro">Quantidade de alunos.</label>
                     <input type="text"
                         className="input_container"
                         id="contato"
@@ -198,7 +198,7 @@ const Cadastro = () => {
                     <input type="text"
                         className="input_container"
                         id="contato"
-                        placeholder="ex: segunda á sexta-feira"
+                        placeholder="Ex: Segunda á sexta-feira"
                         required
                         value={diasLetivos}
                         onChange={(e) => setDiasLetivos(e.target.value)}
@@ -208,7 +208,7 @@ const Cadastro = () => {
 
                 <div className="barra_porple"></div>
                 <div className="container_Cadastro_itens">
-                    <label htmlFor="" className="conteudo_container_cadastro">Observaçoes adicionais.</label>
+                    <label htmlFor="" className="conteudo_container_cadastro">Observações adicionais.</label>
                     <input type="text"
                         className="input_container"
                         id="contato"
