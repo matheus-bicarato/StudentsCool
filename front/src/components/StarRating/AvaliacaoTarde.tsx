@@ -4,11 +4,15 @@ import { faStar as fullStar, faStarHalfAlt as halfStar, faStar as emptyStar } fr
 
 import Nuvem from '../../assets/imagens/nuven_icon.png'
 
-// Componente StarRating (Você já tem esse)
-const StarRating = ({ rating, setRating }) => {
+interface StarRatingProps {
+    rating: number;
+    setRating: (rating: number) => void;
+}
+
+const StarRating: React.FC<StarRatingProps> = ({ rating, setRating }) => {
     const [hoverRating, setHoverRating] = useState(0);
 
-    const renderStar = (index) => {
+    const renderStar = (index: number) => {
         if (hoverRating > 0) {
             if (hoverRating >= index) {
                 return fullStar;
@@ -28,7 +32,7 @@ const StarRating = ({ rating, setRating }) => {
         }
     };
 
-    const handleMouseOver = (value) => {
+    const handleMouseOver = (value: number) => {
         setHoverRating(value);
     };
 
@@ -36,7 +40,7 @@ const StarRating = ({ rating, setRating }) => {
         setHoverRating(0);
     };
 
-    const handleClick = (value) => {
+    const handleClick = (value: number) => {
         setRating(value);
     };
 
@@ -60,19 +64,20 @@ const StarRating = ({ rating, setRating }) => {
     );
 };
 
-// Componente para avaliação da Tarde
-const AvaliacaoTarde = () => {
+interface AvaliacaoManhaProps {
+    rating: number;
+    setRating: (rating: number) => void;
+  }
 
-    const [ratingTarde, setRatingTarde] = useState(0);
-
-    return (
+  const AvaliacaoTarde: React.FC<AvaliacaoManhaProps> = ({ rating, setRating }) => {
+    return ( 
         <div className='Avaliaultimo'>
             <div className='title_icon_star'>
                 <h3>Tarde</h3>
                 <img src={Nuvem} alt="" className='icon_Star' />
             </div>
-            <StarRating rating={ratingTarde} setRating={setRatingTarde} />
-            <p>Avaliação: {ratingTarde} Estrelas</p>
+            <StarRating rating={rating} setRating={setRating} />
+            <p>Avaliação: {rating} Estrelas</p>
         </div>
     );
 };
