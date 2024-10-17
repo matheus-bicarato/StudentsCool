@@ -2,10 +2,7 @@ import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar as fullStar, faStarHalfAlt as halfStar, faStar as emptyStar } from '@fortawesome/free-solid-svg-icons';
 
-
 import Nuvem from '../../assets/imagens/nuven_icon.png'
-
-import '../styles/AvaliacaoCardapio.css'
 
 // Componente StarRating (Você já tem esse)
 const StarRating = ({ rating, setRating }) => {
@@ -65,10 +62,11 @@ const StarRating = ({ rating, setRating }) => {
 
 // Componente para avaliação da Tarde
 const AvaliacaoTarde = () => {
+
     const [ratingTarde, setRatingTarde] = useState(0);
 
     return (
-        <div>
+        <div className='Avaliaultimo'>
             <div className='title_icon_star'>
                 <h3>Tarde</h3>
                 <img src={Nuvem} alt="" className='icon_Star' />
@@ -79,15 +77,4 @@ const AvaliacaoTarde = () => {
     );
 };
 
-// Componente principal que exibe todas as avaliações
-const AvaliaTarde = () => {
-    return (
-        <div className='infosAvalia'>
-            <div className='Avaliaultimo'>
-                <AvaliacaoTarde />
-            </div>
-        </div>
-    );
-};
-
-export default AvaliaTarde;
+export default AvaliacaoTarde;

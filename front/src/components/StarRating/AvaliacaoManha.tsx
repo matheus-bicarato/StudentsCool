@@ -4,8 +4,6 @@ import { faStar as fullStar, faStarHalfAlt as halfStar, faStar as emptyStar } fr
 
 import Sun from '../../assets/imagens/sun_icon.png'
 
-import '../styles/AvaliacaoCardapio.css'
-
 // Componente StarRating (Você já tem esse)
 const StarRating = ({ rating, setRating }) => {
     const [hoverRating, setHoverRating] = useState(0);
@@ -64,10 +62,11 @@ const StarRating = ({ rating, setRating }) => {
 
 // Componente para avaliação da Manhã
 const AvaliacaoManha = () => {
+
     const [ratingManha, setRatingManha] = useState(0);
 
     return (
-        <div>
+        <div className='AvaliaPrimeiro'>
             <div className='title_icon_star'>
                 <h3>Manhã</h3>
                 <img src={Sun} alt="" className='icon_Star' />
@@ -78,15 +77,4 @@ const AvaliacaoManha = () => {
     );
 };
 
-// Componente principal que exibe todas as avaliações
-const AvaliaManha = () => {
-    return (
-        <div className='infosAvalia'>
-            <div className='AvaliaPrimeiro'>
-                <AvaliacaoManha />
-            </div>
-        </div>
-    );
-};
-
-export default AvaliaManha;
+export default AvaliacaoManha;

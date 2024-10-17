@@ -4,8 +4,6 @@ import { faStar as fullStar, faStarHalfAlt as halfStar, faStar as emptyStar } fr
 
 import Talher from '../../assets/imagens/talher_icon.png'
 
-import '../styles/AvaliacaoCardapio.css'
-
 // Componente StarRating (Você já tem esse)
 const StarRating = ({ rating, setRating }) => {
     const [hoverRating, setHoverRating] = useState(0);
@@ -64,10 +62,11 @@ const StarRating = ({ rating, setRating }) => {
 
 // Componente para avaliação do Almoço
 const AvaliacaoAlmoco = () => {
+
     const [ratingAlmoco, setRatingAlmoco] = useState(0);
 
     return (
-        <div>
+        <div className='Avalia'>
             <div className='title_icon_star'>
                 <h3>Almoço</h3>
                 <img src={Talher} alt="" className='icon_Star' />
@@ -78,15 +77,4 @@ const AvaliacaoAlmoco = () => {
     );
 };
 
-// Componente principal que exibe todas as avaliações
-const AvaliaAlmoco = () => {
-    return (
-        <div className='infosAvalia'>
-            <div className='Avalia'>
-                <AvaliacaoAlmoco />
-            </div>
-        </div>
-    );
-};
-
-export default AvaliaAlmoco;
+export default AvaliacaoAlmoco;
