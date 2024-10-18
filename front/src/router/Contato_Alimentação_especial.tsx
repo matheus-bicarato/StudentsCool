@@ -24,15 +24,6 @@ const ContatoAlimentEX: React.FC = () => {
     const ContatoSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-            // Adiciona o console.log para mostrar todos os itens
-            console.log('Dados do formulário:', {
-                nome,
-                email,
-                telefone,
-                mensagem,
-                selectedImage
-            });
-    
         const formData = new FormData();
         formData.append('nome', nome);
         formData.append('email', email);
@@ -49,7 +40,7 @@ const ContatoAlimentEX: React.FC = () => {
                 'Content-Type': 'multipart/form-data',
             },
         })
-        .then((response) => {
+        .then(() => {
             setNome('');
             setEmail('');
             setTelefone('');
@@ -62,7 +53,6 @@ const ContatoAlimentEX: React.FC = () => {
                 icon: 'success',
                 confirmButtonText: 'Ok'
             });
-            console.log('Mensagem enviada com sucesso:', response.data);
         })
         .catch((error) => {
             if (error.response) {
