@@ -8,7 +8,7 @@ import Title3 from '../assets/imagens/professor.png';
 const galleryItems = [
     { id: 1, title: 'cadastrar usuarios', imageUrl: img1, imgTitle: Title1, path: '/Cadastrar_user' },
     { id: 2, title: 'contas cadastradas', imageUrl: img1, imgTitle: Title2, path: '/Contas_cadastradas' },
-    { id: 3, title: 'contato', imageUrl: img1, imgTitle: Title3, path: '/Contato' },
+    { id: 3, title: 'contato', imageUrl: img1, imgTitle: Title3, path: '/FeedBacks' },
     // Adicione mais itens conforme necessário
 ];
 
