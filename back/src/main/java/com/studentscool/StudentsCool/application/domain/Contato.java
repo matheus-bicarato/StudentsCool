@@ -16,5 +16,5 @@ public class Contato {
     private String telefone;
     private String mensagem;
     private Boolean DuvidaOuAlimentacao;
-    private byte[] arquivo;
+    private String arquivo;
 }

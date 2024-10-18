@@ -23,5 +23,7 @@ public class ContatoEntity {
     private String telefone;
     private String mensagem;
     private Boolean DuvidaOuAlimentacao;
-    private byte[] arquivo;
+
+    @Column(length = Integer.MAX_VALUE)
+    private String arquivo;
 }
