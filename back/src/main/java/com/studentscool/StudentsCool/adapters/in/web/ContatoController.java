@@ -32,7 +32,7 @@ public class ContatoController {
 
     @PostMapping
     public ResponseEntity<?> criarContato(
-            @RequestParam(value = "arquivo", required = false) MultipartFile arquivo,
+            @RequestParam(value = "imagemBase64", required = false) String imagemBase64,
             @RequestParam("nome") String nome,
             @RequestParam("email") String email,
             @RequestParam("telefone") String telefone,
@@ -53,26 +53,15 @@ public class ContatoController {
             contato.setDuvidaOuAlimentacao(DuvidaOuAlimentacao);
 
             // Verifica a lógica da DuvidaOuAlimentacao
-            if (!DuvidaOuAlimentacao) {
-                // Se DuvidaOuAlimentacao for false, não deve haver arquivo
-                if (arquivo != null && !arquivo.isEmpty()) {
-                    return ResponseEntity.badRequest().body("Não é permitido enviar um arquivo quando DuvidaOuAlimentacao é false.");
-                }
-                contato.setArquivo(null); // Pode ser null se não houver arquivo
-            } else {
-                // Se DuvidaOuAlimentacao for true, pode haver um arquivo
-                if (arquivo != null && !arquivo.isEmpty()) {
-                    // Verificar se o arquivo é uma imagem PNG ou JPEG
-                    String contentType = arquivo.getContentType();
-                    if (contentType == null ||
-                            (!contentType.equals(MediaType.IMAGE_PNG_VALUE) &&
-                                    !contentType.equals(MediaType.IMAGE_JPEG_VALUE))) {
-                        return ResponseEntity.badRequest().body("Arquivo inválido. Envie uma imagem PNG ou JPEG.");
-                    }
-                    contato.setArquivo(arquivo.getBytes());
+            if (DuvidaOuAlimentacao) {
+                if (imagemBase64 != null && !imagemBase64.isEmpty()) {
+                    // Armazena a imagem como string Base64
+                    contato.setArquivo(imagemBase64);
                 } else {
-                    contato.setArquivo(null); // Arquivo pode ser null se DuvidaOuAlimentacao é true
+                    contato.setArquivo(null); // Pode ser null se não houver arquivo
                 }
+            } else {
+                contato.setArquivo(null); // Não permite arquivos se DuvidaOuAlimentacao for false
             }
 
             // Valida os campos obrigatórios
@@ -91,6 +80,7 @@ public class ContatoController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro inesperado: " + e.getMessage());
         }
     }
+
 
 
     @GetMapping("/{id}")
