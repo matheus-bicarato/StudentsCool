@@ -17,16 +17,12 @@ CREATE TABLE contato (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL,
-    telefone VARCHAR(20) not null,
-    mensagem VARCHAR(350) NOT NULL,
+    telefone VARCHAR(255) not null,
+    mensagem VARCHAR(255) NOT NULL,
     duvida_ou_alimentacao BOOLEAN,
-    arquivo LONGBLOB,
+    arquivo LONGTEXT,
     CHECK (telefone REGEXP '^[0-9]+$')
 );
-ALTER TABLE contato MODIFY COLUMN arquivo LONGBLOB;
-SHOW VARIABLES LIKE 'max_allowed_packet';
-SET GLOBAL max_allowed_packet = 16777216;
-
 
 -- Criação tabela "users" de cada escola
 create table users_escola_exemplo(
