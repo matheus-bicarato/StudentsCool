@@ -1,31 +1,140 @@
-EXEMPLO PARA USAR OS 2 COMPONENTES
+import Footer from "../components/Footer";
+import Header from "../components/Header";
+import AvaliaManha from '../components/StarRating/AvaliacaoManha'
+import AvaliaAlmoco from '../components/StarRating/AvaliacaoAlmoco'
+import AvaliaTarde from '../components/StarRating/AvaliacaoTarde'
+import "./styles/Cardapio.css";
 
-// SLide
-import imagem1 from "../assets/imagens/Icon_Call.png";
-import imagem2 from "../assets/imagens/Icon_Call.png";
-import imagem3 from "../assets/imagens/Icon_Call.png";
+import img_cardapio from "../assets/imagens/cardapio.png";
 
-// Estrelas
-import Estrelas from '../components/Estrelas';
-
-    const images = [imagem1, imagem2, imagem3];
-
-    const [rating, setRating] = useState(0);
-
-    return (
-        <div>
-            <Header_simplificado />
-            <main>
-                <div className="slide_show">
-                    <Slide images={images}/>
-                    
-                    <div>
-                    <p>Avaliação: {rating} Estrelas</p>
-                    <Estrelas rating={rating} setRating={setRating} />
-                    </div>
+import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { auth } from "../../firebase_connect";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import Swal from 'sweetalert2'
 
 
+const Cardapio = () => {
+  const [imagemBASE64, setImagemBASE64] = useState("");
+  const [authority, setAuthority] = useState("");
+  const [user] = useAuthState(auth);
+  const [ratingManha, setRatingManha] = useState<number>(0);
+  const [ratingAlmoco, setRatingAlmoco] = useState<number>(0);
+  const [ratingTarde, setRatingTarde] = useState<number>(0);
+  const navigate = useNavigate();
 
+  useEffect(() => {
+    const atualizarImgCardapio = () => {
+      axios.get("http://localhost:8080/CardapioImage/1").then((response) => {
+        setImagemBASE64(response.data.imagem_cardapio);
+      });
+    };
+
+    atualizarImgCardapio();
+  }, []);
+
+  useEffect(() => {
+    if (user) {
+      const userUid = user.uid;
+
+      axios
+        .get(`http://localhost:8080/users/${userUid}`)
+        .then((response) => {
+          const autoridade = response.data.authority;
+
+          setAuthority(autoridade);
+
+          // Verifica se a autoridade é "admin"
+          if (autoridade !== "membro") {
+            navigate("/error-page"); // Redireciona para a página de erro
+          }
+        })
+        .catch((error) =>
+          console.log(`Erro ao puxar infos do usuário: ${error.message}`)
+        );
+    }
+  }, [user, navigate]);
+
+  const handleEnviarClick = () => {
+    const avaliacoes = {
+      estrelaManha: ratingManha,  
+      estrelaAlmoco: ratingAlmoco,
+      estrelaTarde: ratingTarde   
+    };
+
+    axios.post('http://localhost:8080/avaliacoes', avaliacoes)
+    .then((response) => {
+      console.log('Avaliações enviadas com sucesso:', response.data);
+
+      // Notificação de sucesso
+      Swal.fire({
+        icon: 'success',
+        title: 'Avaliações enviadas!',
+        text: 'Sua avaliação foi enviada com sucesso.',
+        confirmButtonText: 'Ok'
+      });
+    })
+    .catch((error) => {
+      console.error('Erro ao enviar as avaliações:', error);
+
+      // Notificação de erro
+      Swal.fire({
+        icon: 'error',
+        title: 'Erro!',
+        text: 'Houve um problema ao enviar sua avaliação. Tente novamente.',
+        confirmButtonText: 'Ok'
+      });
+    });
+  };
+
+  return (
+    <div className="">
+      <Header />
+      <main className="main_cardapio">
+        <div className="main_cardapio_top">
+          <div className="container_title_cardapio">
+            <h1 className="title_cardapio">
+              Veja o cardápio dessa{" "}
+              <span className="span_cardapio">Semana!</span>
+            </h1>
+          </div>
+          <img className="img_cardapio" src={imagemBASE64} alt="cardapio" />
+          <div className="button_container_flex">
+            <div className="container_cardapio_button2">
+              <Link to={"/Filtro_cardapio"}>
+                <button className="button_cardapio">VEJA AS POÇÔES!</button>
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        <div className="StarAvalia">
+          <table style={{ width: "45%", textAlign: "center" }}>
+            <tbody className="infosAvalia">
+              <tr>
+                <td>
+                  <AvaliaManha rating={ratingManha} setRating={setRatingManha} />
+                  <AvaliaAlmoco rating={ratingAlmoco} setRating={setRatingAlmoco}/>
+                  <AvaliaTarde rating={ratingTarde} setRating={setRatingTarde}/>
+                </td>
+              </tr>
+              <tr>
+                <div className="contAvalia">
+                  <button className="button_avalia" onClick={handleEnviarClick}>ENVIAR</button>
+                </div>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </main>
+      <Footer />
+    </div>
+  );
+};
+
+export default Cardapio;
 
 
 

@@ -1,8 +1,6 @@
 import Footer from "../components/Footer";
 import Header from "../components/Header";
-import AvaliaManha from '../components/StarRating/AvaliacaoManha'
-import AvaliaAlmoco from '../components/StarRating/AvaliacaoAlmoco'
-import AvaliaTarde from '../components/StarRating/AvaliacaoTarde'
+
 import "./styles/Cardapio.css";
 
 import img_cardapio from "../assets/imagens/cardapio.png";
@@ -20,9 +18,6 @@ const Cardapio = () => {
   const [imagemBASE64, setImagemBASE64] = useState("");
   const [authority, setAuthority] = useState("");
   const [user] = useAuthState(auth);
-  const [ratingManha, setRatingManha] = useState<number>(0);
-  const [ratingAlmoco, setRatingAlmoco] = useState<number>(0);
-  const [ratingTarde, setRatingTarde] = useState<number>(0);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -57,38 +52,6 @@ const Cardapio = () => {
     }
   }, [user, navigate]);
 
-  const handleEnviarClick = () => {
-    const avaliacoes = {
-      estrelaManha: ratingManha,  
-      estrelaAlmoco: ratingAlmoco,
-      estrelaTarde: ratingTarde   
-    };
-
-    axios.post('http://localhost:8080/avaliacoes', avaliacoes)
-    .then((response) => {
-      console.log('Avaliações enviadas com sucesso:', response.data);
-
-      // Notificação de sucesso
-      Swal.fire({
-        icon: 'success',
-        title: 'Avaliações enviadas!',
-        text: 'Sua avaliação foi enviada com sucesso.',
-        confirmButtonText: 'Ok'
-      });
-    })
-    .catch((error) => {
-      console.error('Erro ao enviar as avaliações:', error);
-
-      // Notificação de erro
-      Swal.fire({
-        icon: 'error',
-        title: 'Erro!',
-        text: 'Houve um problema ao enviar sua avaliação. Tente novamente.',
-        confirmButtonText: 'Ok'
-      });
-    });
-  };
-
   return (
     <div className="">
       <Header />
@@ -110,24 +73,6 @@ const Cardapio = () => {
           </div>
         </div>
 
-        <div className="StarAvalia">
-          <table style={{ width: "45%", textAlign: "center" }}>
-            <tbody className="infosAvalia">
-              <tr>
-                <td>
-                  <AvaliaManha rating={ratingManha} setRating={setRatingManha} />
-                  <AvaliaAlmoco rating={ratingAlmoco} setRating={setRatingAlmoco}/>
-                  <AvaliaTarde rating={ratingTarde} setRating={setRatingTarde}/>
-                </td>
-              </tr>
-              <tr>
-                <div className="contAvalia">
-                  <button className="button_avalia" onClick={handleEnviarClick}>ENVIAR</button>
-                </div>
-              </tr>
-            </tbody>
-          </table>
-        </div>
       </main>
       <Footer />
     </div>
