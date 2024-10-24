@@ -30,33 +30,35 @@ import Alimentacao_diferente from './router/Alimentacao_diferente.tsx'
 import Perfil from './router/perfil.tsx'
 import ContatoAlimentEX from './router/Contato_Alimentação_especial.tsx'
 import Contatos_mandados from './router/contatos_mandados.tsx';
+import Veja_as_avaliacoes from './router/Veja_as_avaliacoes.tsx';
 
-  // rotas que o usuário logado pode acessar
-  const rotas = [
-    { path: "/", element: <LandingPage /> },
-    { path: "/Home", element: <Home /> },
-    { path: "/Cardapio", element: <Cardapio /> },
-    { path: "/Cadastrar_user", element: <Cadastrar_user /> },
-    { path: "/Cadastro", element: <Cadastro /> },
-    { path: "/Contato", element: <Contato /> },
-    { path: "/cadastro-feito", element: <Cadastro_feito /> },
-    { path: "/Filtro_cardapio", element: <Filtro_cardapio /> },
-    { path: "/Contas_cadastradas", element: <Users_cadastrados /> },
-    { path: "/Nao_cadastradas", element: <Escolas_nao_cadastradas /> },
-    { path: "/Cadastradas", element: <Escolas_Cadastradas /> },
-    { path: "/Detalhes_escolas", element: <Detalhes_escola /> },
-    { path: "/quantidade_de_alimentos", element: <Tabela_notricao /> },
-    { path: "/Adicionar_cardapio", element: <Add_cardapio /> },
-    { path: "/Alimentacao_especiais", element: <Alimentacao_diferente/> },
-    { path: "/usuario", element: <Perfil/> },
-    { path: "/ContatoAlimentEX", element: <ContatoAlimentEX/> },
-    { path: "/FeedBacks", element: <Contatos_mandados/> },
-  ];
-  // rotas que o usuário não logado pode acessar
-  const rotasNaoLogado = [
-    { path: "/", element: <LandingPage /> },
-    { path: "/Login", element: <Login /> },
-  ];
+// rotas que o usuário logado pode acessar
+const rotas = [
+  { path: "/", element: <LandingPage /> },
+  { path: "/Home", element: <Home /> },
+  { path: "/Cardapio", element: <Cardapio /> },
+  { path: "/Cadastrar_user", element: <Cadastrar_user /> },
+  { path: "/Cadastro", element: <Cadastro /> },
+  { path: "/Contato", element: <Contato /> },
+  { path: "/cadastro-feito", element: <Cadastro_feito /> },
+  { path: "/Filtro_cardapio", element: <Filtro_cardapio /> },
+  { path: "/Contas_cadastradas", element: <Users_cadastrados /> },
+  { path: "/Nao_cadastradas", element: <Escolas_nao_cadastradas /> },
+  { path: "/Cadastradas", element: <Escolas_Cadastradas /> },
+  { path: "/Detalhes_escolas", element: <Detalhes_escola /> },
+  { path: "/quantidade_de_alimentos", element: <Tabela_notricao /> },
+  { path: "/Adicionar_cardapio", element: <Add_cardapio /> },
+  { path: "/Alimentacao_especiais", element: <Alimentacao_diferente /> },
+  { path: "/usuario", element: <Perfil /> },
+  { path: "/ContatoAlimentEX", element: <ContatoAlimentEX /> },
+  { path: "/FeedBacks", element: <Contatos_mandados /> },
+  { path: "/Avaliacoes", element: <Veja_as_avaliacoes/> },
+];
+// rotas que o usuário não logado pode acessar
+const rotasNaoLogado = [
+  { path: "/", element: <LandingPage /> },
+  { path: "/Login", element: <Login /> },
+];
 
 
 const AppRoutes = () => {
@@ -65,7 +67,7 @@ const AppRoutes = () => {
   ring2.register()
 
   useEffect(() => {
-    if(user) {
+    if (user) {
       const userUid = user.uid;
 
       axios.get(`http://localhost:8080/users/${userUid}`)
@@ -76,7 +78,7 @@ const AppRoutes = () => {
         .catch(error => console.log(`Erro ao puxar infos do usuário: ${error.message}`))
     }
   }, [user]);
-  
+
   // carregamento do conteúdo da pagina
   if (loading) {
     return (

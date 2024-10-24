@@ -1,0 +1,43 @@
+.Main_vj_avaliacoes {
+    /* background-color: black; */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    margin: 20px;
+}
+
+.container_vj_avaliacoes {
+    /* background-color: red; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    width: 60%;
+    gap: 40px;
+    border-radius: 15px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.container_vj_estrela {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #c6caff;
+    width: 40%;
+    height: 50px;
+    border-radius: 15px;
+
+}
+
+.span_Title_vj_avaliacoes {
+    color: #858AE3;
+}
+
+.Title_vj_avaliacoes {
+    color: #4E148C;
+    font-size: 50px;
+}
