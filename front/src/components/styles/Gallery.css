@@ -9,7 +9,7 @@
     /* background-color: black; */
     width: 80%;
 }
-.gallery_adm_geral{
+.gallery_adm_geral {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 16px;
@@ -19,7 +19,7 @@
     /* background-color: black; */
     width: 80%;
 }
-.gallery_alunos{
+.gallery_alunos {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 16px;
@@ -29,7 +29,8 @@
     /* background-color: black; */
     width: 80%;
 }
-.gallery_cantina{
+
+.gallery_cantina {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 16px;
@@ -39,6 +40,7 @@
     /* background-color: black; */
     width: 80%;
 }
+
 .gallery_adm_escola {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -111,4 +113,24 @@
     .gallery {
         grid-template-columns: repeat(1, 3fr);
     }
+
+    .gallery_adm_geral {
+        grid-template-columns: repeat(1, 3fr);
+    }
+
+    .gallery_cantina {
+        grid-template-columns: repeat(1, 3fr);
+    }
+
+    .gallery_adm_escola {
+        grid-template-columns: repeat(1, 3fr);
+    }
+
+}
+@media (max-width:580px) {
+    
+    .gallery_alunos {
+        grid-template-columns: repeat(1, 2fr);
+    }
+
 }
