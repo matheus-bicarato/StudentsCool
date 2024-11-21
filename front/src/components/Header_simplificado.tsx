@@ -31,7 +31,7 @@ const Header_simplificado = () => {
                     <Link to={"/home"} title="Página inicial"><img src={Logo_lapis} alt="Logo" className="Logo_lapis" /></Link>
                 </div>
                 <div className="left">
-                    <Link to={"/"}><img src={Logo_bola} alt="Logo" className="Logo_bola" /></Link>
+                    <Link to={"/home"}><img src={Logo_bola} alt="Logo" className="Logo_bola" /></Link>
                     <div className="Title_Header">
                         <h1>{userInfo ? `Olá ${userInfo.nome.split(' ').slice(0, 2).join(' ')}!` : "Carregando..."} <br /></h1>
                     </div>

@@ -61,7 +61,7 @@ const Alimentacao_diferente = () => {
         <div className="">
             <Header />
             <div className="main_alimentação_fresco">
-                <h1 className='title_alimentacao_fescos'>Alimentação especiais</h1>
+                <h1 className='title_alimentacao_fescos'>Alimentações especiais</h1>
                 {contatos.length === 0 ? (
                     <p>Nenhum contato disponível.</p>
                 ) : (

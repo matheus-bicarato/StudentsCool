@@ -5,7 +5,7 @@ import Input_Add_cardapio1 from '../components/Input_add_cardapio1';
 import Input_Add_cardapio2 from '../components/Input_add_cardapio2';
 import Input_Add_cardapio3 from '../components/Input_add_cardapio3';
 import Add_imagem from '../components/Add_imagem';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from '../../firebase_connect';
 import { useNavigate } from 'react-router-dom';
@@ -15,6 +15,7 @@ import Swal from 'sweetalert2';
 const Add_cardapio = () => {
     const [user] = useAuthState(auth);
     const navigate = useNavigate();
+    const [cardapioIsNull, setCardapioIsNull] = useState(true);
 
     useEffect(() => {
         if (user) {
@@ -37,6 +38,16 @@ const Add_cardapio = () => {
                         confirmButtonText: 'Ok'
                     });
                 });
+            
+            // veririca se já tem algum cardápio cadastrado
+            axios.get("http://localhost:8080/cardapio")
+                .then(response => {
+                    if (!response.data || Object.keys(response.data).length === 0) {
+                        setCardapioIsNull(true)
+                    } else {
+                        setCardapioIsNull(false)
+                    }
+                })
         } else {
             // Redireciona se o usuário não estiver logado
             navigate('/error-page');
@@ -81,7 +92,17 @@ const Add_cardapio = () => {
         <div>
             <Header />
             <div className="container_main_add_cardapio">
-                <button className='btn-delete-items-cardapio' onClick={() => deletarTodoCardapio()} title='Deletar cardápio'>Deletar todos os itens do cardápio</button>
+                {cardapioIsNull == true ? (
+                    <div></div>
+                ) : cardapioIsNull == false ? (
+                    <div  className='btn-delete-div-cardapio'>
+                        <h2>* Já tem um item adicionado no cardápio *</h2>
+                        <button className='btn-delete-items-cardapio' onClick={() => deletarTodoCardapio()} title='Deletar cardápio'>Deletar todos os itens do cardápio</button>
+                    </div>
+                ) : (
+                    <h1>Erro</h1>
+                )}
+                
                 <Input_Add_cardapio1 />
                 <Input_Add_cardapio2 />
                 <Input_Add_cardapio3 />
