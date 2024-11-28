@@ -37,6 +37,7 @@ public class AvaliacaoRepositoryImp implements AvaliacaoRepository {
         avaliacao.setEstrelaAlmoco(entity.getEstrelaAlmoco());
         avaliacao.setEstrelaTarde(entity.getEstrelaTarde());
         avaliacao.setDataAvaliacao(entity.getDataAvaliacao());
+        avaliacao.setUsuario_Id(entity.getUsuario_Id());
 
         return avaliacao;
     }
@@ -48,6 +49,7 @@ public class AvaliacaoRepositoryImp implements AvaliacaoRepository {
         entity.setEstrelaAlmoco(avaliacao.getEstrelaAlmoco());
         entity.setEstrelaTarde(avaliacao.getEstrelaTarde());
         entity.setDataAvaliacao(avaliacao.getDataAvaliacao());
+        entity.setUsuario_Id(avaliacao.getUsuario_Id());
         return entity;
     }
 }
