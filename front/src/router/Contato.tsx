@@ -10,6 +10,7 @@ import INSTA from '../assets/imagens/Insta_Black_Icon.png'
 import Retangulo from '../assets/imagens/Logo_Retangulo.png'
 
 import './styles/Contato.css'
+import { Link } from 'react-router-dom';
 
 const Contato = () => {
     
@@ -117,6 +118,28 @@ const Contato = () => {
                                 <span><img src={INSTA} alt="" /></span>
                                 <h1>@studentscool</h1>
                             </a></li>
+
+                            <li>
+                                <Link 
+                                    to="/ContatoAlimentEX" 
+                                    className='Button_submit_contato'
+                                    style={{
+                                        fontSize: "1.3rem",
+                                        width: "40%",
+                                        height: "50px" ,
+                                        display: "flex",
+                                        flexDirection: "row",
+                                        justifyContent: "center",
+                                        margin: "auto",
+                                        border: "2px solid black",
+                                        color: "black",
+                                        textAlign: "center"
+                                    }}
+                                    title='Clique aqui'
+                                    >
+                                        Alimentação especial?
+                                </Link>
+                            </li>
                         </ul>
                     </div>
                 </div>

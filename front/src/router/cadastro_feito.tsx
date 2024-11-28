@@ -12,7 +12,7 @@ const Cadastro_feito = () => {
                     <h1>Obrigado por cadastrar!!</h1>
                     <img src={logo} alt="Logo" className='logo_cadastro_feito'/>
                     <Link to={"/cadastro"}><button className="button_cadastro_feito">Editar minha resposta</button></Link>
-                    <a href="*" className='copia_pdf'>pegar uma copia do formulario</a>
+                    <Link to="/Home" className='copia_pdf'>Voltar para a página inicial.</Link>
                 </div>
             </div>
         </div>

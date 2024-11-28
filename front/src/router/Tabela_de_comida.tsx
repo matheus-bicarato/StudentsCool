@@ -152,7 +152,7 @@ const Menu = () => {
                 </div>
 
                 <div className="menu-buttons">
-                    <Link to={''}><button className="menu-button evaluate-button">Avaliação do Cardápio</button></Link>
+                    <Link to={'/Avaliacoes'}><button className="menu-button evaluate-button">Avaliação do Cardápio</button></Link>
                     <button className='btn_deletar_avaliacoes menu-button' onClick={() => deletarTodasAvaliacoes()}>Deletar avaliações</button>
                     <Link to={'/Alimentacao_especiais'}><button className="menu-button special-button">Alimentação Especial</button></Link>
                 </div>

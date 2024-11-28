@@ -63,7 +63,11 @@ const Cardapio = () => {
               <span className="span_cardapio">Semana!</span>
             </h1>
           </div>
-          <img className="img_cardapio" src={imagemBASE64} alt="cardapio" />
+          {imagemBASE64 == "" ? (
+            <h1 style={{marginTop: 105, marginBottom: 105}}>Nenhuma imagem adicionada no momento.</h1>
+          ) : (
+            <img className="img_cardapio" src={imagemBASE64} alt="cardapio" />
+          )}
           <div className="button_container_flex">
             <div className="container_cardapio_button2">
               <Link to={"/Filtro_cardapio"}>

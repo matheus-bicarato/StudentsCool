@@ -9,6 +9,7 @@ import Food from '../assets/imagens/Food_Icon.png';
 import ZAP from '../assets/imagens/Zap_Icon.png';
 import EMAIL from '../assets/imagens/Email_Icon.png';
 import INSTA from '../assets/imagens/Insta_Black_Icon.png';
+import { Link } from "react-router-dom";
 
 const ContatoAlimentEX: React.FC = () => {
     const [nome, setNome] = useState<string>('');
@@ -121,6 +122,26 @@ const ContatoAlimentEX: React.FC = () => {
                                         <h1>@studentscool</h1>
                                     </a>
                                 </li>
+                                <li>
+                                <Link
+                                    to="/Contato" 
+                                    className='Button_submit_contato'
+                                    style={{
+                                        fontSize: "1.3rem",
+                                        width: "40%",
+                                        height: "50px" ,
+                                        display: "flex",
+                                        flexDirection: "row",
+                                        justifyContent: "center",
+                                        margin: "auto",
+                                        border: "2px solid black",
+                                        color: "black"
+                                    }}
+                                    title='Clique aqui'
+                                    >
+                                        Contato simples?
+                                </Link>
+                            </li>
                             </ul>
                         </div>
                     </div>
