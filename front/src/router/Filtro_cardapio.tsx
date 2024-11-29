@@ -25,6 +25,8 @@ const Filtro_cardapio = () => {
     const [ratingAlmoco, setRatingAlmoco] = useState<number>(0);
     const [ratingTarde, setRatingTarde] = useState<number>(0);
 
+    const [isButtonDisabled, setIsButtonDisabled] = useState<boolean>(false);
+
     useEffect(() => {
         const fetchCardapio = async () => {
             try {
@@ -97,7 +99,9 @@ const Filtro_cardapio = () => {
     }, [user, navigate]);
 
     const handleEnviarClick = () => {
+      
         const avaliacoes = {
+          usuario_id: user?.uid,
           estrelaManha: ratingManha,  
           estrelaAlmoco: ratingAlmoco,
           estrelaTarde: ratingTarde   

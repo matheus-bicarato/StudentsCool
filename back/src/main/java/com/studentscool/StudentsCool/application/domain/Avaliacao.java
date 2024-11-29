@@ -13,7 +13,7 @@ import java.util.Date;
 @NoArgsConstructor
 public class Avaliacao {
     private Long id;
-    private Long Usuario_Id;
+    private String usuario_id;
     private int estrelaManha;
     private int estrelaAlmoco;
     private int estrelaTarde;
