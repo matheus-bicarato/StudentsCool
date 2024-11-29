@@ -7,7 +7,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.NoSuchElementException;
 
 @RestController
 @RequestMapping("/avaliacoes")
@@ -35,11 +38,27 @@ public class AvaliacaoController {
         try {
             List<Avaliacao> avaliacaoList = avaliacoesUseCases.GetAllAvaliacoes();
             if (avaliacaoList.isEmpty()) {
-                return ResponseEntity.status(HttpStatus.NO_CONTENT).body(null);
+                return ResponseEntity.status(HttpStatus.OK).body(avaliacaoList);
             }
             return ResponseEntity.ok(avaliacaoList);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+        }
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<?> getAvaliacaoById(@PathVariable(value = "id") String id) {
+        try {
+            Avaliacao avaliacao= avaliacoesUseCases.getAvaliacaoById(id);
+            return ResponseEntity.status(HttpStatus.OK).body(avaliacao);
+        } catch (NoSuchElementException e) {
+            Map<String, String> errorResponse = new HashMap<>();
+            errorResponse.put("Mensagem", e.getMessage());
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(errorResponse);
+        } catch (Exception e) {
+            Map<String, String> errorResponse = new HashMap<>();
+            errorResponse.put("Mensagem", e.getMessage());
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(errorResponse);
         }
     }
 

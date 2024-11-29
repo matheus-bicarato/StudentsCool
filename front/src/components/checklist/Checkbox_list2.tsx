@@ -93,33 +93,41 @@ const CheckboxList2 = ({ title, items }) => {
             <div className="container_Filtro_itens">
                 <h1>{title}</h1>
                 <div className="checkbox-container">
-                    {items.map((item) => (
-                        <div key={item.id} className='input_chacklist_filtro'>
-                            <label>
-                                <input
-                                    type="checkbox"
-                                    name={`item${item.id}`}
-                                    checked={!!itemsState[`item${item.id}`]}
-                                    onChange={handleChange1}
-                                />
-                                {item.label}
-                            </label>
-                            {itemsState[`item${item.id}`] && (
-                                <Counter
-                                    count={itemsState[`item${item.id}`].count}
-                                    onIncrement={() => handleCountChange(`item${item.id}`, 1)}
-                                    onDecrement={() => handleCountChange(`item${item.id}`, -1)}
-                                />
-                            )}
-                        </div>
-                    ))}
+                {items.length === 0 ? (
+                        <p style={{ 
+                            color: 'red', 
+                            textDecorationColor: 'red', 
+                            textDecorationStyle: 'solid' 
+                          }}>/ Sem porções por enquanto /</p> // Caso a lista de itens esteja vazia
+                    ) : (
+                        items.map((item) => (
+                            <div key={item.id} className='input_chacklist_filtro'>
+                                <label>
+                                    <input
+                                        type="checkbox"
+                                        name={`item${item.id}`}
+                                        checked={!!itemsState[`item${item.id}`]}
+                                        onChange={handleChange1}
+                                    />
+                                    {item.label}
+                                </label>
+                                {itemsState[`item${item.id}`] && (
+                                    <Counter
+                                        count={itemsState[`item${item.id}`].count}
+                                        onIncrement={() => handleCountChange(`item${item.id}`, 1)}
+                                        onDecrement={() => handleCountChange(`item${item.id}`, -1)}
+                                    />
+                                )}
+                            </div>
+                        ))
+                    )}
                 </div>
             </div>
             <div className="container_Filtro_button">
                 {isAlmocoSelected ? (
                     <p style={{"color" : "red"}}>Cardápio do almoço já foi selecionado.</p>
                 ) : (
-                    <button className="button_Filtro" type="submit">Enviar</button>
+                    <button className="button_Filtro" type="submit" disabled={items.length === 0}>{items.length === 0 ? "Sem porção" : "Enviar"}</button>
                 )}
             </div>
         </form>

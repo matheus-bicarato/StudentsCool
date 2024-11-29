@@ -79,7 +79,6 @@ CREATE TABLE avaliacoes (
     estrela_tarde INT NOT NULL,
     data_avaliacao DATETIME(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
     usuario_id VARCHAR(255) NOT NULL,
-    CONSTRAINT fk_usuario_id FOREIGN KEY (usuario_id) REFERENCES users_escola_exemplo(id) ON DELETE CASCADE
 )
 CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 

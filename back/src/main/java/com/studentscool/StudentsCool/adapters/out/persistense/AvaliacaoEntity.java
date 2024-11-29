@@ -17,7 +17,7 @@ public class AvaliacaoEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Long Usuario_Id;
+    private String usuario_id;
     private int estrelaManha;
     private int estrelaAlmoco;
     private int estrelaTarde;
