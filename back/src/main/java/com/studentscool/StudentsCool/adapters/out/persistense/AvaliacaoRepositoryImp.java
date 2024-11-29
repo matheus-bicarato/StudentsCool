@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Component
@@ -26,6 +27,11 @@ public class AvaliacaoRepositoryImp implements AvaliacaoRepository {
     }
 
     @Override
+    public Optional<Avaliacao> findById(String id) {
+        return avaliacaoJpaRepository.findById(id).map(this::toDomain);
+    }
+
+    @Override
     public void deleteAll() {
         avaliacaoJpaRepository.deleteAll();
     }
@@ -37,8 +43,7 @@ public class AvaliacaoRepositoryImp implements AvaliacaoRepository {
         avaliacao.setEstrelaAlmoco(entity.getEstrelaAlmoco());
         avaliacao.setEstrelaTarde(entity.getEstrelaTarde());
         avaliacao.setDataAvaliacao(entity.getDataAvaliacao());
-        avaliacao.setUsuario_Id(entity.getUsuario_Id());
-
+        avaliacao.setUsuario_id(entity.getUsuario_id());
         return avaliacao;
     }
 
@@ -49,7 +54,7 @@ public class AvaliacaoRepositoryImp implements AvaliacaoRepository {
         entity.setEstrelaAlmoco(avaliacao.getEstrelaAlmoco());
         entity.setEstrelaTarde(avaliacao.getEstrelaTarde());
         entity.setDataAvaliacao(avaliacao.getDataAvaliacao());
-        entity.setUsuario_Id(avaliacao.getUsuario_Id());
+        entity.setUsuario_id(avaliacao.getUsuario_id());
         return entity;
     }
 }

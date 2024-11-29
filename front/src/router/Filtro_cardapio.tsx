@@ -90,7 +90,16 @@ const Filtro_cardapio = () => {
                         confirmButtonText: 'Ok'
                     });
                 });
-            
+                
+                axios.get(`http://localhost:8080/avaliacoes?usuario_id=${userUid}`)
+                .then(response => {
+                    if (response.data.length > 0) {
+                        setIsButtonDisabled(true); // Desabilita o botão se houver avaliação
+                    }
+                })
+                .catch(error => {
+                    console.error('Erro ao verificar avaliações existentes:', error);
+                });
             
         } else {
             // Redireciona se o usuário não estiver logado
@@ -109,9 +118,8 @@ const Filtro_cardapio = () => {
     
         axios.post('http://localhost:8080/avaliacoes', avaliacoes)
         .then((response) => {
-          console.log('Avaliações enviadas com sucesso:', response.data);
-    
-          // Notificação de sucesso
+          
+          setIsButtonDisabled(true);
           Swal.fire({
             icon: 'success',
             title: 'Avaliações enviadas!',
@@ -154,7 +162,7 @@ const Filtro_cardapio = () => {
               </tr>
               <tr>
                 <div className="contAvalia">
-                  <button className="button_avalia" onClick={handleEnviarClick}>ENVIAR</button>
+                  <button className="button_avalia" disabled={isButtonDisabled} onClick={handleEnviarClick}>{isButtonDisabled ? "Já enviado" : "ENVIAR"}</button>
                 </div>
               </tr>
             </tbody>

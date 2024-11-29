@@ -82,7 +82,7 @@ const ContatoAlimentEX: React.FC = () => {
             } else {
                 Swal.fire({
                     title: 'Erro!',
-                    text: 'Verifique sua conexão ou tente novamente mais tarde.',
+                    text: 'Imagem pesada ou tente novamente mais tarde.',
                     icon: 'error',
                     confirmButtonText: 'Ok'
                 });
@@ -186,7 +186,7 @@ const ContatoAlimentEX: React.FC = () => {
                                 onChange={(e) => setMensagem(e.target.value)}
                             />
 
-                            <Add_imagem onImageSelect={handleImageUpload} />
+                            <Add_imagem onImageSelect={handleImageUpload} selectedImage={selectedImage}/>
                         </div>
                         <button type="submit" className='Button_submit_contato'>Enviar</button>
                     </form>

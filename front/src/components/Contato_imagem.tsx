@@ -1,12 +1,20 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './styles/add_imagem.css'; // Importa o arquivo de estilo
 
 interface ImageUploadProps {
-    onImageSelect: (base64: string | null) => void; // Passa a imagem como base64
+    onImageSelect: (base64: string | null) => void;
+    selectedImage: string | null; // Adiciona a prop selectedImage
+
 }
 
-const ImageUpload: React.FC<ImageUploadProps> = ({ onImageSelect }) => {
+const ImageUpload: React.FC<ImageUploadProps> = ({ onImageSelect, selectedImage }) => {
     const [previewUrl, setPreviewUrl] = useState<string | null>(null);
+
+    useEffect(() => {
+        if (selectedImage === null) {
+            setPreviewUrl(null); // Limpa a pré-visualização se a imagem for removida
+        }
+    }, [selectedImage]);
 
     const handleImageChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
         const file = e.target.files?.[0]; // Pega o primeiro arquivo selecionado

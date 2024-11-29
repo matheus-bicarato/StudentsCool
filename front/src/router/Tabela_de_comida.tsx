@@ -67,7 +67,8 @@ const Menu = () => {
         }).then((result) => {
             if (result.isConfirmed) {
                 axios.delete('http://localhost:8080/cardapioSelecionado')
-                .then(response => {
+                .then(() => {
+                    axios.delete('http://localhost:8080/avaliacoes')
                     Swal.fire({
                         position: "center", 
                         icon: "success",
