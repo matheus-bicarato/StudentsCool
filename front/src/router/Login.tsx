@@ -75,7 +75,7 @@ const Login = () => {
                         onChange={(e) => setSenha(e.target.value)}
                         value={senha}
                         className='button_padrao' />
-                    <a href="https://www.youtube.com/watch?v=M3_XrtBGJJ0" className='esqueci_pass'>Esqueci a senha</a>
+                    <a href="https://www.youtube.com/watch?v=fSKNomLWsvE" className='esqueci_pass'>Esqueci a senha</a>
                     <button type="submit" className='Button_submit'>Entrar</button>
                     <Link to={"/contato"} className='Erro_login'>Erro em login? entre em contato</Link>
                 </form>
