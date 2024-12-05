@@ -9,10 +9,13 @@ interface StarRatingProps {
     setRating: (rating: number) => void;
 }
 
-
+//:Conponent StarRating
+//: Props - rating atual - setRating Atualiza valor
 const StarRating: React.FC<StarRatingProps> = ({ rating, setRating }) => {
+    //hoverRating Valor do mouse
     const [hoverRating, setHoverRating] = useState(0);
 
+    //Define qual estrela aparece no hover 
     const renderStar = (index: number) => {
         if (hoverRating > 0) {
             if (hoverRating >= index) {
@@ -33,18 +36,22 @@ const StarRating: React.FC<StarRatingProps> = ({ rating, setRating }) => {
         }
     };
 
+    //Att com o mouse
     const handleMouseOver = (value: number) => {
         setHoverRating(value);
     };
 
+    //Att sem o mouse
     const handleMouseLeave = () => {
         setHoverRating(0);
     };
 
+    //Att o prop com o click do mouse
     const handleClick = (value: number) => {
         setRating(value);
     };
 
+    //Renderiza o StarRating(tudo o que foi feito)
     return (
         <div className="star-rating">
             {[...Array(5)].map((_, i) => {
@@ -55,6 +62,8 @@ const StarRating: React.FC<StarRatingProps> = ({ rating, setRating }) => {
                         onMouseOver={() => handleMouseOver(starValue)}
                         onMouseLeave={handleMouseLeave}
                         onClick={() => handleClick(starValue)}
+
+                        // se hoverRating ou rating for maior que o valor da estrela
                         style={{ cursor: 'pointer', color: (hoverRating >= starValue || rating >= starValue) ? 'yellow' : 'gray' }}
                     >
                         <FontAwesomeIcon icon={renderStar(starValue)} />
